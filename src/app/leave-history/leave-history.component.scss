@@ -1,0 +1,161 @@
+$app_bar_color: #01023F;
+$font_size    : 15px;
+$text_color   : #3998C5;
+
+// header start here
+
+// status bar color
+ul {
+  margin : 0px;
+  padding: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+#device-android {
+  .frame-container {
+    .statusbar {
+      background-color: #fff;
+    }
+  }
+}
+
+ionlab-device-frame {
+  .frame-container {
+    .statusbar {
+      background-color: #fff !important;
+    }
+  }
+}
+
+ion-toolbar {
+  .toolbar-color1 {
+    height: 52px;
+    width : 100%;
+  }
+}
+
+ion-header ion-toolbar:first-child {
+  --background: #01023F !important;
+}
+ion-menu-button{
+  --color: transparent;
+  --padding-start: 55px;
+  // --background: url(../../assets/images/icon.png) !important;
+  }
+.rao_logo {
+  background-color: #fff;
+  width           : 47px;
+  height          : 22px;
+  border-radius   : 30px;
+  margin-left     : 10px;
+  text-align      : center;
+  position        : relative;
+
+  .logo_img {
+    max-height    : 100%;
+    max-width     : 100%;
+    height        : 12px;
+    width         : 20px;
+    margin        : auto;
+    vertical-align: center;
+    position      : absolute;
+    top           : 0px;
+    bottom        : 0px;
+    left          : 0px;
+    right         : 0px;
+
+  }
+}
+
+.middle_sec span {
+  font-size  : $font_size;
+  color      : #fff;
+  font-weight: 100;
+}
+
+.icon_sec{
+  z-index: -1;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+}
+// content start  here
+.leave_history{
+    padding: 10px;
+    .apply_leave_text {
+        background-color: $text_color;
+        border-radius   : 4px;
+        width           : 100%;
+        padding         : 7px 18px;
+        font-size       : 18px;
+        font-weight     : bold;
+    }
+}
+
+.select_time {
+    margin: 15px 0px;
+
+    ion-item {
+        box-shadow   : 1px 1px 4px 1px #dcdcdc;
+               border       : 1px solid #D9D9D9;
+        border-radius: 30px;
+        height       : 38px;
+
+        ion-label {
+            color     : #D9D9D9;
+            font-size : 14px;
+            margin-top: -3px;
+        }
+    }
+}
+
+.leave_details {
+    .card {
+        box-shadow   : 4px 4px 10px 2px #dcdcdc;
+        margin-bottom: 4px;
+        padding      : 10px;
+
+        span {
+            font-size: 12px;
+            color    : $text_color;
+        }
+    }
+}
+.no_leaves{
+    span{
+        font-size: 15px;
+        color: #000;
+    }
+}
+ion-datetime {
+  color     : #D9D9D9;
+  font-size : 14px;
+  margin-top: -10px;
+  position: relative;
+  padding: 0px;
+  width: 140px;
+}
+
+ion-datetime::after{
+  content: '\276F';
+   position: absolute;
+  top: 0px;
+  right: 4px;
+  z-index: 1;
+  color: #D9D9D9;
+  transform: rotate(90deg);
+ }
+ .item-native{
+padding: 0px!important;
+ }
+ .datetime-text{
+   font-size: 12px;
+ }
+ 

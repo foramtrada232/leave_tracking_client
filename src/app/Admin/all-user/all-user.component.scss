@@ -1,0 +1,178 @@
+$app_bar_color: #01023F;
+$font_size    : 15px;
+$text_color   : #3998C5;
+
+// status bar color
+#device-android {
+  .frame-container {
+    .statusbar {
+      background-color: #fff;
+    }
+  }
+}
+
+ionlab-device-frame {
+  .frame-container {
+    .statusbar {
+      background-color: #fff !important;
+    }
+  }
+}
+
+
+ion-toolbar {
+  .toolbar-color1 {
+    height: 52px;
+    width : 100%;
+  }
+}
+
+ion-header ion-toolbar:first-child {
+  --background: #01023F !important;
+}
+
+ion-menu-button {
+  --color        : transparent;
+  --padding-start: 55px;
+  // --background: url(../../assets/images/icon.png) !important;
+}
+
+.rao_logo {
+  background-color: #fff;
+  width           : 47px;
+  height          : 22px;
+  border-radius   : 30px;
+  margin-left     : 10px;
+  text-align      : center;
+  position        : relative;
+
+  .logo_img {
+    max-height    : 100%;
+    max-width     : 100%;
+    height        : 12px;
+    width         : 20px;
+    margin        : auto;
+    vertical-align: center;
+    position      : absolute;
+    top           : 0px;
+    bottom        : 0px;
+    left          : 0px;
+    right         : 0px;
+
+  }
+}
+
+.middle_sec span {
+  font-size  : $font_size;
+  color      : #fff;
+  font-weight: 100;
+}
+
+.icon_sec {
+  z-index : -1;
+  position: absolute;
+  right   : 17px;
+  top     : 10px;
+}
+
+
+// content start here
+ion-content {
+  padding: 10px;
+
+  .row {
+    margin: 0px !important;
+  }
+}
+
+.all_user_pic {
+  width: 100%;
+
+  .card {
+    box-shadow: 4px 4px 10px 2px #dcdcdc;
+    p{
+      margin-bottom: 0px;
+    }
+  }
+
+  .user_profile {
+    width           : calc(100%/3 - 14px);
+    border-radius   : 8px;
+    background-color: #fff;
+    color           : #3998C5;
+    margin          : 11px 0px 0px 11px;
+    cursor          : pointer;
+
+    .card-body {
+      padding: 10px 5px;
+      margin : auto;
+    }
+
+    .profile_img {
+      height       : 60px;
+      width        : 60px;
+      border-radius: 50%;
+      overflow     : hidden;
+      margin       : auto;
+     img {
+        max-width : 100%;
+        min-width : 100%;
+        min-height: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .allUser {
+      text-transform: uppercase;
+      font-size     : 12px;
+      font-weight   : bold;
+    }
+  }
+
+  .user_profile:hover {
+    background-color: $text_color;
+    color           : #fff;
+    border-radius   : 8px;
+
+    .profile_img {
+      height       : 60px;
+      width        : 60px;
+      border-radius: 50%;
+      overflow     : hidden;
+      margin       : auto;
+
+      ion-img {
+        max-width : 100%;
+        min-width : 100%;
+        min-height: 100%;
+        max-height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.user_profile:focus {
+  box-shadow      : none;
+  outline         : none;
+  background-color: $text_color;
+  color           : #fff;
+  border-radius   : 8px;
+
+  .profile_img {
+    height       : 60px;
+    width        : 60px;
+    border-radius: 50%;
+    overflow     : hidden;
+    margin       : auto;
+
+    ion-img {
+      max-width : 100%;
+      min-width : 100%;
+      min-height: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+  }
+}

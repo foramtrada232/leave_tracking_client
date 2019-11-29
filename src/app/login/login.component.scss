@@ -1,0 +1,119 @@
+$app_bar_color: #01023F;
+$text_color   : #3998C5;
+
+ion-content {
+    --background         : url(../../assets/images/login.png);
+    --background-repeat  : no-repeat;
+    --background-size    : cover;
+    --background-position: top center;
+}
+
+.login_page {
+    padding : 10px;
+    position: absolute;
+    height  : 300px;
+    top     : 0;
+    bottom  : 0;
+}
+
+.form-control {
+    display         : block;
+    color           : #fff;
+    background-color: transparent !important;
+    background-clip : padding-box;
+    border          : 1px solid transparent;
+    border-radius   : 0px !important;
+    border-bottom   : 1px solid #fff;
+    font-size       : 12px;
+
+}
+.form-control:focus{
+    outline: none!important;
+    background: transparent;
+    box-shadow: none!important;
+    }
+
+.loginForm input,
+input::placeholder {
+    color  : #fff !important;
+    opacity: 1;
+    /* Firefox */
+    font-size: 12px;
+}
+
+.loginForm input,
+input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color    : #fff !important;
+    font-size: 12px;
+
+}
+
+.loginForm input,
+input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color    : #fff !important;
+    font-size: 12px;
+}
+
+.login_btn {
+    button {
+        background-color: $app_bar_color;
+        color           : #fff;
+        font-size       : 16px;
+        font-weight     : 600;
+        padding         : 10px 30px;
+        border-radius   : 30px;
+        cursor: pointer;
+    }
+}
+.login_btn button:focus {
+    box-shadow: none!important;
+    outline: none!important;
+  }
+
+.rao_logo {
+    background-color: white;
+    border-radius   : 50px;
+    padding         : 20px 25px;
+    height          : 85px;
+    width           : 170px;
+    margin          : 0px auto 25px auto;
+
+    ion-img {
+        max-width : 100%;
+        min-width : 100%;
+        max-height: 100%;
+        min-height: 100%;
+     
+}
+}
+
+span.see_password {
+    position: absolute;
+    right   : 10px;
+    top     : 10px;
+    cursor: pointer;
+    z-index: 111;
+}
+
+span.email_icon {
+    position: absolute;
+    top     : 3px;
+    left    : 8px;
+}
+
+.input_icon{
+     .form-control {
+    padding-left: 38px
+     }
+}
+.password_sec{
+    position: relative;
+}
+
+img.loading-img {
+    display: inline-block;
+    height: 60px;
+    margin-left: 15px;
+}

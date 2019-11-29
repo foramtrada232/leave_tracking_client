@@ -1,0 +1,228 @@
+<ion-header>
+    <ion-toolbar class="toolbar-color1">
+        <ion-row>
+            <ion-col size='4'>
+                <div class="rao_logo">
+                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
+                </div>
+            </ion-col>
+            <ion-col size='4'>
+                <div class="middle_sec text-center">
+                    <span>Dashboard</span>
+                </div>
+            </ion-col>
+            <ion-col size='4'>
+                <div class="icon_sec">
+                    <ion-img src="../../assets/images/icon.png"></ion-img>
+                </div>
+                <ion-menu-button></ion-menu-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+    <div class="user_profile text_center" *ngIf="UserDetail">
+        <div class="profile_img">
+            <img *ngIf="!UserDetail.profilePhoto" src="../../assets/images/person.png">
+            <img *ngIf="UserDetail.profilePhoto" src="{{path}}{{UserDetail.profilePhoto}}">
+        </div>
+    </div>
+</ion-header>
+
+<ion-content>
+    <div class="all_content">
+        <div class="title_text">
+            <p class="text-center">leave tracking</p>
+        </div>
+        <div class="leave_status">
+            <ul class="nav nav-tabs w-100">
+                <li class="nav-item">
+                    <a class="nav-link active " href="javascript:void(0);" (click)="todayNotPresentUser()">
+                        <p class="text-center">Today</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="javascript:void(0);" (click)="getApprovedLeaves()">
+                        <p class="text-center">Aproved</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);" (click)="getPendingLeaves()">
+                        <p class="text-center">Pending</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="loader" *ngIf="loading">
+            <img class="loading_img" src="../../assets/images/loader.gif" />
+        </div>
+
+        <div class="absent_emp_text text-white" *ngIf="todaysLeave.length">
+            Absent Employee
+        </div>
+
+        <div *ngIf="todaysLeave.length">
+            <div *ngFor="let user of todaysLeave; let i=index">
+                <div class="card" style="cursor:pointer">
+                    <label for="o{{i}}">
+                        <div class="card-content w-100">
+                            <div class="absent_user_name">
+                                <a class="float-left">{{user.userId.name}}</a>
+                                <a class="float-right">{{user.date.date}}/{{user.date.month}}/{{user.date.year}}</a>
+                            </div>
+                        </div>
+                    </label>
+                    <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
+                    <div class="modal">
+                        <div class="modal-body">
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-white">Reason :</p>
+                                        <div class="reason_text text-white"> {{user.reason}}</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-white">Date :</p>
+                                        <div class="reason_text text-white">
+                                            {{user.date.date}}/{{user.date.month}}/{{user.date.year}}
+                                        </div>
+                                    </div>
+                                    <div class="col-12" *ngIf="user.extraHours">
+                                        <p class="text-white">Compensation :</p>
+                                        <div class="reason_text text-white">{{user.extraHours}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ok_btn text-center mt-3">
+                                    <label for="o{{i}}">Ok</label>
+                                </div>
+                            </div>
+                            <div class="close_btn">
+                                <label for="o{{i}}">X</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="todayLeave" class="dataNotAvalible text-center mt-4">
+            <span>Everyone is Present</span>
+        </div>
+        <div *ngIf="approvedLeaves.length">
+            <div *ngFor="let leave of approvedLeaves; let i=index">
+                <div class="card" style="cursor: pointer;">
+                    <label for="o{{i}}">
+                        <div class="card-content  w-100 aproved_leaves">
+                            <div class="row">
+                                <div class="col-4">
+                                    <span>{{leave.userId.name}}</span>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <span>
+                                        {{getNoOfDays(leave)}}
+                                    </span>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </label>
+                    <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
+                    <div class="modal">
+                        <div class="modal-body">
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-white">Reason:</p>
+                                        <div class="reason_text text-white"> {{leave.reason}}</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-white">Date :</p>
+                                        <div class="reason_text text-white">
+                                            <p *ngFor="let date of leave.totalDate">{{date}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-white">Approved By :</p>
+                                        <div class="reason_text text-white">{{leave.approvedBy}}</div>
+                                    </div>
+                                    <div class="col-12" *ngIf="leave.extraHours">
+                                        <p class="text-white">Compensation :</p>
+                                        <div class="reason_text text-white">{{leave.extraHours}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ok_btn text-center mt-3">
+                                    <label for="o{{i}}">Ok</label>
+                                </div>
+                            </div>
+                            <div class="close_btn">
+                                <label for="o{{i}}">X</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="approvedLeave" class="dataNotAvalible text-center mt-4">
+            <span class="text-center">No Approved Leaves Yet</span>
+        </div>
+
+        <div *ngIf="pendingLeaves.length">
+            <div *ngFor="let leave of pendingLeaves ;let i=index">
+                <div class="card" style="cursor: pointer;">
+                    <label for="o{{i}}">
+                        <div class="card-content  w-100 aproved_leaves">
+                            <div class="row">
+                                <div class="col-4">
+                                    <span>{{leave.userId.name}}</span>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <span>
+                                        {{getNoOfDays(leave)}}
+                                    </span>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                    <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
+                    <div class="modal">
+                        <div class="modal-body">
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="text-white">Reason :</p>
+                                        <div class="reason_text text-white"> {{leave.reason}}</div>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="text-white">Date :</p>
+                                        <div class="reason_text text-white">
+                                            <p *ngFor="let date of leave.totalDate">{{date}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12" *ngIf="leave.extraHours">
+                                        <p class="text-white">Compensation :</p>
+                                        <div class="reason_text text-white">{{leave.extraHours}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ok_btn text-center mt-3">
+                                    <label for="o{{i}}">Ok</label>
+                                </div>
+                            </div>
+                            <div class="close_btn">
+                                <label for="o{{i}}">X</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="pendingLeave" class="dataNotAvalible text-center mt-4">
+            <span class="text-center">No Pending Leaves Yet</span>
+        </div>
+    </div>
+</ion-content>

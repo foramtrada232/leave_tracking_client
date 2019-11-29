@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar class="toolbar-color1">
+        <ion-row>
+            <ion-col size='4'>
+                <div class="rao_logo">
+                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
+                </div>
+            </ion-col>
+            <ion-col size='4'>
+                <div class="middle_sec text-center">
+                    <span>Leave Aplication</span>
+                </div>
+            </ion-col>
+            <ion-col size='4'>
+                <div class="icon_sec">
+                    <ion-img src="../../assets/images/icon.png"></ion-img>
+                </div>
+                <ion-menu-button></ion-menu-button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="all_content">
+        <form [formGroup]='leaveForm'>
+            <div class="row">
+                <div class="col-12">
+                    <div class="select_date text-white">Select Date</div>
+                    <ion-item>
+                        <ion-datetime formControlName="date" placeholder="Select Leave Date" min={{curruntDate}} max="{{nextYear}}"></ion-datetime>
+                    </ion-item>
+                </div>
+                <div class="col-12">
+                    <div class="select_date text-white">Days</div>
+                    <ion-item>
+                        <ion-input type="number" id="field1" formControlName="noOfDays" placeholder="Enter Number of days" step="0.5" min="0" max="30" id="input1" [disabled]="leaveForm.controls.shortLeave.value" ngModel="{{noOfDays}}" (keyup)="updateList($event.target.value,'days')">
+                        </ion-input>
+                    </ion-item>
+                </div>
+                <div class="or_text w-100 text-center">OR</div>
+                <div class="col-12">
+                    <div class="select_date text-white">Hours</div>
+                    <ion-item>
+                        <ion-input formControlName="shortLeave" type="number" (keyup)="updateList($event.target.value,'shortLeave')" placeholder="Enter your Leave hours..." id="input2" min="0" [disabled]="leaveForm.controls.noOfDays.value" ngModel="{{shortLeave}}"></ion-input>
+                    </ion-item>
+                </div>
+                <div class="col-12">
+                    <div class="select_date text-white">Reason</div>
+                    <ion-item>
+                        <ion-textarea rows="1" formControlName="reason" placeholder="Enter your reason here..."></ion-textarea>
+                    </ion-item>
+                </div>
+                <div class="col-12">
+                    <div class="select_date text-white">Compansate</div>
+                    <ion-item>
+                        <ion-input formControlName="extraHours" placeholder="Enter your compensate..."></ion-input>
+                    </ion-item>
+                </div>
+            </div>
+            <div class="text-center text-white">
+                <ion-button type="submit" (click)="applyLeave(leaveForm.value)" [disabled]="(this.leaveForm.invalid || !isValue)  || isDisable  ">
+                    Submit</ion-button>
+            </div>
+        </form>
+    </div>
+</ion-content>

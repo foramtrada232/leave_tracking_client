@@ -1,0 +1,284 @@
+$app_bar_color: #01023f;
+$font_size: 15px;
+$text_color: #3998c5;
+// header start here
+// status bar color
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#device-android {
+    .frame-container {
+        .statusbar {
+            background-color: #fff;
+        }
+    }
+}
+
+ionlab-device-frame {
+    .frame-container {
+        .statusbar {
+            background-color: #fff !important;
+        }
+    }
+}
+
+ion-toolbar {
+    .toolbar-color1 {
+        height: 52px;
+        width: 100%;
+    }
+}
+
+ion-header ion-toolbar:first-child {
+    --background: #01023f !important;
+}
+
+ion-menu-button {
+    --color: transparent;
+    --padding-start: 55px;
+    // --background: url(../../assets/images/icon.png) !important;
+}
+
+.rao_logo {
+    background-color: #fff;
+    width: 47px;
+    height: 22px;
+    border-radius: 30px;
+    margin-left: 10px;
+    text-align: center;
+    position: relative;
+    .logo_img {
+        max-height: 100%;
+        max-width: 100%;
+        height: 12px;
+        width: 20px;
+        margin: auto;
+        vertical-align: center;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+    }
+}
+
+.middle_sec span {
+    font-size: $font_size;
+    color: #fff;
+    font-weight: 100;
+}
+
+.menu_icon {
+    position: absolute;
+    cursor: pointer;
+    right: 40px;
+    top: 15px;
+}
+
+.menu_icon:focus {
+    outline: none;
+}
+
+.icon_sec {
+    z-index: -1;
+    position: absolute;
+    right: 17px;
+    top: 10px;
+}
+
+// content start  here
+.user_detail {
+    padding: 10px;
+}
+
+.single_user_profile {
+    margin-top: 2px;
+}
+
+.single_user {
+    position: relative;
+    z-index: 11;
+    width: 108px;
+    height: 108px;
+    margin: auto;
+}
+
+.profile_img {
+    width: 108px;
+    height: 108px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+    img {
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+}
+
+label.profile_and_cover_edit {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 10px;
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    background-color: $app_bar_color;
+    z-index: 111;
+    line-height: 19px;
+    color: #fff;
+    display: inline-block;
+    border: 1px solid $app_bar_color;
+    font-weight: normal;
+    transition: all 0.2s;
+}
+
+.usee_name_text {
+    p {
+        text-transform: uppercase;
+        font-size: 20px;
+        color: $app_bar_color;
+        font-weight: bold;
+        margin-top: 6px;
+    }
+}
+
+.card {
+    box-shadow: 4px 4px 10px 2px #dcdcdc;
+    margin-top: 3px;
+    padding: 9px;
+    .user_heading {
+        font-size: 12px;
+        color: $text_color;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+    .single_user_name {
+        font-size: 12px;
+        color: $app_bar_color;
+        text-transform: capitalize;
+    }
+    .single_user_email {
+        font-size: 12px;
+        color: $app_bar_color;
+    }
+}
+
+.leave_report {
+    margin-top: 15px;
+    .leave_report_text {
+        background-color: $text_color;
+        border-radius: 4px;
+        width: 100%;
+        padding: 7px 18px;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+}
+
+.leave_details {
+    span {
+        font-size: 12px;
+        color: $text_color;
+    }
+}
+
+.no_leaves p {
+    font-size: 15px;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 0px !important;
+}
+
+.checker:checked+.modal {
+    display: flex;
+}
+
+.modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-body {
+    width: 200px;
+    background-color: $app_bar_color;
+    border-radius: 12px;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.modal-content {
+    background-color: $app_bar_color !important;
+}
+
+.modal-footer {
+    overflow: hidden;
+}
+
+.modal-content p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px !important;
+}
+
+.reason_text {
+    background-color: $text_color;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 8px;
+}
+
+.ok_btn {
+    margin-bottom: 10px;
+    label {
+        padding: 8px 18px;
+        background-color: #fff;
+        color: $text_color;
+        border-radius: 30px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+}
+
+.close_btn {
+    label {
+        background-color: #fff;
+        color: #3998c5;
+        font-size: 15px;
+        border-radius: 50%;
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        text-align: center;
+        line-height: 25px;
+    }
+}

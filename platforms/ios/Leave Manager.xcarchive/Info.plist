@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/Leave Manager.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.rao.leavemanager</string>
+		<key>CFBundleShortVersionString</key>
+		<string>0.0.1</string>
+		<key>CFBundleVersion</key>
+		<string>0.0.1</string>
+		<key>SigningIdentity</key>
+		<string>Apple Development: Mohit Shah (UKKT4P5F66)</string>
+		<key>Team</key>
+		<string>T2AG4XR4S5</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2019-11-05T10:48:22Z</date>
+	<key>Name</key>
+	<string>Leave Manager</string>
+	<key>SchemeName</key>
+	<string>Leave Manager</string>
+</dict>
+</plist>

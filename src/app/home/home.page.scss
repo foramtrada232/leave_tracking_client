@@ -1,0 +1,130 @@
+$app_bar_color: #01023F;
+$font_size: 15px;
+$text_color: #3998C5;
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+ion-toolbar {
+    .toolbar-color1 {
+        height: 98px;
+    }
+}
+
+.logo_img {
+    width: 184px;
+    height: 83px;
+    margin: auto;
+    padding: 6px;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+}
+
+.user_profile {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    z-index: 1111;
+    bottom: -32px;
+    height: 72px;
+    width: 100%;
+    margin: auto;
+}
+
+.profile_img {
+    height: 72px;
+    width: 72px;
+    overflow: hidden;
+    margin: auto;
+    cursor: pointer;
+    outline: none !important;
+    img {
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        border-radius: 50%;
+        outline: none !important;
+    }
+}
+
+p {
+    color: $app_bar_color;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+ion-header ion-toolbar:first-child {
+    --background: #01023F !important;
+}
+
+// content start
+.menu_content {
+    margin-top: 50px;
+}
+
+.developer_menu {
+    margin-top: 62px;
+}
+
+.developer_page {
+    color: #fff;
+    background-color: $text_color;
+    font-size: 12px;
+    text-transform: capitalize;
+    padding: 8px 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.developer_page:nth-child(odd) {
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    margin: 12px 35px 12px 0px;
+}
+
+.developer_page:nth-child(even) {
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    margin: 12px 0px 12px 35px;
+}
+
+.logout {
+    color: #fff;
+    background-color: $text_color;
+    font-size: 12px;
+    text-transform: capitalize;
+    padding: 8px 25px;
+    cursor: pointer;
+    border-top-left-radius: 35px!important;
+    border-bottom-left-radius: 35px!important;
+    margin: 12px 0px 12px 35px!important;
+    position: relative;
+}
+
+.page_list:focus,
+.logout:focus {
+    box-shadow: none!important;
+    outline: none!important;
+}
+
+.developer_page::after,
+.logout::after,
+.notification::after,
+.logout::after {
+    content: '\276F';
+    position: absolute;
+    right: 26px;
+    top: 10px;
+    z-index: 1;
+    color: #fff;
+}

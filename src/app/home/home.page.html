@@ -1,0 +1,51 @@
+<!-- <ion-split-pane> -->
+<ion-menu contentId="content" side="end">
+  <ion-header>
+    <div class="header" style="position: relative;">
+      <ion-toolbar class="toolbar-color1">
+
+        <div class="logo_img text-center">
+          <ion-img src="../../assets/images/1.png"></ion-img>
+        </div>
+      </ion-toolbar>
+      <div *ngIf="UserDetail" class="user_profile text-center">
+        <div class="profile_img">
+          <img *ngIf="UserDetail.profilePhoto" class="rounded-circle" src="{{path}}{{UserDetail.profilePhoto}}"
+            routerLink="/home/profile" (click)="closeMenu()">
+          <img *ngIf="!UserDetail.profilePhoto" class="rounded-circle" src="../../assets/images/person.png"
+            (click)="closeMenu()" routerLink='/home/profile'>
+        </div>
+        <p class="text-center">{{UserDetail.name}}</p>
+      </div>
+    </div>
+  </ion-header>
+
+  <ion-content>
+    <div class="menu_content">
+      <div *ngIf="currentUserRole == 'Admin'" class="developer_menu">
+        <div *ngFor="let p of adminpages" class="developer_page">
+          <div class="page_list" (click)="closeMenu()" [routerLink]="p.url" routerDirection="root"
+            [class.active-item]="selectedPath.startsWith(p.url)">
+            {{ p.title }} </div>
+        </div>
+        <div class="logout" (click)="logOut()" style="cursor: pointer">
+          Logout
+        </div>
+        <div>
+        </div>
+      </div>
+
+      <div *ngIf="currentUserRole == 'Developer'" class="developer_menu">
+        <div *ngFor="let p of developerPages" class="developer_page">
+          <div class="page_list" (click)="closeMenu()" [routerLink]="p.url" routerDirection="root"
+            [class.active-item]="selectedPath.startsWith(p.url)">
+            {{ p.title }}
+          </div>
+        </div>
+        <div class="logout" (click)="logOut()" style="cursor: pointer">
+          Logout </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="content" main></ion-router-outlet>

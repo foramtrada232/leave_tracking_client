@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar class="toolbar-color1">
+    <ion-row>
+      <ion-col size='4'>
+        <div class="rao_logo">
+          <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img "></ion-img>
+        </div>
+      </ion-col>
+      <ion-col size='4'>
+        <div class="middle_sec text-center">
+          <span>All Users</span>
+        </div>
+      </ion-col>
+      <ion-col size='4'>
+        <div class="icon_sec">
+          <ion-img src="../../assets/images/icon.png"></ion-img>
+        </div>
+        <ion-menu-button></ion-menu-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="loader" *ngIf="loading">
+    <img class="loading_img" src="../../assets/images/loader.gif" />
+  </div>
+  <div class="all_user_pic row">
+    <div class="user_profile card text-center" routerLink="/home/single-user/{{user._id}}" *ngFor="let user of allUser">
+      <div class="card-body">
+        <div class="profile_img" *ngIf="!user.profilePhoto">
+          <img src="../../assets/images/person.png" class="rounded-circle">
+        </div>
+        <div class="profile_img" *ngIf="user.profilePhoto">
+          <img src="{{path}}{{user.profilePhoto}}" class="rounded-circle">
+        </div>
+        <p class="text-center allUser">{{user.name}}</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
