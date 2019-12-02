@@ -15,7 +15,7 @@
                 <div class="icon_sec">
                     <ion-img src="../../assets/images/icon.png"></ion-img>
                 </div>
-                <ion-menu-button></ion-menu-button>
+                <!-- <ion-menu-button></ion-menu-button> -->
             </ion-col>
         </ion-row>
     </ion-toolbar>
@@ -30,11 +30,13 @@
             <div class="user_img">
                 <div class="profile_img">
                     <img *ngIf="!userDetail.profilePhoto" class="circle-ronded" src="../../assets/images/person.png">
-                    <img *ngIf="userDetail.profilePhoto" class="circle-ronded" src="{{path}}{{userDetail.profilePhoto}}">
+                    <img *ngIf="userDetail.profilePhoto" class="circle-ronded"
+                        src="{{path}}{{userDetail.profilePhoto}}">
                 </div>
-                <input type="file" name="files" value="files" id="customFile" accept="image/png, image/jpeg, image/jpg" hidden (change)="fileSelected($event)">
+                <input type="file" name="files" value="files" id="customFile" accept="image/png, image/jpeg, image/jpg"
+                    hidden (change)="fileSelected($event)">
                 <label for="customFile" class="profile_and_cover_edit text-center" title="Change Profile"><i
-            class="fa fa-camera" aria-hidden="true"></i></label>
+                        class="fa fa-camera" aria-hidden="true"></i></label>
             </div>
             <!-- <ion-img *ngIf="urls" [src]="urls"></ion-img> -->
         </div>

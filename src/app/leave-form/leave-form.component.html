@@ -22,7 +22,54 @@
 </ion-header>
 
 <ion-content>
-    <div class="all_content">
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-6 mb-2">
+                <span>From Date</span>
+                <input type="date" class="form-control" placeholder="Enter Days">
+            </div>
+            <div class="col-6 mb-2">
+                <span>To Date</span>
+                <input type="date" class="form-control" placeholder="Enter Hours">
+            </div>
+            <div class="col-12 mb-2">
+                <span>No. Of Days</span>
+                <input class="form-control" type="text" placeholder="Select Date">
+            </div>
+            <div class="col-12 mb-2">
+                <span>Reason</span>
+                <input type="textarea" class="form-control" placeholder="Enter Reason">
+            </div>
+            <div class="col-12 mb-2">
+                <span>Compansate</span>
+                <input type="text" class="form-control" placeholder="Enter Compansate">
+            </div>
+            <div class="col-12 mb-2">
+                <span>Select Leave Type</span>
+                <div class="dropdown w-100">
+                    <button class="dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Leave Type
+                    </button>
+                    <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Leave 1</a>
+                        <a class="dropdown-item" href="#">Leave 1</a>
+                        <a class="dropdown-item" href="#">Leave 1</a>
+                    </div>
+                </div>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">Leave 1</div>
+                    <div class="dropdown-item">Leave 1</div>
+                    <div class="dropdown-item">Leave 1</div>
+                    <div class="dropdown-item">Leave 1</div>
+                </div>
+            </div>
+            <div class="col-12">
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="all_content">
         <form [formGroup]='leaveForm'>
             <div class="row">
                 <div class="col-12">
@@ -63,5 +110,5 @@
                     Submit</ion-button>
             </div>
         </form>
-    </div>
+    </div> -->
 </ion-content>

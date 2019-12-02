@@ -31,10 +31,11 @@ ion-header ion-toolbar:first-child {
     --background: #01023F !important;
 }
 
-ion-menu-button{
-    --color: transparent;
+ion-menu-button {
+    --color        : transparent;
     --padding-start: 55px;
-       }
+}
+
 .rao_logo {
     background-color: #fff;
     width           : 47px;
@@ -66,13 +67,13 @@ ion-menu-button{
     font-weight: 100;
 }
 
-.icon_sec{
-    z-index: -1;
-      position: absolute;
-      right: 17px;
-      top: 10px;
-  }
-  
+.icon_sec {
+    z-index : -1;
+    position: absolute;
+    right   : 17px;
+    top     : 10px;
+}
+
 
 //  content design start
 
@@ -91,33 +92,46 @@ ion-menu-button{
 }
 
 .all_notification {
-    padding: 10px;
-}
+    .card {
+        border-bottom: 1px solid rgba(0, 0, 0, .125);
 
-.card {
-    box-shadow   : 4px 4px 10px 2px #dcdcdc;
-    margin-bottom: 8px;
-    padding      : 5px;
+        .card-body {
+            padding: 18px 10px;
+        }
 
-    .card-content {
-        min-height: 34px;
+        .profile_photo {
+            height       : 50px;
+            width        : 50px;
+            overflow     : hidden;
+            border-radius: 50%;
+
+            img {
+                max-width : 100%;
+                max-height: 100%;
+                min-height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .noti_content {
+            span {
+                color: #474343;
+                font-size: 15px;
+            }
+
+            h5 {
+                font-weight  : 600;
+                margin-bottom: 0;
+                color        : #434343;
+                font-size    : 18px;
+            }
+        }
+
+        .date_noti span {
+            font-size  : 12px;
+            color      : grey;
+            font-weight: 600;
+        }
     }
-}
 
-.notify_name {
-    display       : inline-block;
-    vertical-align: -webkit-baseline-middle;
-
-    span {
-        font-size    : 12px;
-        margin-bottom: 0px !important;
-    }
-
-    .user_name {
-        color: $app_bar_color;
-    }
-
-    .applied_date {
-        color: $text_color;
-    }
 }

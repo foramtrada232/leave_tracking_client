@@ -13,7 +13,7 @@ import { AllUserComponent } from '../Admin/all-user/all-user.component';
 import { SingleUsreComponent } from '../Admin/single-usre/single-usre.component';
 import { ReportsComponent } from '../Admin/reports/reports.component';
 import { LeaveApplicationComponent } from '../Admin/leave-application/leave-application.component';
-import{ NotificationComponent} from '../Admin/notification/notification.component';
+import { NotificationComponent } from '../Admin/notification/notification.component';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
@@ -28,17 +28,12 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
         component: HomePage,
         children: [
           {
-            path: '',
-            redirectTo: 'profile',
-            pathMatch: 'full'
+            path: 'leave-form',
+            component: LeaveFormComponent
           },
           {
             path: 'profile',
             component: ProfilePage
-          },
-          {
-            path: 'leave-form',
-            component: LeaveFormComponent
           },
           {
             path: 'leave-history',
@@ -61,15 +56,71 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
             component: ReportsComponent
           },
           {
-            path:'leave-application',
-            component:LeaveApplicationComponent
+            path: 'leave-application',
+            component: LeaveApplicationComponent
           },
           {
-            path:'notification',
-            component:NotificationComponent
+            path: 'notification',
+            component: NotificationComponent
+          },
+          {
+            path: '',
+            redirectTo: 'profile',
+            pathMatch: 'full'
           }
         ]
+      },
+      {
+        path: '',
+        redirectTo: '/home/profile',
+        pathMatch: 'full'
       }
+
+      // {
+      //   path: '',
+      //   redirectTo: 'profile',
+      //   pathMatch: 'full'
+      // },
+      // {
+      //   path: 'profile',
+      //   component: ProfilePage
+      // },
+      // {
+      //   path: 'leave-form',
+      //   component: LeaveFormComponent
+      // },
+      // {
+      //   path: 'leave-history',
+      //   component: LeaveHistoryComponent
+      // },
+      // {
+      //   path: 'dashboard',
+      //   component: DashboardComponent
+      // },
+      // {
+      //   path: 'all-user',
+      //   component: AllUserComponent
+      // },
+      // {
+      //   path: 'single-user/:userId',
+      //   component: SingleUsreComponent
+      // },
+      // {
+      //   path: 'report',
+      //   component: ReportsComponent
+      // },
+      // {
+      //   path:'leave-application',
+      //   component:LeaveApplicationComponent
+      // },
+      // {
+      //   path:'notification',
+      //   component:NotificationComponent
+      // }
+
+      //   ]
+      // }
+
     ])
   ],
   declarations: [
@@ -84,7 +135,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     LeaveApplicationComponent,
     NotificationComponent
   ],
-  providers:[
+  providers: [
     LocalNotifications
   ]
 })

@@ -42,13 +42,15 @@ export class UserService {
 
   /**
    * Login User
+   * 
    * @param {Object} userData 
    */
   loginUser(userData) {
     console.log('data=============>', userData);
     const deviceToken = localStorage.getItem('deviceToken');
     console.log('token of device:',deviceToken);
-    userData['deviceToken'] = deviceToken;
+    // userData['deviceToken'] = deviceToken; aa line uncomment karvani 6
+    userData['deviceToken'] = "hdsgfhgfhgfhgfh" // aa line remove karvani 6
     console.log("userData:",userData,config.baseApiUrl);
     return this.http.post(config.baseApiUrl + "api/login", userData).pipe(map((user: any) => {
         console.log("login user=========>", user);

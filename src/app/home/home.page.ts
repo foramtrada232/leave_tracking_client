@@ -44,39 +44,54 @@ export class HomePage {
     this.getUserDetail();
     this.developerPages = [
       {
+        title: 'Profile',
+        url: 'profile',
+        name:'person'
+      },
+      {
         title: 'Leave Form',
-        url: '/home/leave-form'
+        url: 'leave-form',
+        name:'paper'
       },
       {
         title: 'History',
-        url: '/home/leave-history'
-      },
-      {
-        title: 'Profile',
-        url: '/home/profile'
-      },
+        url: 'leave-history',
+        name:'time'
+      }
+     
     ]
     this.adminpages = [
       {
         title: 'Dashboard',
-        url: '/home/dashboard'
+        url: 'dashboard',
+        name: 'pie'
       },
       {
         title: 'Report',
-        url: '/home/report'
+        url: 'report',
+        name: 'alert'
       },
       {
-        title: 'Leave Application',
-        url: '/home/leave-application'
+        title: 'Leave',
+        url: 'leave-application',
+        name: 'apps'
+
       },
       {
         title: 'Notifications',
-        url: '/home/notification'
+        url: 'notification',
+        name: 'notifications'
       },
       {
         title: 'All Users',
-        url: '/home/all-user'
-      }
+        url: 'all-user',
+        name: 'people'
+      },
+      {
+        title: 'Profile',
+        url: 'profile',
+        name:'person'
+      },
     ];
     this.router.events.subscribe((event: RouterEvent) => {
       if (event && event.url) {

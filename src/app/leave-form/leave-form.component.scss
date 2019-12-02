@@ -160,3 +160,31 @@ ion-button:focus {
 //     box-shadow: none!important;
 //     outline: none!important;
 // }
+
+
+.form-control {
+    border-bottom: 1px solid #dcdcdc !important;
+    border: none;
+    border-radius: 0;
+    padding: .375rem 0;
+    font-size: 18px;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+span {
+    color: #3998c5;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+button#dropdownMenuButton {
+    background-color: transparent;
+    border: none;
+    padding-left: 0;
+    line-height: 43px;
+    border-bottom: 1px solid #dcdcdc;
+}
