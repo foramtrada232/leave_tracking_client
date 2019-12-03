@@ -130,7 +130,11 @@ ion-header ion-toolbar:first-child {
 }
 
 
-// new css
-ion-tab-button {
-    color: #01023f;
+.tab-selected {
+    ion-icon {
+        color: #01023F
+    }
+    ion-label {
+        color: #01023F
+    }
 }

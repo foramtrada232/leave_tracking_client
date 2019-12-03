@@ -22,18 +22,31 @@
 </ion-header>
 
 <ion-content>
+    <img src="../../assets/images/form-bg.jpeg" alt="background">
     <div class="container">
+        <ion-list>
+            <ion-item>
+                <ion-label>Leave Days</ion-label>
+                <ion-select placeholder="Select One">
+                    <ion-select-option value="half">Half Day</ion-select-option>
+                    <ion-select-option value="full">Full Day</ion-select-option>
+                    <ion-select-option value="full">More Days</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Leave Type</ion-label>
+                <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+                    <ion-select-option value="sick">Sick Leave</ion-select-option>
+                    <ion-select-option value="emergency">Emergency Leave</ion-select-option>
+                    <ion-select-option value="casual">Casual Leave</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
         <div class="row mt-4">
-            <div class="col-6 mb-2">
-                <span>From Date</span>
-                <input type="date" class="form-control" placeholder="Enter Days">
-            </div>
-            <div class="col-6 mb-2">
-                <span>To Date</span>
-                <input type="date" class="form-control" placeholder="Enter Hours">
-            </div>
             <div class="col-12 mb-2">
-                <span>No. Of Days</span>
+                <span>Leave Date</span>
                 <input class="form-control" type="text" placeholder="Select Date">
             </div>
             <div class="col-12 mb-2">
@@ -63,9 +76,6 @@
                     <div class="dropdown-item">Leave 1</div>
                     <div class="dropdown-item">Leave 1</div>
                 </div>
-            </div>
-            <div class="col-12">
-
             </div>
         </div>
     </div>

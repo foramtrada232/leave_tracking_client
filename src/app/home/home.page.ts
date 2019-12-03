@@ -78,11 +78,6 @@ export class HomePage {
 
       },
       {
-        title: 'Notifications',
-        url: 'notification',
-        name: 'notifications'
-      },
-      {
         title: 'All Users',
         url: 'all-user',
         name: 'people'

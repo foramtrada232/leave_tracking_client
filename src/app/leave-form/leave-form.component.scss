@@ -106,12 +106,6 @@ ion-menu-button {
     padding: 5px 0px;
 }
 
-ion-item {
-    height: 30px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid $app_bar_color!important;
-    background-color: #fff;
-}
 
 ion-datetime,
 ion-input,
@@ -179,6 +173,8 @@ span {
     color: #3998c5;
     font-weight: 600;
     font-size: 14px;
+    width: 100%;
+    display: block;
 }
 
 button#dropdownMenuButton {
@@ -186,5 +182,5 @@ button#dropdownMenuButton {
     border: none;
     padding-left: 0;
     line-height: 43px;
-    border-bottom: 1px solid #dcdcdc;
+    outline: none;
 }
