@@ -11,30 +11,30 @@
                     <span>Leave Aplication</span>
                 </div>
             </ion-col>
-            <ion-col size='4'>
+            <!-- <ion-col size='4'>
                 <div class="icon_sec">
                     <ion-img src="../../assets/images/icon.png"></ion-img>
                 </div>
                 <ion-menu-button></ion-menu-button>
-            </ion-col>
+            </ion-col> -->
         </ion-row>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="container">
+    <!-- <div class="container">
         <div class="row mt-4">
             <div class="col-6 mb-2">
                 <span>From Date</span>
-                <input type="date" class="form-control" placeholder="Enter Days">
+                <input type="date" class="form-control" placeholder="Enter Days" (change)="fromDateChange($event.target.value)">
             </div>
             <div class="col-6 mb-2">
                 <span>To Date</span>
-                <input type="date" class="form-control" placeholder="Enter Hours">
+                <input type="date" class="form-control" placeholder="Enter Hours" (change)="toDateChange($event.target.value)">
             </div>
             <div class="col-12 mb-2">
                 <span>No. Of Days</span>
-                <input class="form-control" type="text" placeholder="Select Date">
+                <input class="form-control" type="text" placeholder="Number of days" [(ngModel)]="days">
             </div>
             <div class="col-12 mb-2">
                 <span>Reason</span>
@@ -47,14 +47,13 @@
             <div class="col-12 mb-2">
                 <span>Select Leave Type</span>
                 <div class="dropdown w-100">
-                    <button class="dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Leave Type
                     </button>
                     <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Leave 1</a>
-                        <a class="dropdown-item" href="#">Leave 1</a>
-                        <a class="dropdown-item" href="#">Leave 1</a>
+                        <a class="dropdown-item">Leave 1</a>
+                        <a class="dropdown-item">Leave 1</a>
+                        <a class="dropdown-item">Leave 1</a>
                     </div>
                 </div>
                 <div class="dropdown-menu">
@@ -68,8 +67,8 @@
 
             </div>
         </div>
-    </div>
-    <!-- <div class="all_content">
+    </div> -->
+    <div class="all_content">
         <form [formGroup]='leaveForm'>
             <div class="row">
                 <div class="col-12">
@@ -110,5 +109,5 @@
                     Submit</ion-button>
             </div>
         </form>
-    </div> -->
+    </div>
 </ion-content>

@@ -63,74 +63,12 @@ p {
     cursor: pointer;
 }
 
-ion-header ion-toolbar:first-child {
-    --background: #01023F !important;
-}
-
-// content start
-.menu_content {
-    margin-top: 50px;
-}
-
-.developer_menu {
-    margin-top: 62px;
-}
-
-.developer_page {
-    color: #fff;
-    background-color: $text_color;
-    font-size: 12px;
-    text-transform: capitalize;
-    padding: 8px 25px;
-    cursor: pointer;
-    position: relative;
-}
-
-.developer_page:nth-child(odd) {
-    border-top-right-radius: 35px;
-    border-bottom-right-radius: 35px;
-    margin: 12px 35px 12px 0px;
-}
-
-.developer_page:nth-child(even) {
-    border-top-left-radius: 35px;
-    border-bottom-left-radius: 35px;
-    margin: 12px 0px 12px 35px;
-}
-
-.logout {
-    color: #fff;
-    background-color: $text_color;
-    font-size: 12px;
-    text-transform: capitalize;
-    padding: 8px 25px;
-    cursor: pointer;
-    border-top-left-radius: 35px!important;
-    border-bottom-left-radius: 35px!important;
-    margin: 12px 0px 12px 35px!important;
-    position: relative;
-}
-
-.page_list:focus,
-.logout:focus {
-    box-shadow: none!important;
-    outline: none!important;
-}
-
-.developer_page::after,
-.logout::after,
-.notification::after,
-.logout::after {
-    content: '\276F';
-    position: absolute;
-    right: 26px;
-    top: 10px;
-    z-index: 1;
-    color: #fff;
-}
-
-
-// new css
-ion-tab-button {
-    color: #01023f;
+// Tab css
+.tab-selected {
+    ion-icon {
+        color: #01023f
+    }
+    ion-label {
+        color: #01023f
+    }
 }

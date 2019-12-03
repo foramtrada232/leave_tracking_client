@@ -2,7 +2,6 @@ $app_bar_color: #01023F;
 $font_size: 15px;
 $text_color: #3998C5;
 // header start here
-// status bar color
 ul {
     margin: 0px;
     padding: 0px;
@@ -21,71 +20,9 @@ a:hover {
     padding: 6px 0px;
 }
 
-#device-android {
-    .frame-container {
-        .statusbar {
-            background-color: #fff;
-        }
-    }
-}
-
-ionlab-device-frame {
-    .frame-container {
-        .statusbar {
-            background-color: #fff !important;
-        }
-    }
-}
-
 ion-toolbar {
     height: 107px;
     width: 100%;
-}
-
-ion-header ion-toolbar:first-child {
-    --background: #01023F !important;
-}
-
-ion-menu-button {
-    --color: transparent;
-    --padding-start: 55px;
-    // --background: url(../../assets/images/icon.png) !important;
-}
-
-.rao_logo {
-    background-color: #fff;
-    width: 47px;
-    height: 22px;
-    border-radius: 30px;
-    margin-left: 10px;
-    text-align: center;
-    position: relative;
-    .logo_img {
-        max-height: 100%;
-        max-width: 100%;
-        height: 12px;
-        width: 20px;
-        margin: auto;
-        vertical-align: center;
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-    }
-}
-
-.middle_sec span {
-    font-size: $font_size;
-    color: #fff;
-    font-weight: 100;
-}
-
-.icon_sec {
-    z-index: -1;
-    position: absolute;
-    right: 17px;
-    top: 10px;
 }
 
 // content start 
@@ -206,91 +143,4 @@ ion-menu-button {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
-}
-
-label {
-    display: inline-block;
-    cursor: pointer;
-    margin-bottom: 0px!important;
-}
-
-.checker:checked+.modal {
-    display: flex;
-}
-
-.modal {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 25px;
-    background-color: rgba(0, 0, 0, .4);
-    z-index: 9999;
-    pointer-events: auto;
-}
-
-.modal-body {
-    width: 200px;
-    background-color: $app_bar_color;
-    border-radius: 12px;
-    padding: 15px;
-    border-radius: 8px;
-    position: relative;
-}
-
-.modal-content {
-    background-color: $app_bar_color!important;
-}
-
-.modal-footer {
-    overflow: hidden;
-}
-
-.modal-content p {
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 0px!important;
-}
-
-.reason_text {
-    background-color: $text_color;
-    border-radius: 5px;
-    font-size: 12px;
-    padding: 8px;
-}
-
-.ok_btn {
-    margin-bottom: 10px;
-    label {
-        padding: 8px 18px;
-        background-color: #fff;
-        color: $text_color;
-        border-radius: 30px;
-        font-size: 12px;
-        text-transform: uppercase;
-    }
-}
-
-.close_btn {
-    label {
-        background-color: #fff;
-        color: #3998C5;
-        font-size: 15px;
-        border-radius: 50%;
-        height: 26px;
-        width: 26px;
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        text-align: center;
-        line-height: 25px;
-    }
-}
-
-.alertCustomCss {
-    background-color: $app_bar_color;
 }

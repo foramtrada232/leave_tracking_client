@@ -40,7 +40,6 @@ export class SingleUsreComponent implements OnInit {
     console.log("userId===========>", userId);
     this._userService.getUserById(userId).subscribe((res: any) => {
       this.singleUser = res.data;
-      // this.singleUser.dob = this.singleUser.dob.split("T")[0];
       console.log("res of single user=========>", res, this.singleUser);
       this.loading = false;
     }, err => {
@@ -63,28 +62,7 @@ export class SingleUsreComponent implements OnInit {
     })
   }
 
-  /**
-  * Display leave Reason
-  */
-  async presentAlert(data) {
-    console.log(data);
-    let date = data.date
-    let extrahours = data.extraHours;
-    console.log(extrahours)
-    let finalDate = date.date + '/' + date.month + '/' + date.year;
-    console.log(finalDate);
-    console.log(date)
-    const alert = await this.alertController.create({
-      message: '<b>' + 'Reason :' + '</b>' + ' ' + data.reason + '<br>' + '<b>' + 'Date :' + '</b>' + ' ' + finalDate + '<br>' + (data.extraHours !== null && data.extraHours !== '' ? '<b>' + 'Compensation:' + '</b>' + data.extraHours : ''),
-      buttons: ['OK'],
-      cssClass: 'alertCustomCss'
-    });
-    await alert.present();
-  }
-
-
   getNoOfDays(days) {
-    // console.log("leave details", days);
     if (days.shortLeave) {
       if (days.shortLeave == 1) {
         return days.shortLeave + ' hour';
@@ -95,9 +73,7 @@ export class SingleUsreComponent implements OnInit {
         return 'You have no leaves..'
       } else {
         const noOfDays = Math.floor(days.noOfDays / 8)
-        // console.log("Days", noOfDays);
         const noOfhours = days.noOfDays % 8;
-        // console.log("noOfhours", noOfhours);
         if (!noOfDays && noOfhours) {
           if (noOfhours > 1) {
             return noOfhours + ' hours'
@@ -135,7 +111,7 @@ export class SingleUsreComponent implements OnInit {
       $('ion-content').removeAttr('style');
     } else {
       $('body').addClass('no-scroll');
-      $('ion-content').css({'--overflow':'hidden'});
+      $('ion-content').css({ '--overflow': 'hidden' });
     }
   }
 }

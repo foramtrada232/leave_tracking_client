@@ -33,30 +33,11 @@ export class LeaveApplicationComponent implements OnInit {
       console.log("pending leaves=======>", this.PendingLeaves);
       this.loading = false;
       this.lastIndex = this.PendingLeaves[0].totalDate;
-      console.log("lastIndex:",this.lastIndex)
+      console.log("lastIndex:", this.lastIndex)
     }, err => {
       console.log(err);
       this.loading = false;
     })
-  }
-
-  /**
-  * Display leave Reason
-  */
-  async presentAlert(data) {
-    console.log(data);
-    let date = data.date
-    let extrahours = data.extraHours;
-    console.log(extrahours)
-    let finalDate = date.date + '/' + date.month + '/' + date.year;
-    console.log(finalDate);
-    console.log(date)
-    const alert = await this.alertController.create({
-      message: '<b>' + 'Reason :' + '</b>' + ' ' + data.reason + '<br>' + '<b>' + 'Date :' + '</b>' + ' ' + finalDate + '<br>' + (data.extraHours !== null && data.extraHours !== '' ? '<b>' + 'Compensation:' + '</b>' + data.extraHours : ''),
-      buttons: ['OK'],
-      cssClass: 'alertCustomCss'
-    });
-    await alert.present();
   }
 
   /**

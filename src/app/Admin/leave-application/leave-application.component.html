@@ -13,7 +13,7 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <ion-img src="../../assets/images/icon.png"></ion-img>
+                    <ion-icon name="notifications" routerLink="/home/notification"></ion-icon>
                 </div>
                 <ion-menu-button></ion-menu-button>
             </ion-col>
@@ -51,34 +51,12 @@
                                 <p><span>Day:</span>{{getNoOfDays(leave)}}</p>
                                 <p><span>Reason:</span>{{leave.reason}}</p>
                                 <p *ngIf="leave.extraHours"><span>Compensation:</span>{{leave.extraHours}}</p>
-                                <!-- <div class="reason_text text-white"></div> -->
                             </div>
                         </div>
                         <div class="accept_reject_btngroup">
                             <button class="btn accept" (click)="leaveApproval(leave._id,'Rejected')">Accept</button>
                             <button class="btn reject" (click)="leaveApproval(leave._id,'Approved')">Reject</button>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-4">
-                                <label for="o{{i}}">
-                  <span class="text-center user_name">{{leave.userId.name}}</span>
-                </label>
-                            </div>
-                            <div class="col-4">
-                                <label for="o{{i}}">
-                  <span class="text-center number_of_days">{{getNoOfDays(leave)}}</span>
-                </label>
-                            </div>
-
-                            <div class="col-4  text-center">
-                                <span (click)="leaveApproval(leave._id,'Rejected')" class="float-right check_cross  ml-3 ">
-                  <ion-img src="../../assets/images/cancel.png"></ion-img>
-                </span>
-                                <span (click)="leaveApproval(leave._id,'Approved')" class="float-right check_right">
-                  <ion-img src="../../assets/images/right.png"></ion-img>
-                </span>
-                            </div>
-                        </div> -->
                     </div>
                     <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
                     <div class="modal">
@@ -91,7 +69,8 @@
                                     </div>
                                     <div class="col-12">
                                         <p class="text-white">Date :</p>
-                                        <div class="reason_text text-white">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}
+                                        <div class="reason_text text-white">
+                                            {{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}
                                         </div>
                                     </div>
                                     <div class="col-12" *ngIf="leave.extraHours">

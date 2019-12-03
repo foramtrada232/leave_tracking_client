@@ -133,25 +133,6 @@ export class DashboardComponent implements OnInit {
       this.loading = false;
     })
   }
-  /**
-   * Display leave Reason
-   */
-  async presentAlert(data) {
-    console.log(data);
-    let date = data.date
-    let extrahours = data.extraHours;
-    console.log(extrahours)
-    let finalDate = date.date + '/' + date.month + '/' + date.year;
-    console.log(finalDate);
-    console.log(date)
-    const alert = await this.alertController.create({
-      message: '<b>' + 'Reason :' + '</b>' + ' ' + data.reason + '<br>' + '<b>' + 'Date :' + '</b>' + ' ' + finalDate + '<br>' + (data.extraHours !== null && data.extraHours !== '' ? '<b>' + 'Compensation:' + '</b>' + data.extraHours : ''),
-      buttons: ['OK'],
-      cssClass: 'alertCustomCss'
-    });
-    await alert.present();
-  }
-
 
   getNoOfDays(days) {
     // console.log("leave details", days);
@@ -205,7 +186,7 @@ export class DashboardComponent implements OnInit {
       $('ion-content').removeAttr('style');
     } else {
       $('body').addClass('no-scroll');
-      $('ion-content').css({'--overflow':'hidden'});
+      $('ion-content').css({ '--overflow': 'hidden' });
     }
   }
 

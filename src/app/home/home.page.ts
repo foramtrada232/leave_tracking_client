@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
-import { Platform, MenuController, Events } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Storage } from '@ionic/storage';
-import { Router, Event, NavigationStart, RouterEvent } from '@angular/router';
+import { Platform, Events } from '@ionic/angular';
+import { Router, RouterEvent } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { config } from '../config';
-import { FCM } from '@ionic-native/fcm/ngx';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { ToastService } from '../services/toast.service';
 
 @Component({
@@ -27,11 +22,8 @@ export class HomePage {
   constructor(
     public router: Router,
     public _userService: UserService,
-    private menu: MenuController,
     public plt: Platform,
-    private fcm: FCM,
     public _toastService: ToastService,
-    private localNotifications: LocalNotifications,
     public events2: Events
   ) {
     this.events2.subscribe('profile', (data) => {
@@ -41,7 +33,7 @@ export class HomePage {
     });
     this._userService.currentUser.subscribe(x => this.currentUser = x);
     console.log("this.curruntUserRole====>", this.currentUserRole);
-    this.getUserDetail();
+    // this.getUserDetail();
     this.developerPages = [
       {
         title: 'Profile',
@@ -78,11 +70,6 @@ export class HomePage {
 
       },
       {
-        title: 'Notifications',
-        url: 'notification',
-        name: 'notifications'
-      },
-      {
         title: 'All Users',
         url: 'all-user',
         name: 'people'
@@ -101,23 +88,6 @@ export class HomePage {
 
   }
 
-
-  /**
-   * Logout user
-   */
-  logOut() {
-    console.log("log out");
-    this._userService.logOut().subscribe((res: any) => {
-      console.log("data of login yser ", res);
-      this.router.navigate(['/login']);
-    }, err => {
-      console.log(err)
-    })
-  }
-
-  closeMenu() {
-    this.menu.close()
-  }
   /**
    * git user detail
    */

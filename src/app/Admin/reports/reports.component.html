@@ -13,7 +13,7 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <ion-img src="../../assets/images/icon.png"></ion-img>
+                    <ion-icon name="notifications" routerLink="/home/notification"></ion-icon>
                 </div>
                 <ion-menu-button></ion-menu-button>
             </ion-col>
@@ -55,23 +55,23 @@
             <div class="leave_details" *ngFor="let leave of monthLeaveReport; let i=index">
                 <div class="card" style="cursor: pointer;">
                     <label for="o{{i}}">
-            <div class="row">
-              <div class="col-4">
-                <span>{{leave.userId.name}}</span>
-              </div>
-              <div class="col-4 text-center">
-                <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
-              </div>
-              <div class="col-4 text-right">
-                <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
-                    style="color: #3998C5;">{{leave.status}}</span>
-                </div>
-                <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
-                    style="color: #FF0000;">{{leave.status}}</span>
-                </div>
-              </div>
-            </div>
-          </label>
+                        <div class="row">
+                            <div class="col-4">
+                                <span>{{leave.userId.name}}</span>
+                            </div>
+                            <div class="col-4 text-center">
+                                <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                            </div>
+                            <div class="col-4 text-right">
+                                <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
+                                        style="color: #3998C5;">{{leave.status}}</span>
+                                </div>
+                                <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
+                                        style="color: #FF0000;">{{leave.status}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
                     <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
                     <div class="modal">
                         <div class="modal-body">
@@ -111,23 +111,23 @@
             <div class="leave_details" *ngFor="let leave of yearLeaveReport ; let i=index">
                 <div class="card" style="cursor: pointer;">
                     <label for="o{{i}}">
-            <div class="row">
-              <div class="col-4">
-                <span>{{leave.userId.name}}</span>
-              </div>
-              <div class="col-4 text-center">
-                <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
-              </div>
-              <div class="col-4 text-right">
-                <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
-                    style="color: #3998C5;">{{leave.status}}</span>
-                </div>
-                <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
-                    style="color: #FF0000;">{{leave.status}}</span>
-                </div>
-              </div>
-            </div>
-          </label>
+                        <div class="row">
+                            <div class="col-4">
+                                <span>{{leave.userId.name}}</span>
+                            </div>
+                            <div class="col-4 text-center">
+                                <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                            </div>
+                            <div class="col-4 text-right">
+                                <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
+                                        style="color: #3998C5;">{{leave.status}}</span>
+                                </div>
+                                <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
+                                        style="color: #FF0000;">{{leave.status}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
                     <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
                     <div class="modal">
                         <div class="modal-body">

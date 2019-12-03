@@ -35,10 +35,4 @@ export class AllUserComponent implements OnInit {
     })
   }
 
-  changeToDarkColor() {
-    this.currentColor = 'danger';
-  }
-
-  
-
 }
