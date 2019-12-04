@@ -23,31 +23,28 @@
 
 <ion-content>
     <img src="../../assets/images/form-bg.jpeg" alt="background">
+        <div class="leave-form">
     <div class="container">
-        <ion-list>
-            <ion-item>
-                <ion-label>Leave Days</ion-label>
+        <div class="row mt-4">
+            <div class="col-12">
+                <span>Leave Days</span>
                 <ion-select placeholder="Select One">
                     <ion-select-option value="half">Half Day</ion-select-option>
                     <ion-select-option value="full">Full Day</ion-select-option>
                     <ion-select-option value="full">More Days</ion-select-option>
                 </ion-select>
-            </ion-item>
-
-            <ion-item>
-                <ion-label>Leave Type</ion-label>
-                <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+            </div>
+            <div class="col-12">
+                <span>Leave Type</span>
+                <ion-select placeholder="Select One">
                     <ion-select-option value="sick">Sick Leave</ion-select-option>
                     <ion-select-option value="emergency">Emergency Leave</ion-select-option>
                     <ion-select-option value="casual">Casual Leave</ion-select-option>
                 </ion-select>
-            </ion-item>
-
-        </ion-list>
-        <div class="row mt-4">
+            </div>
             <div class="col-12 mb-2">
                 <span>Leave Date</span>
-                <input class="form-control" type="text" placeholder="Select Date">
+                <input type="text" class="date-input" name="daterange" value="04/12/2019" />
             </div>
             <div class="col-12 mb-2">
                 <span>Reason</span>
@@ -57,27 +54,15 @@
                 <span>Compansate</span>
                 <input type="text" class="form-control" placeholder="Enter Compansate">
             </div>
-            <div class="col-12 mb-2">
-                <span>Select Leave Type</span>
-                <div class="dropdown w-100">
-                    <button class="dropdown-toggle w-100 text-left" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Leave Type
-                    </button>
-                    <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Leave 1</a>
-                        <a class="dropdown-item" href="#">Leave 1</a>
-                        <a class="dropdown-item" href="#">Leave 1</a>
-                    </div>
-                </div>
-                <div class="dropdown-menu">
-                    <div class="dropdown-item">Leave 1</div>
-                    <div class="dropdown-item">Leave 1</div>
-                    <div class="dropdown-item">Leave 1</div>
-                    <div class="dropdown-item">Leave 1</div>
-                </div>
+            <div class="col-12 mb-2 file-input">
+                <label for="fileInput">Attach a File</label>
+                <input type="file" id="fileInput" style="display: none;">
+            </div>
+            <div class="col-12 mb-3">
+                <ion-button>Submit</ion-button>
             </div>
         </div>
+    </div>
     </div>
     <!-- <div class="all_content">
         <form [formGroup]='leaveForm'>

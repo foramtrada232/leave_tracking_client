@@ -32,7 +32,9 @@
                 <div class="col-6 pr-2">
                     <form [formGroup]='monthLeaveForm'>
                         <ion-item>
-                            <ion-datetime displayFormat="MMMM YYYY" placeholder="Select Month" formControlName="month" (ionChange)=getMounthlyLeaveByUser(monthLeaveForm.value) max="{{nextYear}}" [disabled]="isVisible">
+                            <ion-datetime displayFormat="MMMM YYYY" placeholder="Select Month" formControlName="month"
+                                (ionChange)=getMounthlyLeaveByUser(monthLeaveForm.value) max="{{nextYear}}"
+                                [disabled]="isVisible">
                             </ion-datetime>
                         </ion-item>
                     </form>
@@ -40,7 +42,9 @@
                 <div class="col-6 pl-2">
                     <form [formGroup]='yearLeaveForm'>
                         <ion-item>
-                            <ion-datetime displayFormat=" YYYY" placeholder="Select Year" formControlName="year" (ionChange)=getYearlyLeaveByUser(yearLeaveForm.value) max="{{nextYear}}" [disabled]="isVisible">
+                            <ion-datetime displayFormat=" YYYY" placeholder="Select Year" formControlName="year"
+                                (ionChange)=getYearlyLeaveByUser(yearLeaveForm.value) max="{{nextYear}}"
+                                [disabled]="isVisible">
                             </ion-datetime>
                         </ion-item>
                     </form>
@@ -56,13 +60,16 @@
                     <div class="row">
                         <div class="col-4">
                             <div *ngIf="leave.status == 'Rejected'">
-                                <span style="color: #FF0000;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                <span
+                                    style="color: #FF0000;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
                             </div>
                             <div *ngIf="leave.status == 'pending'">
-                                <span style="color: #FFAA00;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                <span
+                                    style="color: #FFAA00;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
                             </div>
                             <div *ngIf="leave.status == 'Approved'">
-                                <span style="color: #3998C5;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                <span
+                                    style="color: #3998C5;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
                             </div>
                         </div>
                         <div class="col-4 text-center">
@@ -77,11 +84,14 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div *ngIf="leave.status == 'Approved'"><span class="pl-2" style="color: #00B51E;">{{leave.status}}</span>
+                            <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
+                                    style="color: #00B51E;">{{leave.status}}</span>
                             </div>
-                            <div *ngIf="leave.status == 'Rejected'"><span class="pl-2" style="color: #FF0000;">{{leave.status}}</span>
+                            <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
+                                    style="color: #FF0000;">{{leave.status}}</span>
                             </div>
-                            <div *ngIf="leave.status == 'pending'"><span class="pl-2" style="color: #FFAA00;">{{leave.status}}</span>
+                            <div *ngIf="leave.status == 'pending'"><span class="pl-2"
+                                    style="color: #FFAA00;">{{leave.status}}</span>
                             </div>
                         </div>
                     </div>
@@ -89,9 +99,10 @@
             </div>
         </div>
 
-        <div *ngIf="isMonthLeave == 1" class="no_leaves text-center mt-0"><span class="text-center no-leaves-of-month">There
-        are No
-        leaves</span></div>
+        <div *ngIf="isMonthLeave == 1" class="no_leaves text-center mt-0"><span
+                class="text-center no-leaves-of-month">There
+                are No
+                leaves</span></div>
 
         <div *ngIf="isYearLeave == 2">
             <div class="leave_details" *ngFor="let leave of yearlyLeaveOfUser">
@@ -99,13 +110,16 @@
                     <div class="row">
                         <div class="col-4">
                             <div *ngIf="leave.status == 'Rejected'">
-                                <span style="color: #FF0000;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                <span
+                                    style="color: #FF0000;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
                             </div>
                             <div *ngIf="leave.status == 'pending'">
-                                <span style="color: #FFAA00;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                <span
+                                    style="color: #FFAA00;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
                             </div>
                             <div *ngIf="leave.status == 'Approved'">
-                                <span style="color: #3998C5;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                <span
+                                    style="color: #3998C5;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
                             </div>
                         </div>
                         <div class="col-4 text-center">
@@ -120,18 +134,23 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div *ngIf="leave.status == 'Approved'"><span class="pl-2" style="color: #00B51E;">{{leave.status}}</span>
+                            <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
+                                    style="color: #00B51E;">{{leave.status}}</span>
                             </div>
-                            <div *ngIf="leave.status == 'Rejected'"><span class="pl-2" style="color: #FF0000;">{{leave.status}}</span>
+                            <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
+                                    style="color: #FF0000;">{{leave.status}}</span>
                             </div>
-                            <div *ngIf="leave.status == 'pending'"><span class="pl-2" style="color: #FFAA00;">{{leave.status}}</span>
+                            <div *ngIf="leave.status == 'pending'"><span class="pl-2"
+                                    style="color: #FFAA00;">{{leave.status}}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="isYearLeave == 1" class="no_leaves text-center mt-0"><span class="no-leave-of-year">There are No
-        leaves</span></div>
+        <div *ngIf="isYearLeave == 1" class="no_leaves text-center mt-0">
+            <ion-icon name="person" class="w-100"></ion-icon>
+            <span class="no-leave-of-year">There are No leaves</span>
+        </div>
     </div>
 </ion-content>

@@ -4,6 +4,8 @@ import { LeaveService } from '../services/leave.service';
 import { ToastService } from '../services/toast.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { element } from 'protractor';
+declare var $: any;
+
 // let format = require("date-fns/format");
 
 @Component({
@@ -36,7 +38,17 @@ export class LeaveFormComponent implements OnInit {
     this.nextYear = this.nextYear++;
     this.nextYear = this.nextYear+ +1;
     console.log("nextyear=====>",this.nextYear)
+    $(function() {
+      $('input[name="daterange"]').daterangepicker({
+        opens: 'center'
+      }, function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+      });
+    });
   }
+
+
+
 
   /**
    * Apply leave
