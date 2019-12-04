@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 @Component({
   selector: 'app-notification',
@@ -13,14 +13,16 @@ export class NotificationComponent implements OnInit {
   notificationDetailsCount;
   loading: boolean = false;
 
-  constructor(public _userService: UserService, private localNotifications: LocalNotifications) { }
+  constructor(public _userService: UserService) { }
 
   ngOnInit() {
     this.getNotification()
 
   }
 
-
+/**
+ * get all notifications
+ */
   getNotification() {
     this.loading = true;
     this._userService.getNotification().subscribe((data: any) => {
@@ -29,7 +31,6 @@ export class NotificationComponent implements OnInit {
       this.loading = false;
       console.log("notification data", this.notificationDetails);
       this.loading = false;
-      // this.scheduleNotification(this.notificationDetails)
     }, err => {
       console.log(err)
     })

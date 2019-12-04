@@ -64,19 +64,19 @@ export class LoginComponent implements OnInit {
       }
 
       // Notification
-      if(!localStorage.getItem('deviceToken')){
+      if (!localStorage.getItem('deviceToken')) {
         this.fcm.getToken().then(token => {
           console.log('token======>', token);
           localStorage.setItem('deviceToken', token);
           console.log("in storage", localStorage.getItem('deviceToken'));
         });
-  
+
         this.fcm.onTokenRefresh().subscribe(token => {
           console.log(token);
         });
       }
     });
-     
+
   }
 
 
@@ -96,11 +96,9 @@ export class LoginComponent implements OnInit {
       this._toastService.presentToast(res.message);
       this.isDisable = false;
       this.loading = false;
-      // setTimeout(() => {
       this.router.navigate(['home']);
-      // }, 300);
     }, err => {
-      console.log('err in login ============>', err,err.error.message,err.error);
+      console.log('err in login ============>', err, err.error.message, err.error);
       this._toastService.presentToast(err.error.message);
       this.isDisable = false;
       this.loading = false;

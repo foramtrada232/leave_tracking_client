@@ -75,52 +75,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
         redirectTo: '/home/profile',
         pathMatch: 'full'
       }
-
-      // {
-      //   path: '',
-      //   redirectTo: 'profile',
-      //   pathMatch: 'full'
-      // },
-      // {
-      //   path: 'profile',
-      //   component: ProfilePage
-      // },
-      // {
-      //   path: 'leave-form',
-      //   component: LeaveFormComponent
-      // },
-      // {
-      //   path: 'leave-history',
-      //   component: LeaveHistoryComponent
-      // },
-      // {
-      //   path: 'dashboard',
-      //   component: DashboardComponent
-      // },
-      // {
-      //   path: 'all-user',
-      //   component: AllUserComponent
-      // },
-      // {
-      //   path: 'single-user/:userId',
-      //   component: SingleUsreComponent
-      // },
-      // {
-      //   path: 'report',
-      //   component: ReportsComponent
-      // },
-      // {
-      //   path:'leave-application',
-      //   component:LeaveApplicationComponent
-      // },
-      // {
-      //   path:'notification',
-      //   component:NotificationComponent
-      // }
-
-      //   ]
-      // }
-
     ])
   ],
   declarations: [

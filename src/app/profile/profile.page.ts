@@ -21,23 +21,24 @@ export class ProfilePage implements OnInit {
   urls;
   loading: boolean = false;
 
-  constructor(public route: Router,public modalController: ModalController, public _userService: UserService, public _toastService: ToastService, public events1: Events) { }
+  constructor(public route: Router, public modalController: ModalController, public _userService: UserService, public _toastService: ToastService, public events1: Events) { }
 
   ngOnInit() {
     this.getUserDetail();
     console.log("current user role login", this.token);
   }
 
+  /**
+   * get user details
+   */
   getUserDetail() {
     this.loading = true;
     this._userService.getUserDetail().subscribe((res: any) => {
-      // this.UserDetail = res.data[0];
       console.log("login user details===", res)
       this.userDetail = res.data;
       this.loading = false;
       console.log("this.userDetails login", this.userDetail);
-  this.route.navigate(['login'])
-      // this.UserDetail.dob = this.UserDetail.dob.split("T")[0];
+      this.route.navigate(['login'])
     }, err => {
       console.log(err);
       this.loading = false;
@@ -52,15 +53,7 @@ export class ProfilePage implements OnInit {
     console.log("===============", event.target.files)
     this.urls = "";
     this.files = event.target.files[0];
-    // if (this.files) {
-    //   // console.log("in if")
-    //   let reader = new FileReader();
-    //   reader.onload = (e: any) => {
-    //     this.urls = e.target.result;
-    //   }
-    //   reader.readAsDataURL(this.files);
-    // }
-    // console.log("url=>",this.urls)
+
     this._userService.updateProfile(this.files).subscribe((res: any) => {
       console.log("res=======>", res);
       this._toastService.presentToast(res.message)
@@ -73,4 +66,18 @@ export class ProfilePage implements OnInit {
       this.urls = "";
     })
   }
+
+  /**
+  * Logout user
+  */
+  logOut() {
+    console.log("log out");
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("data of login yser ", res);
+      this.route.navigate(['/login']);
+    }, err => {
+      console.log(err)
+    })
+  }
+
 }

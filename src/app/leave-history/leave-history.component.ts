@@ -17,8 +17,8 @@ export class LeaveHistoryComponent implements OnInit {
   loading: boolean = false;
   curruntDate: string = new Date().toISOString();
   nextYear;
-  isVisible :boolean = false;
-  
+  isVisible: boolean = false;
+
   constructor(public _leaveService: LeaveService) {
     this.monthLeaveForm = new FormGroup({
       month: new FormControl('', [Validators.required]),
@@ -91,7 +91,6 @@ export class LeaveHistoryComponent implements OnInit {
     })
   }
   getNoOfDays(days) {
-    // console.log("leave details", days);
     if (days.shortLeave) {
       if (days.shortLeave == 1) {
         return days.shortLeave + ' hour';
@@ -102,9 +101,7 @@ export class LeaveHistoryComponent implements OnInit {
         return 'You have no leaves..'
       } else {
         const noOfDays = Math.floor(days.noOfDays / 8)
-        // console.log("Days", noOfDays);
         const noOfhours = days.noOfDays % 8;
-        // console.log("noOfhours", noOfhours);
         if (!noOfDays && noOfhours) {
           if (noOfhours > 1) {
             return noOfhours + ' hours'

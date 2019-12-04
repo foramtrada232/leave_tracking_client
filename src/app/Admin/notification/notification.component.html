@@ -11,11 +11,6 @@
                     <span>Notification</span>
                 </div>
             </ion-col>
-            <ion-col size='4'>
-                <div class="icon_sec">
-                    <ion-icon name="notifications"></ion-icon>
-                  </div>
-            </ion-col>
         </ion-row>
     </ion-toolbar>
 </ion-header>
@@ -26,12 +21,6 @@
     </div>
     <div class="all_notification" *ngFor="let item of notificationDetails">
         <div class="card">
-            <!-- <div class="card-content ">
-                <div class="notify_name w-100">
-                    <span class="user_name float-left">{{item.body}}</span>
-                    <span class="float-right applied_date">{{item.createdAt | date}} | {{item.createdTime}}</span>
-                </div>
-            </div> -->
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
@@ -42,7 +31,6 @@
                     <div class="col-10">
                         <div class="noti_content">
                                 <span class="user_name"  innerHtml="{{item.body}}"></span>
-                            <!-- <span><strong>Swati Chauhan</strong> {{item.body}}</span> -->
                         </div>
                         <div class="date_noti w-100">
                             <span>{{item.createdAt | date}} | {{item.createdTime}}</span>

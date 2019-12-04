@@ -21,6 +21,11 @@ export class LeaveFormComponent implements OnInit {
   shortLeave = false
   isValue: Boolean = false;
   nextYear;
+  fromDate: any;
+  toDate: any;
+  timeDiff: any;
+  days;
+
 
   constructor(public _leaveService: LeaveService, private elementRef: ElementRef, public _toastService: ToastService, private localNotifications: LocalNotifications) {
     this.leaveForm = new FormGroup({
@@ -33,7 +38,7 @@ export class LeaveFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("curruntdate====>",this.curruntDate);
+    console.log("curruntdate====>", this.curruntDate);
     this.nextYear = this.curruntDate.split("-")[0];
     this.nextYear = this.nextYear++;
     this.nextYear = this.nextYear+ +1;
@@ -45,6 +50,26 @@ export class LeaveFormComponent implements OnInit {
         console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
       });
     });
+    this.nextYear = this.nextYear + +1;
+    console.log("nextyear=====>", this.nextYear)
+  }
+
+  fromDateChange(date) {
+    console.log("first date", date);
+    this.fromDate = date;
+  }
+  toDateChange(date) {
+    console.log("to date", date);
+    this.toDate = date;
+    this.dateDifference();
+  }
+
+  dateDifference() {
+    console.log()
+    this.timeDiff = (new Date(this.toDate) as any) - (new Date(this.fromDate) as any);
+    this.days = this.timeDiff / (1000 * 60 * 60 * 24)
+    console.log(this.days)
+
   }
 
 
@@ -73,18 +98,18 @@ export class LeaveFormComponent implements OnInit {
       this.isDisable = false;
     })
   }
-  
+
   /**
    * Validtion of enter shortleave hour
    * @param {Number} e 
    * @param {String} data 
    */
   updateList(e, data) {
-    console.log(e,data);
+    console.log(e, data);
     if (e) {
       this.isValue = true;
-    }else{
-      this.isValue =false;
+    } else {
+      this.isValue = false;
     }
     if (e > 3 && data === 'shortLeave') {
       // console.log("first ==========", e)
@@ -98,7 +123,7 @@ export class LeaveFormComponent implements OnInit {
     } else if (e == "") {
       const element = this.elementRef.nativeElement.querySelector('#input2');
       element.value = ''
-    } else if (e < 0 && data==='shortLeave') {
+    } else if (e < 0 && data === 'shortLeave') {
       alert("value must be positive ")
       const element = this.elementRef.nativeElement.querySelector('#input2');
       element.value = 1
