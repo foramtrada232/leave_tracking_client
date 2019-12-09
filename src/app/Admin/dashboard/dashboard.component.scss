@@ -21,7 +21,6 @@ a:hover {
 }
 
 ion-toolbar {
-    height: 107px;
     width: 100%;
 }
 
@@ -143,4 +142,37 @@ ion-toolbar {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
+}
+
+
+// new css start
+
+.tracking img,
+.users img,
+.profile img,
+.reporting img{
+    padding: 20px;
+    border-radius: 46%;
+}
+.tracking img,
+.reporting img{
+    background-color: #CFECFF;
+}
+.users img{
+    background-color: #FCF1D8;
+}
+.profile img{
+    background-color: #FDE1DC;
+}
+.single-div {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #cfecff;
+    p {
+        color: #359fd5;
+        margin-top: 5px;
+        font-family: 'Roboto', sans-serif;
+    }
 }

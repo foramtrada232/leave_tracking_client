@@ -1,8 +1,8 @@
 <ion-header>
-    <ion-toolbar class="toolbar-color1">
+    <ion-toolbar class="toolbar-color1 profile-toolbar">
         <ion-row>
             <ion-col size='4'>
-                <div class="rao_logo">
+                <div class="rao_logo" routerLink="/home/dashboard">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
             </ion-col>
@@ -13,18 +13,97 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <ion-icon name="notifications"></ion-icon>
-                  </div>
+                    <img src="../../assets/images/Path 250.png" routerLink="/home/notification" alt="notification">
+                    <span>1</span>
+                </div>
             </ion-col>
         </ion-row>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div class="bg-color"></div>
     <div class="loader" *ngIf="loading">
         <img class="loading_img" src="../../assets/images/loader.gif" />
     </div>
-    
+    <div class="profile-card">
+        <ion-card class="bg-white ">
+            <ion-card-content>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-8 p-0">
+                            <div class="profile-img">
+                                <img class="circle-ronded" src="../../assets/images/hover-3.jpg">
+                            </div>
+                            <div class="profile-content">
+                                <h1>Akshay Karetiya</h1>
+                                <span>Android Developer</span>
+                                <p>Commitment global cultivate, thought leader framework, our work.</p>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0 text-right location">
+                            <span><img src="../../assets/images/location.png" alt="location">
+                           Location</span>
+                            <p>Ahmedabad</p>
+                            <button><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Image</button>
+                        </div>
+                    </div>
+                    <div class="contact mt-2">
+                        <div class="d-inline-block w-100 mt-2">
+                            <div class="float-left">
+                                <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+                                <span>akshaykaretiya@gmail.com</span>
+                            </div>
+                            <div class="float-right">
+                                <i class="fa fa-phone mr-2" aria-hidden="true"></i>
+                                <span>+91 98123456789</span>
+                            </div>
+                        </div>
+                        <div class="w-100">
+                            <span class="dob mr-2">DOB</span>
+                            <span class="dob-dt">18-7-1990</span>
+                        </div>
+                    </div>
+                </div>
+            </ion-card-content>
+        </ion-card>
+        <div class="container-fluid">
+            <ion-card class="sick-leave">
+                <div class="row">
+                    <div class="col-9">
+                        <h1>Sick Leave</h1>
+                        <p>Commitment global cultivate, thought leader framework, our work.</p>
+                    </div>
+                    <div class="col-3 px-0 pt-2">
+                        <span>3/12</span>
+                    </div>
+                </div>
+            </ion-card>
+            <ion-card class="emergency-leave">
+                <div class="row">
+                    <div class="col-9">
+                        <h1>Emergency Leave</h1>
+                        <p>Commitment global cultivate, thought leader framework, our work.</p>
+                    </div>
+                    <div class="col-3 px-0 pt-2">
+                        <span>2/5</span>
+                    </div>
+                </div>
+            </ion-card>
+            <ion-card class="casual-leave">
+                <div class="row">
+                    <div class="col-9">
+                        <h1>Casual Leave</h1>
+                        <p>Commitment global cultivate, thought leader framework, our work.</p>
+                    </div>
+                    <div class="col-3 px-0 pt-2">
+                        <span>3/12</span>
+                    </div>
+                </div>
+            </ion-card>
+        </div>
+    </div>
+
     <!-- <div *ngIf="userDetail" class="user_detail">
         <div class="single_user_profile text-center">
             <div class="user_img">

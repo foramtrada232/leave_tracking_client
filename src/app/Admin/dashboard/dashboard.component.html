@@ -2,7 +2,7 @@
     <ion-toolbar class="toolbar-color1">
         <ion-row>
             <ion-col size='4'>
-                <div class="rao_logo">
+                <div class="rao_logo" routerLink="/home/dashboard">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
             </ion-col>
@@ -13,22 +13,17 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <ion-icon name="notifications" routerLink="/home/notification"></ion-icon>
+                    <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3" alt="notification">
+                    <span>1</span>
+                    <img src="../../../assets/images/exit.png" alt="logout button">
                 </div>
-                <ion-menu-button></ion-menu-button>
             </ion-col>
         </ion-row>
     </ion-toolbar>
-    <div class="user_profile text_center" *ngIf="UserDetail">
-        <div class="profile_img">
-            <img *ngIf="!UserDetail.profilePhoto" src="../../assets/images/person.png">
-            <img *ngIf="UserDetail.profilePhoto" src="{{path}}{{UserDetail.profilePhoto}}">
-        </div>
-    </div>
 </ion-header>
 
 <ion-content>
-    <div class="all_content">
+    <!-- <div class="all_content">
         <div class="title_text">
             <p class="text-center">leave tracking</p>
         </div>
@@ -223,6 +218,42 @@
         </div>
         <div *ngIf="pendingLeave" class="dataNotAvalible text-center mt-4">
             <span class="text-center">No Pending Leaves Yet</span>
+        </div>
+    </div> -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6 p-0">
+                <div class="single-div" routerLink="/home/leave-application">
+                    <div class="tracking">
+                        <img src="../../../assets/images/tracking -dasboard.png" alt="tracking">
+                        <p class="text-center">Tracking</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 p-0">
+                <div class="single-div" routerLink="/home/all-user">
+                    <div class="users">
+                        <img src="../../../assets/images/users -dashboard.png" alt="users">
+                        <p class="text-center">Users</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 p-0">
+                <div class="single-div" routerLink="/home/profile">
+                    <div class="profile">
+                        <img src="../../../assets/images/profile-dashboard.png" alt="profile">
+                        <p class="text-center">Profile</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 p-0">
+                <div class="single-div" routerLink="/home/report">
+                    <div class="reporting">
+                        <img src="../../../assets/images/Reports-dashboard.png" alt="reporting">
+                        <p class="text-center">Reports</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </ion-content>

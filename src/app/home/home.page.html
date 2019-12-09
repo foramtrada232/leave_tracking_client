@@ -1,15 +1,19 @@
 <ion-tabs>
     <ion-tab-bar slot="bottom" *ngIf="currentUserRole == 'Developer'">
         <ion-tab-button tab="{{p.url}}" *ngFor="let p of developerPages">
-            <ion-icon name="{{p.name}}"></ion-icon>
+            <div class="icon-image" [ngStyle]="{'background-image': 'url('+ getBackground(p.name) +')'}">
+            </div>
             <ion-label>{{p.title}}</ion-label>
         </ion-tab-button>
 
     </ion-tab-bar>
-    <ion-tab-bar slot="bottom" *ngIf="currentUserRole == 'Admin'">
-        <ion-tab-button tab="{{p.url}}" *ngFor="let p of adminpages">
-            <ion-icon name="{{p.name}}"></ion-icon>
+    <!-- <ion-tab-bar slot="bottom" *ngIf="currentUserRole == 'Admin'">
+        <ion-tab-button tab="{{p.url}}" *ngFor="let p of adminpages ; let i = index">
+            <div class="icon-image" [ngStyle]="{'background-image': 'url('+ getBackground(p.name) +')'}">
+            </div>
             <ion-label>{{p.title}}</ion-label>
         </ion-tab-button>
-    </ion-tab-bar>
+    </ion-tab-bar> -->
 </ion-tabs>
+
+<!-- <img src="../../assets/images/location.png" alt=""> -->

@@ -1,4 +1,4 @@
-<ion-content>
+<!-- <ion-content>
   <div class="m-auto login_page">
     <div class="all_content text-center">
       <div class="rao_logo text-center">
@@ -35,6 +35,60 @@
           <img class="loading-img" src="../../assets/images/loader.gif" *ngIf="loading" />
         </div>
       </form>
+    </div>
+  </div>
+</ion-content> -->
+
+<ion-content>
+  <div class="login_bg">
+    <div class="login_page">
+      <div class="all_content">
+        <div class="rao_logo_login">
+          <img src="../../assets/images/raoinfotech-logo-login.png" alt="logo">
+        </div>
+        <div class="app_name">
+          <p class="leave_management_app">Leave</p>
+          <p class="leave_management_app">Management App</p>
+        </div>
+        <div class="login_form">
+          <p class="login_heading">LOGIN</p>
+          <hr class="login_border_bottom">
+          <form [formGroup]='loginForm'>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <div class="input-group input_icon">
+                    <input type="email" class="form-control" id="email" placeholder="Enter Your Email"
+                      formControlName="email" required>
+                    <img class="email_icon" src="../../assets/images/email.png">
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group input_icon">
+                  <div class="input-group password_sec">
+                    <input class="form-control" formControlName="password" [type]="passwordType" placeholder="Password"
+                      required>
+                    <img class="password_icon" src="../../assets/images/password.png">
+                    <!-- <span class="email_icon text-white"><i class="fa fa-lock" aria-hidden="true"></i></span> -->
+                    <img class="see_password" src="../../assets/images/invisible_pass.png" [name]="passwordIcon" (click)='hideShowPassword()'>
+                    <span class="see_password">
+                      <!-- <ion-icon [name]="passwordIcon" class="passwordIcon text-white" (click)='hideShowPassword()'
+                        style="z-index: 111111;"></ion-icon> -->
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="login_btn">
+              <button type="submit" (click)="loginUser(loginForm.value)"
+                [disabled]="this.loginForm.invalid || isDisable">Login</button>
+            </div>
+            <a class="forget_pass" href="#">Forget Password ?</a>
+            <img class="loading-img" src="../../assets/images/loader.gif" *ngIf="loading" />
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </ion-content>

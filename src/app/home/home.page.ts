@@ -38,17 +38,17 @@ export class HomePage {
       {
         title: 'Profile',
         url: 'profile',
-        name:'person'
+        name:'profile-dashboard'
       },
       {
         title: 'Leave Form',
         url: 'leave-form',
-        name:'paper'
+        name:'Reports-dashboard'
       },
       {
         title: 'History',
         url: 'leave-history',
-        name:'time'
+        name:'History-active'
       }
      
     ]
@@ -56,7 +56,7 @@ export class HomePage {
       {
         title: 'Dashboard',
         url: 'dashboard',
-        name: 'pie'
+        name: 'location'
       },
       {
         title: 'Report',
@@ -77,7 +77,7 @@ export class HomePage {
       {
         title: 'Profile',
         url: 'profile',
-        name:'person'
+        name:'profile'
       },
     ];
     this.router.events.subscribe((event: RouterEvent) => {
@@ -87,7 +87,7 @@ export class HomePage {
     });
 
   }
-
+  flag = true;
   /**
    * git user detail
    */
@@ -99,5 +99,9 @@ export class HomePage {
     }, err => {
       console.log(err);
     })
+  }
+  getBackground(data){
+    console.log(data);
+    return '/assets/images/' + data + '.png' ;
   }
 }

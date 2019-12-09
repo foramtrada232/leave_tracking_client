@@ -28,6 +28,10 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// font-family
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Rubik&display=swap');
+
 $font_size: 15px;
 $text_color: #3998C5;
 $app_bar_color: #01023F;
@@ -78,6 +82,8 @@ ion-header {
     margin-left: 10px;
     text-align: center;
     position: relative;
+    margin-right: 15px;
+    float: left;
     .logo_img {
         max-height: 100%;
         max-width: 100%;
@@ -209,4 +215,22 @@ ion-header ion-toolbar:first-child {
         text-align: center;
         line-height: 25px;
     }
+}
+.icon_sec{
+    i{
+        color:#D1D0FC ;
+    }
+}
+
+
+.icon_sec span {
+    position: absolute;
+    color: #fff;
+    font-size: 13px;
+    background-color: #EF1F6D;
+    border-radius: 50%;
+    left:10px;
+    top: -10px;
+    width: 18px;
+    padding: 0px 5px;
 }

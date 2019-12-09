@@ -64,11 +64,19 @@ p {
 }
 
 // Tab css
-.tab-selected {
-    ion-icon {
-        color: #01023f
+.tab-selected .icon-image{
+    filter: grayscale(0);
+}
+.tab-selected{
+    ion-label{
+        color: #0E8EC7;
     }
-    ion-label {
-        color: #01023f
-    }
+}
+
+.icon-image{
+    height: 27px;
+    width: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(1);
 }

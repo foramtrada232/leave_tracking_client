@@ -2,9 +2,10 @@
     <ion-toolbar class="toolbar-color1">
         <ion-row>
             <ion-col size='4'>
-                <div class="rao_logo">
+                <div class="rao_logo" routerLink="/home/dashboard">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
+                <img src="../../../assets/images/dashboard.png" alt="meter">
             </ion-col>
             <ion-col size='4'>
                 <div class="middle_sec text-center">
@@ -13,9 +14,11 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <ion-icon name="notifications" routerLink="/home/notification"></ion-icon>
+                    <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
+                        alt="notification">
+                    <span>1</span>
+                    <img src="../../../assets/images/exit.png" alt="logout button">
                 </div>
-                <ion-menu-button></ion-menu-button>
             </ion-col>
         </ion-row>
     </ion-toolbar>
@@ -23,7 +26,7 @@
 
 
 <ion-content>
-    <div class="apply_leave">
+    <!-- <div class="apply_leave">
         <div class="apply_leave_text text-white">
             Apply Leave
         </div>
@@ -163,5 +166,161 @@
         <div *ngIf="yearLeaveCount == 0" class="no-leave-of-year">
             <p class="text-center">There are No leaves</p>
         </div>
+    </div> -->
+
+    <div class="report">
+        <ion-card>
+            <div class="row">
+                <div class="col-2">
+                    <div class="report-profile mt-3">
+                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <h3>Pushsparajsinh Chudasama</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="approved">status</span>
+                            <p class="status">Approved</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="apply">Applied For Leaves</span>
+                            <p class="days"><span>02 Days /</span> 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
+        <ion-card>
+            <div class="row">
+                <div class="col-2">
+                    <div class="report-profile mt-3">
+                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <h3>Pushsparajsinh Chudasama</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="rejected">status</span>
+                            <p class="status">Rejected</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="apply">Applied For Leaves</span>
+                            <p class="days"><span>02 Days /</span> 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
+        <ion-card>
+            <div class="row">
+                <div class="col-2">
+                    <div class="report-profile mt-3">
+                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <h3>Pushsparajsinh Chudasama</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="pending">status</span>
+                            <p class="status">Pending</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="apply">Applied For Leaves</span>
+                            <p class="days"><span>02 Days /</span> 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
+        <ion-card>
+            <div class="row">
+                <div class="col-2">
+                    <div class="report-profile mt-3">
+                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <h3>Pushsparajsinh Chudasama</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="approved">status</span>
+                            <p class="status">Approved</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="apply">Applied For Leaves</span>
+                            <p class="days"><span>02 Days /</span> 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
+        <ion-card>
+            <div class="row">
+                <div class="col-2">
+                    <div class="report-profile mt-3">
+                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <h3>Pushsparajsinh Chudasama</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="approved">status</span>
+                            <p class="status">Approved</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="apply">Applied For Leaves</span>
+                            <p class="days"><span>02 Days /</span> 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
+        <ion-card>
+            <div class="row">
+                <div class="col-2">
+                    <div class="report-profile mt-3">
+                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <h3>Pushsparajsinh Chudasama</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="approved">status</span>
+                            <p class="status">Approved</p>
+                        </div>
+                        <div class="col-6 p-0">
+                            <span class="apply">Applied For Leaves</span>
+                            <p class="days"><span>02 Days /</span> 15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-card>
     </div>
+
+
+
 </ion-content>
