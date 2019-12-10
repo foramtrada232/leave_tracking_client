@@ -1,6 +1,6 @@
 $app_bar_color: #01023F;
-$font_size: 15px;
-$text_color: #3998C5;
+$font_size    : 15px;
+$text_color   : #3998C5;
 // content start here
 // ion-content {
 //     padding: 10px;
@@ -18,25 +18,25 @@ $text_color: #3998C5;
 //         }
 //     }
 //     .user_profile {
-//         width: calc(100%/3 - 14px);
-//         border-radius: 8px;
+//         width           : calc(100%/3 - 14px);
+//         border-radius   : 8px;
 //         background-color: #fff;
-//         color: #3998C5;
-//         margin: 11px 0px 0px 11px;
-//         cursor: pointer;
+//         color           : #3998C5;
+//         margin          : 11px 0px 0px 11px;
+//         cursor          : pointer;
 //         .card-body {
 //             padding: 10px 5px;
-//             margin: auto;
+//             margin : auto;
 //         }
 //         .profile_img {
-//             height: 60px;
-//             width: 60px;
+//             height       : 60px;
+//             width        : 60px;
 //             border-radius: 50%;
-//             overflow: hidden;
-//             margin: auto;
+//             overflow     : hidden;
+//             margin       : auto;
 //             img {
-//                 max-width: 100%;
-//                 min-width: 100%;
+//                 max-width : 100%;
+//                 min-width : 100%;
 //                 min-height: 100%;
 //                 max-height: 100%;
 //                 object-fit: cover;
@@ -44,23 +44,23 @@ $text_color: #3998C5;
 //         }
 //         .allUser {
 //             text-transform: uppercase;
-//             font-size: 12px;
-//             font-weight: bold;
+//             font-size     : 12px;
+//             font-weight   : bold;
 //         }
 //     }
 //     .user_profile:hover {
 //         background-color: $text_color;
-//         color: #fff;
-//         border-radius: 8px;
+//         color           : #fff;
+//         border-radius   : 8px;
 //         .profile_img {
-//             height: 60px;
-//             width: 60px;
+//             height       : 60px;
+//             width        : 60px;
 //             border-radius: 50%;
-//             overflow: hidden;
-//             margin: auto;
+//             overflow     : hidden;
+//             margin       : auto;
 //             ion-img {
-//                 max-width: 100%;
-//                 min-width: 100%;
+//                 max-width : 100%;
+//                 min-width : 100%;
 //                 min-height: 100%;
 //                 max-height: 100%;
 //                 object-fit: cover;
@@ -70,20 +70,20 @@ $text_color: #3998C5;
 // }
 
 // .user_profile:focus {
-//     box-shadow: none;
-//     outline: none;
+//     box-shadow      : none;
+//     outline         : none;
 //     background-color: $text_color;
-//     color: #fff;
-//     border-radius: 8px;
+//     color           : #fff;
+//     border-radius   : 8px;
 //     .profile_img {
-//         height: 60px;
-//         width: 60px;
+//         height       : 60px;
+//         width        : 60px;
 //         border-radius: 50%;
-//         overflow: hidden;
-//         margin: auto;
+//         overflow     : hidden;
+//         margin       : auto;
 //         ion-img {
-//             max-width: 100%;
-//             min-width: 100%;
+//             max-width : 100%;
+//             min-width : 100%;
 //             min-height: 100%;
 //             max-height: 100%;
 //             object-fit: cover;
@@ -94,108 +94,218 @@ $text_color: #3998C5;
 
 // new css start here
 
-.all_users_card{
-    background-color: #D8D8D8;
-    .card{
-        border-radius: 0;
-        margin-bottom: 2px;
-    }
-    .image_profile {
-        width: 60%;
-        overflow: hidden;
+// .all_users_card{
+//     background-color: #D8D8D8;
+//     .card{
+//         border-radius: 0;
+//         margin-bottom: 2px;
+//     }
+//     .image_profile {
+//         width                       : 60%;
+//         overflow                    : hidden;
+//         border-radius               : 50%;
+//         border-color                : #020041;
+//         position                    : absolute;
+//         left                        : 15px;
+//         top                         : 10px;
+//         @media screen and (min-width: 767px) 
+//         {
+//             width: 35%;
+//             left : 32%;
+//         }
+//         @media screen and (min-width: 1024px) 
+//         {
+//             width: 25%;
+//             left : 37%;
+//         }
+//         img {
+//             max-width : 100%;
+//             min-width : 100%;
+//             max-height: 100%;
+//             object-fit: cover;
+//         }
+//     }
+//     .application_detail{
+//         margin: 10px 0;
+//         .name{
+//             font-family   : 'Roboto';
+//             font-size     : 13px;
+//             margin        : 0;
+//             color         : #020041;
+//             padding-bottom: 10px;
+//         }
+//         p{
+//             font-size: 12px;
+//             margin   : 0;
+//         }
+//         .sub_text{
+//             font-family: 'Rubik';
+//             font-size  : 10px;
+//             color      : #3B3838;
+//         }
+//         .status_pill{
+//             border       : none;
+//             padding      : 2px 10px;
+//             text-align   : center;
+//             display      : inline-block;
+//             margin-top   : 10px;
+//             cursor       : pointer;
+//             border-radius: 16px;
+//         }
+//         .absent{
+//             font-family     : 'Rubik';
+//             font-size       : 10px;
+//             background-color: #FDE1DC;
+//             color           : #FC5739;
+//         }
+//         .avail{
+//             font-family     : 'Rubik';
+//             font-size       : 10px;
+//             background-color: #56D986;
+//             color           : #307D5E;
+//         }
+//         .not_avail{
+//             font-family     : 'Rubik';
+//             font-size       : 10px;
+//             background-color: #CFECFF;
+//             color           : #008AC9;
+//         }
+//         .download{
+//             font-family     : 'Open Sans';
+//             font-size       : 6px;
+//             font-weight     : bold;
+//             background-color: #00003F;
+//             color           : #fff;
+//             padding         : 5px 10px 5px 23px;
+//         }
+//         .not_available{
+//             font-family     : 'Open Sans';
+//             font-size       : 6px;
+//             font-weight     : bold;
+//             background-color: #FC5739;
+//             color           : #fff;
+//             padding         : 5px 10px 5px 23px;
+//         }
+//         .download_img{
+//             position: absolute;
+//             top     : 13px;
+//             left    : 5px;
+//         }
+//         .status_text{
+//             font-family: 'Open Sans';
+//             font-size  : 11px;
+//             color      : #7A869A;
+//             margin-top : 5px;
+//         }
+//     }
+// }
+
+
+//swati css start
+ion-card{
+    box-shadow: 0 0px 51px #dcdcdc;
+}
+span.approved {
+    background-color: #9af1ba;
+    border-radius   : 20px;
+    padding         : 3px 15px;
+    color           : #307D5E;
+}
+
+span.rejected {
+    background-color: #E0F2FF;
+    border-radius   : 20px;
+    padding         : 3px 15px;
+    color           : #89c0e8;
+}
+
+span.absent {
+    background-color: #FFD86B;
+    border-radius   : 20px;
+    padding         : 3px 15px;
+    color           : #A58326;
+}
+
+.users {
+    .profile-image {
+        width        : 70px;
+        height       : 70px;
         border-radius: 50%;
-        border-color: #020041;
-        position: absolute;
-        left: 15px;
-        top: 10px;
-        @media screen and (min-width: 767px) 
-        {
-            width: 35%;
-            left: 32%;
-        }
-        @media screen and (min-width: 1024px) 
-        {
-            width: 25%;
-            left: 37%;
-        }
+        overflow     : hidden;
+        margin       : 10px auto;
+        border       : 1px solid #01023F;
+
         img {
-            max-width: 100%;
-            min-width: 100%;
             max-height: 100%;
+            min-width : 100%;
+            max-width : 100%;
             object-fit: cover;
         }
     }
-    .application_detail{
-        margin: 10px 0;
-        .name{
-            font-family: 'Roboto';
-            font-size: 13px;
-            margin: 0;
-            color: #020041;
-            padding-bottom: 10px;
+
+    .top {
+        h6 {
+            color      : #01023F;
+            font-weight: bold;
         }
-        p{
+
+        p {
+            color    : #7A869A;
             font-size: 12px;
-            margin: 0;
         }
-        .sub_text{
-            font-family: 'Rubik';
-            font-size: 10px;
-            color: #3B3838;
+
+        button {
+            background-color: transparent;
+            border          : 1px solid #7A869A;
+            border-radius   : 16px;
+            padding         : 6px 10px;
+            font-size       : 10px;
+            color           : #01023F;
+            margin          : 5px auto 0;
+            font-weight     : 600;
+            outline         : none;
         }
-        .status_pill{
-            border: none;
-            padding: 2px 10px;
+    }
+
+    .bottom-status {
+        padding: 10px 10px 0;
+        width  : 100%;
+        display: inline-block;
+
+        p {
+            color    : #7A869A;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .right-available {
+            background-color: #9bf1ba;
+            color           : #3b9768;
+            border-radius   : 50%;
+            padding         : 10px 7px 7px 7px;
+            text-align      : center;
+            border          : 2px solid #88e3ad;
+            font-size       : 11px;
+        }
+
+        .right-not-available {
+            background-color: #e0f2ff;
+            color           : #3998C5;
+            border-radius   : 50%;
+            padding         : 10px 7px 7px 7px;
+            text-align      : center;
+            border          : 2px solid #c6e8ff;
+            font-size       : 11px;
+        }
+
+        .right-absent {
+            background-color: #ffd86b;
+            color: #b69234;
+            border-radius: 50%;
+            padding: 10px 7px 7px 7px;
             text-align: center;
-            display: inline-block;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 16px;
-        }
-        .absent{
-            font-family: 'Rubik';
-            font-size: 10px;
-            background-color: #FDE1DC;
-            color: #FC5739;
-        }
-        .avail{
-            font-family: 'Rubik';
-            font-size: 10px;
-            background-color: #56D986;
-            color: #307D5E;
-        }
-        .not_avail{
-            font-family: 'Rubik';
-            font-size: 10px;
-            background-color: #CFECFF;
-            color: #008AC9;
-        }
-        .download{
-            font-family: 'Open Sans';
-            font-size: 6px;
-            font-weight: bold;
-            background-color: #00003F;
-            color: #fff;
-            padding: 5px 10px 5px 23px;
-        }
-        .not_available{
-            font-family: 'Open Sans';
-            font-size: 6px;
-            font-weight: bold;
-            background-color: #FC5739;
-            color: #fff;
-            padding: 5px 10px 5px 23px;
-        }
-        .download_img{
-            position: absolute;
-            top: 13px;
-            left: 5px;
-        }
-        .status_text{
-            font-family: 'Open Sans';
+            border: 2px solid #ecc65c;
             font-size: 11px;
-            color: #7A869A;
-            margin-top: 5px;
         }
     }
 }

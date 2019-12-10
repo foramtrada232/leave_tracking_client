@@ -18,9 +18,23 @@ export class LeaveApplicationComponent implements OnInit {
     public alertController: AlertController,
     public _toastService: ToastService, private localNotifications: LocalNotifications) { }
 
-  ngOnInit() {
-    this.getPendingLeaves();
-  }
+    ngOnInit() {
+      this.getPendingLeaves();
+  
+      $('#open-modal').click(function () {
+        $('#open-modal-body').fadeIn();
+      });
+      $('#open-modal-body .modal_body').click(function(event){
+        event.stopPropagation();
+      });
+      $('.close_btn').click(function () {
+        $('#open-modal-body').css('display', 'none');
+      });
+      $('#open-modal-body').click(function(){
+        $(this).fadeOut();
+      });
+  
+    }
 
   /**
    * Get Pending Leave Application

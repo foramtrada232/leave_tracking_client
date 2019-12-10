@@ -98,23 +98,22 @@ button.btn.reject {
     .application_detail{
         margin: 10px 0;
         .name{
-            font-family: "Roboto", sans-serif;
-            font-size: 15px;
+            font-family: 'Roboto';
+            font-size: 13px;
             margin: 0;
             color: #020041;
-            padding-bottom: 5px;
-            font-weight: 600;        
+            padding-bottom: 10px;
         }
         p{
             font-size: 12px;
         }
         .sub_text{
-            font-family: 'Rubik', sans-serif;
+            font-family: 'Rubik';
             font-size: 10px;
             color: #3B3838;
         }
         .details_heading{
-            font-family: 'Rubik', sans-serif;
+            font-family: 'Rubik';
             font-size: 12px;
             color: #020041;
             margin-top: 10px;
@@ -122,7 +121,7 @@ button.btn.reject {
         .leave_date_day{
             color: #EF1F6D;
             font-size: 11px;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Open Sans';
             span{
                 color: #8E8E8E;
                 font-size: 11px !important;
@@ -141,8 +140,8 @@ button.btn.reject {
             border-radius: 5px;
             color: #EF1F6D;
             font-size: 9px;
-            font-family: 'Open Sans', sans-serif;
-            //font-weight: bold;
+            font-family: 'Open Sans';
+            font-weight: bold;
             @media screen and (min-width: 767px) 
             {
                 padding: 10px 20px;
@@ -154,7 +153,7 @@ button.btn.reject {
             border-radius: 5px;
             color: #fff;
             font-size: 9px;
-            //font-weight: bold;
+            font-weight: bold;
             margin: 0 10px;
             @media screen and (min-width: 767px) 
             {
@@ -167,12 +166,101 @@ button.btn.reject {
             border-radius: 5px;
             color: #fff;
             font-size: 9px;
-            //font-weight: bold;
+            font-weight: bold;
             margin-right: 10px;
             @media screen and (min-width: 767px) 
             {
                 padding: 10px 20px;
             }
         }
+        .details_modal{
+            //background-color: #000;
+            //opacity: 0.94;
+            .modal-content{
+                background-color: #fff !important;
+            }
+            .modal-dialog{
+                margin: unset;
+            }
+            
+            .modal-body{
+                background-color: #F3F3F3 !important;
+                opacity: 0.56;
+                //padding: 17px 23px;
+                
+            }
+            .modal-footer{
+                justify-content: center !important;
+            }
+            
+        }
+    }
+}
+
+
+.modal_content_with_overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.94);
+    display: flex;
+    overflow: auto;
+    z-index: 999;
+}
+.modal_body{
+    display: table;
+    margin: 70px auto;
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 92vw;
+    .modal_header {
+        //border-bottom: 1px solid rgba(156, 156, 156, 0.27);
+        //padding: 12px 0px;
+        .leave_reason{
+            padding: 17px 23px;
+        }
+        .leave_reason_text{
+            font-family: 'Rubik';
+            font-size: 13px;
+            font-weight: lighter;
+            color: #010040;
+            margin: 0 23px 0 40px;
+        }
+    }
+    .leave_image{
+        margin: 4px 10px 0px 10px;
+        height: 100%;
+        width: auto;
+    }
+    .leave_titles{
+        font-family: 'Rubik';
+        font-size: 16px;
+        color: #EF1F6D;
+        margin: 0;
+    }
+    .leave_dates{
+        background-color: rgba(243, 243, 243, 1);
+        border-top: 1px solid #E0E0E0;
+        border-bottom: 1px solid #E0E0E0;
+        padding: 17px 23px;
+        .leave_date_text{
+            font-family: 'Open Sans';
+            font-size: 15px;
+            color: #010040;
+            margin: 0 23px 0 40px;
+        }
+    }
+    .close_btn{
+        background-color: #3A99C5;
+        color: #fff;
+        font-family: 'Open Sans';
+        font-size: 10px;
+        font-weight: bold;
+        padding: 5px 28px;
+        margin: 20px auto;
     }
 }
