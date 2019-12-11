@@ -96,7 +96,11 @@ export class LoginComponent implements OnInit {
       this._toastService.presentToast(res.message);
       this.isDisable = false;
       this.loading = false;
-      this.router.navigate(['home']);
+      if(JSON.parse(localStorage.getItem('designation')) == 'Admin'){
+        this.router.navigate(['home/dashboard']);
+      }else{
+        this.router.navigate(['home']);
+      }
     }, err => {
       console.log('err in login ============>', err, err.error.message, err.error);
       this._toastService.presentToast(err.error.message);

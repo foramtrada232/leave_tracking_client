@@ -4,6 +4,9 @@ import { LeaveService } from '../services/leave.service';
 import { ToastService } from '../services/toast.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { element } from 'protractor';
+import { UserService } from '../services/user.service';
+import { config } from '../config';
+import { Router } from '@angular/router'
 declare var $: any;
 
 // let format = require("date-fns/format");
@@ -15,9 +18,11 @@ declare var $: any;
 })
 export class LeaveFormComponent implements OnInit {
   leaveForm: FormGroup;
+  currentUserRole = JSON.parse(localStorage.getItem('designation'));
   isDisable: Boolean = false;
   curruntDate: string = new Date().toISOString();
   noOfDays = false;
+  path = config.baseMediaUrl;
   shortLeave = false
   isValue: Boolean = false;
   nextYear;
@@ -25,9 +30,11 @@ export class LeaveFormComponent implements OnInit {
   toDate: any;
   timeDiff: any;
   days;
+  loading: boolean;
+  userDetail: any;
 
 
-  constructor(public _leaveService: LeaveService, private elementRef: ElementRef, public _toastService: ToastService, private localNotifications: LocalNotifications) {
+  constructor(public router: Router, public _userService: UserService, public _leaveService: LeaveService, private elementRef: ElementRef, public _toastService: ToastService, private localNotifications: LocalNotifications) {
     this.leaveForm = new FormGroup({
       date: new FormControl('', [Validators.required]),
       noOfDays: new FormControl(''),
@@ -38,15 +45,18 @@ export class LeaveFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('.singleDay').show();
+    $('.multiDays').hide();
+    this.getUserDetail();
     console.log("curruntdate====>", this.curruntDate);
     this.nextYear = this.curruntDate.split("-")[0];
     this.nextYear = this.nextYear++;
-    this.nextYear = this.nextYear+ +1;
-    console.log("nextyear=====>",this.nextYear)
-    $(function() {
+    this.nextYear = this.nextYear + +1;
+    console.log("nextyear=====>", this.nextYear)
+    $(function () {
       $('input[name="daterange"]').daterangepicker({
         opens: 'center'
-      }, function(start, end, label) {
+      }, function (start, end, label) {
         console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
       });
     });
@@ -72,8 +82,49 @@ export class LeaveFormComponent implements OnInit {
 
   }
 
+  showImageName(e) {
+    var fileName = e.target.files[0].name;
+    $('.attach_file').html(fileName);
+  }
 
+  leaveSelect(e) {
+    console.log('e.value', e.target.value);
+    if (e.target.value == 1 || e.target.value == 0.5) {
+      $('.singleDay').show();
+      $('.multiDays').hide();
+    } else if (e.target.value == 2) {
+      $('.singleDay').hide();
+      $('.multiDays').show();
+    }
+  }
 
+  /**
+   * get user details
+   */
+  getUserDetail() {
+    this.loading = true;
+    this._userService.getUserDetail().subscribe((res: any) => {
+      console.log("login user details===", res)
+      this.userDetail = res.data;
+      this.loading = false;
+      console.log("this.userDetails login", this.userDetail);
+      // this.route.navigate(['login'])
+    }, err => {
+      console.log(err);
+      this.loading = false;
+    })
+  }
+
+  /**
+   * logout
+   */
+
+  logout() {
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("logout response===", res);
+      this.router.navigateByUrl('login');
+    })
+  }
 
   /**
    * Apply leave

@@ -2,7 +2,10 @@
     <ion-toolbar class="toolbar-color1">
         <ion-row>
             <ion-col size='4'>
-                <div class="rao_logo" routerLink="/home/dashboard">
+                <div class="rao_logo">
+                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
+                </div>
+                <div class="rao_logo" routerLink="/home/dashboard" *ngIf="currentUserRole == 'Admin'">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
                 <img src="../../../assets/images/dashboard.png" alt="meter">
@@ -17,235 +20,54 @@
                     <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
                         alt="notification">
                     <span>1</span>
-                    <img src="../../../assets/images/exit.png" alt="logout button">
+                    <img src="../../../assets/images/exit.png" alt="logout button" (click)="logout()">
                 </div>
             </ion-col>
         </ion-row>
     </ion-toolbar>
 </ion-header>
-    
-    <ion-content>
-        <div class="leave_history_card">
-            <div class="card" style="cursor: pointer;">
-                <div class="card-content  w-100 pending_leaves">
-                    <div class="row m-0">
-                        <div class="col-3 p-0">
-                            <div class="profile_div">
-                                <div class="leave_month">
-                                    <div class="badge approved">Nov</div>
+
+<ion-content>
+    <div class="leave_history_card" *ngIf="historyByUser">
+        <div class="card" style="cursor: pointer;" *ngFor="let history of historyByUser">
+            <div class="card-content  w-100 pending_leaves">
+                <div class="row m-0">
+                    <div class="col-3 p-0">
+                        <div class="profile_div">
+                            <div class="leave_month">
+                                <div class="badge approved" *ngIf="history.status == 'Approved'">{{history.noOfDays}}
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-9 p-0">
-                            <div class="application_detail">
-                                <h2 class="name">Akshay Karetiya</h2>
-                                <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="status_pill approved">Status</p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="details_heading">Applied For Leaves</p>
-                                    </div>
-    
+                                <div class="badge rejected" *ngIf="history.status == 'Rejected'">{{history.noOfDays}}
                                 </div>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="leave_date_day"><span class="approved_text">Approved</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                        </p>
-                                    </div>
+                                <div class="badge pending" *ngIf="history.status == 'pending'">{{history.noOfDays}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card" style="cursor: pointer;">
-                <div class="card-content  w-100 pending_leaves">
-                    <div class="row m-0">
-                        <div class="col-3 p-0">
-                            <div class="profile_div">
-                                <div class="leave_month">
-                                    <div class="badge pending">Oct</div>
+                    <div class="col-9 p-0">
+                        <div class="application_detail">
+                            <h2 class="name">{{history.userId.name}}</h2>
+                            <p class="sub_text">{{history.reason}}</p>
+                            <div class="row m-0">
+                                <div class="col-5 p-0">
+                                    <p class="status_pill approved" *ngIf="history.status == 'Approved'">Status</p>
+                                    <p class="status_pill pending" *ngIf="history.status == 'pending'">Status</p>
+                                    <p class="status_pill rejected" *ngIf="history.status == 'Rejected'">Status</p>
                                 </div>
+                                <div class="col-7 p-0">
+                                    <p class="details_heading">Applied For Leaves</p>
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="col-9 p-0">
-                            <div class="application_detail">
-                                <h2 class="name">Akshay Karetiya</h2>
-                                <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="status_pill pending">Status</p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="details_heading">Applied For Leaves</p>
-                                    </div>
+                            <div class="row m-0">
+                                <div class="col-5 p-0">
+                                    <p class="leave_date_day"><span class="approved_text">{{history.status}}</span>
+                                    </p>
                                 </div>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="leave_date_day"><span class="approved_text">Approved</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="cursor: pointer;">
-                <div class="card-content  w-100 pending_leaves">
-                    <div class="row m-0">
-                        <div class="col-3 p-0">
-                            <div class="profile_div">
-                                <div class="leave_month">
-                                    <div class="badge rejected">Sept</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-9 p-0">
-                            <div class="application_detail">
-                                <h2 class="name">Akshay Karetiya</h2>
-                                <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="status_pill rejected">Status</p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="details_heading">Applied For Leaves</p>
-                                    </div>
-    
-                                </div>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="leave_date_day"><span class="approved_text">Approved</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="cursor: pointer;">
-                <div class="card-content  w-100 pending_leaves">
-                    <div class="row m-0">
-                        <div class="col-3 p-0">
-                            <div class="profile_div">
-                                <div class="leave_month">
-                                    <div class="badge pending">Oct</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-9 p-0">
-                            <div class="application_detail">
-                                <h2 class="name">Akshay Karetiya</h2>
-                                <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="status_pill pending">Status</p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="details_heading">Applied For Leaves</p>
-                                    </div>
-    
-                                </div>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="leave_date_day"><span class="approved_text">Approved</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="cursor: pointer;">
-                <div class="card-content  w-100 pending_leaves">
-                    <div class="row m-0">
-                        <div class="col-3 p-0">
-                            <div class="profile_div">
-                                <div class="leave_month">
-                                    <div class="badge pending">Oct</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-9 p-0">
-                            <div class="application_detail">
-                                <h2 class="name">Akshay Karetiya</h2>
-                                <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="status_pill pending">Status</p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="details_heading">Applied For Leaves</p>
-                                    </div>
-                                </div>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="leave_date_day"><span class="approved_text">Approved</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="cursor: pointer;">
-                <div class="card-content  w-100 pending_leaves">
-                    <div class="row m-0">
-                        <div class="col-3 p-0">
-                            <div class="profile_div">
-                                <div class="leave_month">
-                                    <div class="badge rejected">Sept</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-9 p-0">
-                            <div class="application_detail">
-                                <h2 class="name">Akshay Karetiya</h2>
-                                <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="status_pill rejected">Status</p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="details_heading">Applied For Leaves</p>
-                                    </div>
-    
-                                </div>
-                                <div class="row m-0">
-                                    <div class="col-5 p-0">
-                                        <p class="leave_date_day"><span class="approved_text">Approved</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-7 p-0">
-                                        <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                        </p>
-                                    </div>
+                                <div class="col-7 p-0">
+                                    <p class="leave_date_day">{{history.noOfDays}} Days / <span
+                                            class="leave_date_day_out_of">18</span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -253,4 +75,5 @@
                 </div>
             </div>
         </div>
-    </ion-content>
+    </div>
+</ion-content>

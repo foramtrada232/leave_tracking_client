@@ -101,7 +101,7 @@ export class HomePage {
     })
   }
   getBackground(data){
-    console.log(data);
+    // console.log(data);
     return '/assets/images/' + data + '.png' ;
   }
 }

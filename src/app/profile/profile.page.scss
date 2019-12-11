@@ -1,6 +1,12 @@
 $app_bar_color: #01023F;
 $font_size    : 15px;
 $text_color   : #3998C5;
+
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
 // header start here
 // status bar color
 

@@ -17,29 +17,10 @@ export class LeaveService {
     return this.http.post(config.baseApiUrl + "api/leave/add-leave", data);
   }
   /**
-   * Get monthly leave history of user
-   * @param {object} data 
+   * Get leave history of user
    */
-  getMounthlyLeaveByUser(data) {
-    console.log(data);
-    const detail = data.month.split("-");
-    const obj = {
-      month: detail[1],
-      year: detail[0]
-    }
-    return this.http.post(config.baseApiUrl + "api/leave/get-leave-by-month", obj);
-  }
-
-  /**
-   * Get yearly leave history of user
-   * @param {object} data 
-   */
-  getYearlyLeaveByUser(data) {
-    console.log(data.year.split("-")[0]);
-    const obj = {
-      year: data.year.split("-")[0]
-    }
-    return this.http.post(config.baseApiUrl + "api/leave/get-leave-by-year", obj);
+  leaveHistoryByUser() {
+    return this.http.get(config.baseApiUrl + "api/leave/get-leave-by-user");   
   }
 
   /**

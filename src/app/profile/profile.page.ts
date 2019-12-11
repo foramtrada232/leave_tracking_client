@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class ProfilePage implements OnInit {
   userDetail;
   path = config.baseMediaUrl;
-  currentUserRole = localStorage.getItem('designation');
+  currentUserRole = JSON.parse(localStorage.getItem('designation'));
   token = JSON.parse(localStorage.getItem('accessToken'));
   files: any;
   imagePath;
@@ -23,8 +23,11 @@ export class ProfilePage implements OnInit {
 
   constructor(public route: Router, public modalController: ModalController, public _userService: UserService, public _toastService: ToastService, public events1: Events) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.getUserDetail();
+  }
+  ngOnInit() {
+    console.log('this.currentUserRole', this.currentUserRole)
     console.log("current user role login", this.token);
   }
 
