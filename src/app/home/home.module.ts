@@ -15,6 +15,8 @@ import { ReportsComponent } from '../Admin/reports/reports.component';
 import { LeaveApplicationComponent } from '../Admin/leave-application/leave-application.component';
 import { NotificationComponent } from '../Admin/notification/notification.component';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { EditInfoComponent } from '../edit-info/edit-info.component';
+import { from } from 'rxjs';
 
 @NgModule({
   imports: [
@@ -67,6 +69,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
             path: '',
             redirectTo: 'profile',
             pathMatch: 'full'
+          },
+          {
+            path: 'edit-info',
+            component: EditInfoComponent
           }
         ]
       },
@@ -87,7 +93,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     SingleUsreComponent,
     ReportsComponent,
     LeaveApplicationComponent,
-    NotificationComponent
+    NotificationComponent,
+    EditInfoComponent
   ],
   providers: [
     LocalNotifications

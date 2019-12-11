@@ -1,0 +1,95 @@
+ion-card.bg-white {
+    border-radius: 0;
+    margin       : 10px 15px;
+}
+
+.bg-color {
+    position        : absolute;
+    top             : 0;
+    left            : 0;
+    right           : 0;
+    background-color: #01023f;
+    height          : 50px;
+}
+
+.attachment {
+    border-width: thin;
+    margin      : 10px 0;
+
+    .attachment_text {
+        margin: auto;
+        color : #7A869A;
+
+        label {
+            margin: 0;
+        }
+
+        .border-image {
+            position     : absolute;
+            left         : 0;
+            top          : 0;
+            padding      : 13px;
+            border       : 1px solid #a59c9c;
+            border-radius: 50%;
+
+            img {
+                width: 30px;
+            }
+        }
+
+        .attach_file {
+            font-family: 'Rubik';
+            font-size  : 13px;
+            color      : #01023f;
+        }
+
+        .drag_file {
+            font-family: 'Open Sans';
+            font-size  : 11px;
+            color      : #7A869A;
+        }
+    }
+}
+
+.group-inputs-div {
+    span {
+        width      : 100%;
+        color      : #EF1F6D;
+        font-weight: bold;
+        font-family: 'Rubik', sans-serif;
+        display    : block;
+        font-size  : 13px;
+    }
+
+    input[type="text"] {
+        width        : 100%;
+        border       : 1px solid #020041;
+        border-radius: 4px;
+        padding      : 5px 10px;
+        font-size    : 12px;
+        margin       : 5px 0;
+        ::placeholder{
+            color: red;
+        }
+    }
+
+    .submit_btn {
+        font-family     : "Open Sans";
+        font-size       : 12px;
+        font-weight     : bold;
+        color           : #fff;
+        background-color: #020041;
+        border-radius   : 3px;
+        padding         : 9px 30px;
+        margin-top      : 5px;
+    }
+
+    .submit_btn:hover {
+        background-color: #fff;
+        border          : 1px solid #020041;
+        color           : #020041;
+    }
+}
+.header-md:after{
+    content: none;
+}

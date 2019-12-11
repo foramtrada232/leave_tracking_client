@@ -25,88 +25,144 @@
 </ion-header>
 
 <ion-content>
-    <div class="bg-color"></div>
-    <div class="loader" *ngIf="loading">
-        <img class="loading_img" src="../../assets/images/loader.gif" />
-    </div>
-    <div class="profile-card" *ngIf="userDetail">
-        <ion-card class="bg-white ">
-            <ion-card-content>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-8 p-0">
-                            <div class="profile-img">
-                                <img class="circle-ronded" *ngIf="!userDetail.profilePhoto" src="../../assets/images/person.png">
-                                <img class="circle-ronded" *ngIf="userDetail.profilePhoto" src="{{path}}{{userDetail.profilePhoto}}">
-                            </div>
-                            <div class="profile-content">
-                                <h1>{{userDetail.name}}</h1>
-                                <span>{{userDetail.designation}}</span>
-                                <p>Commitment global cultivate, thought leader framework, our work.</p>
-                            </div>
-                        </div>
-                        <div class="col-4 p-0 text-right location">
-                            <span><img src="../../assets/images/location.png" alt="location">
-                           Location</span>
-                            <p>{{userDetail.location}}</p>
-                            <button><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Image</button>
-                        </div>
-                    </div>
-                    <div class="contact mt-2">
-                        <div class="d-inline-block w-100 mt-2">
-                            <div class="float-left">
-                                <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
-                                <span>{{userDetail.email}}</span>
-                            </div>
-                            <div class="float-right" *ngIf="userDetail.phone">
-                                <i class="fa fa-phone mr-2" aria-hidden="true"></i>
-                                <span><a href="tel:userDetail.phone">{{userDetail.phone}}</a></span>
-                            </div>
-                        </div>
-                        <div class="w-100">
-                            <span class="dob mr-2">DOB</span>
-                            <span class="dob-dt">{{userDetail.dob | date: 'dd/MM/yyyy'}}</span>
-                        </div>
-                    </div>
-                </div>
-            </ion-card-content>
-        </ion-card>
-        <div class="container-fluid">
-            <ion-card class="sick-leave">
+    <div class="defalut-profile">
+        <div class="profile-heading">
+            <div class="profile-img mt-3">
+                <img class="circle-ronded" src="../../assets/images/hover-3.jpg">
+            </div>
+            <div class="profile-content pl-2">
+                <h1 class="mb-0">Akshay Karetiya</h1>
+                <span class="mt-1">Android Developer</span>
+                <p>Commitment global cultivate, thought leader framework, our work.</p>
+            </div>
+        </div>
+        <div class="information">
+            <div class="container">
                 <div class="row">
-                    <div class="col-9">
-                        <h1>Sick Leave</h1>
-                        <p>Commitment global cultivate, thought leader framework, our work.</p>
+                    <div class="col-4">
+                        <img src="../../assets/images/envelope.png" alt="calendar">
+                        <span>Email</span>
                     </div>
-                    <div class="col-3 px-0 pt-2">
-                        <span>3/12</span>
+                    <div class="col-8 p-0">
+                        <span>akshaykaretiya@gmail.com</span>
+                    </div>
+                    <div class="col-4">
+                        <img src="../../assets/images/cal.svg" alt="calendar">
+                        <span>DOB</span>
+                    </div>
+                    <div class="col-8 p-0">
+                        <span>18-07-1990</span>
+                    </div>
+                    <div class="col-4">
+                        <img src="../../assets/images/phone-call.png" alt="calendar">
+                        <span>Phone</span>
+                    </div>
+                    <div class="col-8 p-0">
+                        <span>+91 9876543210</span>
+                    </div>
+                    <div class="col-4">
+                        <img src="../../assets/images/placeholder.png" alt="calendar">
+                        <span>Location</span>
+                    </div>
+                    <div class="col-8 p-0">
+                        <span>Ahmedabad</span>
+                    </div>
+                    <div class="col-4">
+                        <img src="../../assets/images/cal.svg" alt="calendar">
+                        <span>Joining Date</span>
+                    </div>
+                    <div class="col-8 p-0">
+                        <span>18-7-2019</span>
                     </div>
                 </div>
-            </ion-card>
-            <ion-card class="emergency-leave">
-                <div class="row">
-                    <div class="col-9">
-                        <h1>Emergency Leave</h1>
-                        <p>Commitment global cultivate, thought leader framework, our work.</p>
-                    </div>
-                    <div class="col-3 px-0 pt-2">
-                        <span>2/5</span>
-                    </div>
-                </div>
-            </ion-card>
-            <ion-card class="casual-leave">
-                <div class="row">
-                    <div class="col-9">
-                        <h1>Casual Leave</h1>
-                        <p>Commitment global cultivate, thought leader framework, our work.</p>
-                    </div>
-                    <div class="col-3 px-0 pt-2">
-                        <span>3/12</span>
-                    </div>
-                </div>
-            </ion-card>
+            </div>
         </div>
     </div>
+
+    <!-- <div class="profile">
+        <div class="bg-color"></div>
+        <div class="loader" *ngIf="loading">
+            <img class="loading_img" src="../../assets/images/loader.gif" />
+        </div>
+        <div class="profile-card">
+            <ion-card class="bg-white ">
+                <ion-card-content>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-8 p-0">
+                                <div class="profile-img">
+                                    <img class="circle-ronded" src="../../assets/images/hover-3.jpg">
+                                </div>
+                                <div class="profile-content">
+                                    <h1>Akshay Karetiya</h1>
+                                    <span>Android Developer</span>
+                                    <p>Commitment global cultivate, thought leader framework, our work.</p>
+                                </div>
+                            </div>
+                            <div class="col-4 p-0 text-right location">
+                                <span><img src="../../assets/images/location.png" alt="location">
+                                    Location</span>
+                                <p>Ahmedabad</p>
+                                <button routerLink="/home/edit-info"><i class="fa fa-pencil-square-o"
+                                        aria-hidden="true"></i> Edit Info</button>
+                            </div>
+                        </div>
+                        <div class="contact mt-2">
+                            <div class="d-inline-block w-100 mt-2">
+                                <div class="float-left">
+                                    <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+                                    <span>akshaykaretiya@gmail.com</span>
+                                </div>
+                                <div class="float-right">
+                                    <i class="fa fa-phone mr-2" aria-hidden="true"></i>
+                                    <span>+91 98123456789</span>
+                                </div>
+                            </div>
+                            <div class="w-100">
+                                <span class="dob mr-2">DOB</span>
+                                <span class="dob-dt">18-7-1990</span>
+                            </div>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <div class="container-fluid">
+                <ion-card class="sick-leave">
+                    <div class="row">
+                        <div class="col-9">
+                            <h1>Sick Leave</h1>
+                            <p>Commitment global cultivate, thought leader framework, our work.</p>
+                        </div>
+                        <div class="col-3 px-0 pt-2">
+                            <span>3/12</span>
+                        </div>
+                    </div>
+                </ion-card>
+                <ion-card class="emergency-leave">
+                    <div class="row">
+                        <div class="col-9">
+                            <h1>Emergency Leave</h1>
+                            <p>Commitment global cultivate, thought leader framework, our work.</p>
+                        </div>
+                        <div class="col-3 px-0 pt-2">
+                            <span>2/5</span>
+                        </div>
+                    </div>
+                </ion-card>
+                <ion-card class="casual-leave">
+                    <div class="row">
+                        <div class="col-9">
+                            <h1>Casual Leave</h1>
+                            <p>Commitment global cultivate, thought leader framework, our work.</p>
+                        </div>
+                        <div class="col-3 px-0 pt-2">
+                            <span>3/12</span>
+                        </div>
+                    </div>
+                </ion-card>
+            </div>
+        </div>
+    </div> -->
 
     <!-- <div *ngIf="userDetail" class="user_detail">
         <div class="single_user_profile text-center">
@@ -114,14 +170,14 @@
                 <div class="profile_img">
                     <img *ngIf="!userDetail.profilePhoto" class="circle-ronded" src="../../assets/images/person.png">
                     <img *ngIf="userDetail.profilePhoto" class="circle-ronded"
-                        src="{{path}}{{userDetail.profilePhoto}}">
+                    src="{{path}}{{userDetail.profilePhoto}}">
                 </div>
                 <input type="file" name="files" value="files" id="customFile" accept="image/png, image/jpeg, image/jpg"
-                    hidden (change)="fileSelected($event)">
+                hidden (change)="fileSelected($event)">
                 <label for="customFile" class="profile_and_cover_edit text-center" title="Change Profile"><i
-                        class="fa fa-camera" aria-hidden="true"></i></label>
-            </div>
-            <ion-img *ngIf="urls" [src]="urls"></ion-img>
+                    class="fa fa-camera" aria-hidden="true"></i></label>
+                </div>
+                <ion-img *ngIf="urls" [src]="urls"></ion-img>
         </div>
         <div class="usee_name_text">
             <p class="text-center">{{userDetail.name}}</p>

@@ -14,393 +14,371 @@
                 </ion-col>
                 <ion-col size='4'>
                     <div class="icon_sec">
-                        <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3" alt="notification">
+                        <img src="../../../assets/images/notification.png" routerLink="/home/notification" class="mr-3"
+                            alt="notification">
                         <span>1</span>
-                        <img src="../../../assets/images/exit.png" alt="logout button">
+                        <img src="../../../assets/images/log_out.png" alt="logout button">
                     </div>
                 </ion-col>
             </ion-row>
         </ion-toolbar>
     </ion-header>
-<ion-content>
-    <div class="loader" *ngIf="loading">
-        <img class="loading_img" src="../../assets/images/loader.gif" />
-    </div>
-    <div class="tracking_list_card">
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Akshay Karetiya</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="details_heading">Date</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                    </p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="leave_date_day"><span class="leave_date_day_out_of">25-27 </span>December
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row m-0">
-                    <div class="col-3"></div>
-                    <div class="col-9 p-0">
-                        <div class="row m-0">
-                            <div class="button_group">
-                                <button class="btn approve_btn">Approve</button>
-                                <button class="btn reject_btn">Reject</button>
-                                <button class="btn details_btn">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    
+    <ion-content>
+        <div class="loader" *ngIf="loading">
+            <img class="loading_img" src="../../assets/images/loader.gif" />
         </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
+        <div class="tracking_list_card">
+            <div class="card" style="cursor: pointer;">
+                <div class="card-content  w-100 pending_leaves">
+                    <div class="row m-0">
+                        <div class="col-3">
+                            <div class="profile_div">
+                                <div class="image_profile">
+                                    <img src="../../../assets/images/person.png" alt="profil image">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9 p-0">
+                            <div class="application_detail">
+                                <h2 class="name">Akshay Karetiya</h2>
+                                <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
+                                <div class="row m-0">
+                                    <div class="col-7 p-0">
+                                        <p class="details_heading">Applied For Leaves</p>
+                                    </div>
+                                    <div class="col-5 p-0">
+                                        <p class="details_heading">Date</p>
+                                    </div>
+                                </div>
+                                <div class="row m-0">
+                                    <div class="col-7 p-0">
+                                        <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
+                                        </p>
+                                    </div>
+                                    <div class="col-5 p-0">
+                                        <p class="leave_date_day"><span class="leave_date_day_out_of">25-27 </span>December
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Akshay Karetiya</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
+                    <hr>
+                    <div class="row m-0">
+                        <div class="col-3"></div>
+                        <div class="col-9 p-0">
                             <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="details_heading">Date</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                    </p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="leave_date_day"><span class="leave_date_day_out_of">25-27 </span>December
-                                    </p>
+                                <div class="button_group">
+                                    <button class="btn approve_btn">Approve</button>
+                                    <button class="btn reject_btn">Reject</button>
+                                    <button type="button" class="btn details_btn" id="open-modal">Details</button>
+                                    <div class="modal_content_with_overlay" id="open-modal-body" style="display: none;">
+                                        <div class="modal_body">
+                                            <div class="modal_header">
+                                                <div class="leave_reason">
+                                                    <div class="row m-0">
+                                                        <img class="leave_image"
+                                                            src="../../assets/images/leave_reason.png">
+                                                        <p class="leave_titles">Reason For Leave</p>
+                                                    </div>
+                                                    <p class="leave_reason_text">Leave Due to Wedding season And attending
+                                                        ceremony at Hometown</p>
+                                                </div>
+                                            </div>
+                                            <div class="leave_dates">
+                                                <div class="row m-0">
+                                                    <img class="leave_image" src="../../assets/images/leave_date.png">
+                                                    <p class="leave_titles">Leave Dates</p>
+                                                </div>
+                                                <p class="leave_date_text">25 - 27 December</p>
+                                            </div>
+                                            <div class="row m-0">
+                                                <button type="button" class="btn close_btn">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="row m-0">
-                    <div class="col-3"></div>
-                    <div class="col-9 p-0">
-                        <div class="row m-0">
-                            <div class="button_group">
-                                <button class="btn approve_btn">Approve</button>
-                                <button class="btn reject_btn">Reject</button>
-                                <button class="btn details_btn">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Akshay Karetiya</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="details_heading">Date</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                    </p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="leave_date_day"><span class="leave_date_day_out_of">25-27 </span>December
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row m-0">
-                    <div class="col-3"></div>
-                    <div class="col-9 p-0">
-                        <div class="row m-0">
-                            <div class="button_group">
-                                <button class="btn approve_btn">Approve</button>
-                                <button class="btn reject_btn">Reject</button>
-                                <button class="btn details_btn">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Akshay Karetiya</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="details_heading">Date</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                    </p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="leave_date_day"><span class="leave_date_day_out_of">25-27 </span>December
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row m-0">
-                    <div class="col-3"></div>
-                    <div class="col-9 p-0">
-                        <div class="row m-0">
-                            <div class="button_group">
-                                <button class="btn approve_btn">Approve</button>
-                                <button class="btn reject_btn">Reject</button>
-                                <button class="btn details_btn">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Akshay Karetiya</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="details_heading">Date</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                    </p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="leave_date_day"><span class="leave_date_day_out_of">25-27 </span>December
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row m-0">
-                    <div class="col-3"></div>
-                    <div class="col-9 p-0">
-                        <div class="row m-0">
-                            <div class="button_group">
-                                <button class="btn approve_btn">Approve</button>
-                                <button class="btn reject_btn">Reject</button>
-                                <button class="btn details_btn">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Akshay Karetiya</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="details_heading">Date</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <p class="leave_date_day">02 Days / <span class="leave_date_day_out_of">15</span>
-                                    </p>
-                                </div>
-                                <div class="col-5 p-0">
-                                    <p class="leave_date_day"><span class="leave_date_day_out_of">25-27 </span>December
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row m-0">
-                    <div class="col-3"></div>
-                    <div class="col-9 p-0">
-                        <div class="row m-0">
-                            <div class="button_group">
-                                <button class="btn approve_btn">Approve</button>
-                                <button class="btn reject_btn">Reject</button>
-                                <button class="btn details_btn">Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</ion-content>
-<!-- <ion-content>
-    <div class="loader" *ngIf="loading">
-        <img class="loading_img" src="../../assets/images/loader.gif" />
-    </div>
-    <div class="contect_class">
-        <div *ngIf="PendingLeaves.length">
-            <div *ngFor="let leave of PendingLeaves ;let i=index">
                 <div class="card" style="cursor: pointer;">
                     <div class="card-content  w-100 pending_leaves">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
+                        <div class="row m-0">
+                            <div class="col-3">
+                                <div class="profile_div">
+                                    <div class="image_profile">
+                                        <img src="../../../assets/images/person.png" alt="profil image">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="application_detail">
-                                <strong>{{leave.userId.name}}</strong>
-                                <div *ngIf="leave.totalDate.length > 1">
-                                    <div class="row">
-                                        <div class="col-6 pr-0">
-                                            <p><span>From:</span>{{leave.totalDate[0]}}</p>
+                            <div class="col-9 p-0">
+                                <div class="application_detail">
+                                    <h2 class="name">Akshay Karetiya</h2>
+                                    <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <div class="row m-0">
+                                        <div class="col-7 p-0">
+                                            <p class="details_heading">Applied For Leaves</p>
                                         </div>
-                                        <div class="col-6 p-0">
-                                            <p><span>To:</span> {{leave.totalDate[leave.totalDate.length-1]}}</p>
+                                        <div class="col-5 p-0">
+                                            <p class="details_heading">Date</p>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-7 p-0">
+                                            <p class="leave_date_day">02 Days / <span
+                                                    class="leave_date_day_out_of">15</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-5 p-0">
+                                            <p class="leave_date_day"><span class="leave_date_day_out_of">25-27
+                                                </span>December
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
-                                <p *ngIf="leave.totalDate.length == 1"><span>Date:</span>{{leave.totalDate[0]}}</p>
-                                <p><span>Applied On:</span>{{leave.appliedOn}}</p>
-                                <p><span>Day:</span>{{getNoOfDays(leave)}}</p>
-                                <p><span>Reason:</span>{{leave.reason}}</p>
-                                <p *ngIf="leave.extraHours"><span>Compensation:</span>{{leave.extraHours}}</p>
                             </div>
                         </div>
-                        <div class="accept_reject_btngroup">
-                            <button class="btn accept" (click)="leaveApproval(leave._id,'Rejected')">Accept</button>
-                            <button class="btn reject" (click)="leaveApproval(leave._id,'Approved')">Reject</button>
+                        <hr>
+                        <div class="row m-0">
+                            <div class="col-3"></div>
+                            <div class="col-9 p-0">
+                                <div class="row m-0">
+                                    <div class="button_group">
+                                        <button class="btn approve_btn">Approve</button>
+                                        <button class="btn reject_btn">Reject</button>
+                                        <button type="button" class="btn details_btn" id="open-modal">Details</button>
+                                        <div class="modal_content_with_overlay" id="open-modal-body" style="display: none;">
+                                            <div class="modal_body">
+                                                <div class="modal_header">
+                                                    <div class="leave_reason">
+                                                        <div class="row m-0">
+                                                            <div class="col-2">
+                                                                <img class="leave_image"
+                                                                    src="../../assets/images/leave_reason.png">
+                                                            </div>
+                                                            <div class="col-10">
+                                                                <p class="leave_titles">Reason For Leave</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-0">
+                                                            <div class="col-2">
+    
+                                                            </div>
+                                                            <div class="col-10">
+                                                                <p class="leave_reason_text">Leave Due to Wedding season And
+                                                                    attending ceremony at Hometown</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="leave_dates">
+                                                    <div class="row m-0">
+                                                        <div class="col-2">
+                                                            <img class="leave_image"
+                                                                src="../../assets/images/leave_date.png">
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <p class="leave_titles">Leave Dates</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-0">
+                                                        <div class="col-2">
+    
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <p class="leave_date_text">25 - 27 December</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-0">
+                                                    <button type="button" class="btn close_btn">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
-                    <div class="modal">
-                        <div class="modal-body">
-                            <div class="modal-content">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <p class="text-white">Reason :</p>
-                                        <div class="reason_text text-white">{{leave.reason}}</div>
+                </div>
+                <div class="card" style="cursor: pointer;">
+                    <div class="card-content  w-100 pending_leaves">
+                        <div class="row m-0">
+                            <div class="col-3">
+                                <div class="profile_div">
+                                    <div class="image_profile">
+                                        <img src="../../../assets/images/person.png" alt="profil image">
                                     </div>
-                                    <div class="col-12">
-                                        <p class="text-white">Date :</p>
-                                        <div class="reason_text text-white">
-                                            {{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}
-                                        </div>
-                                    </div>
-                                    <div class="col-12" *ngIf="leave.extraHours">
-                                        <p class="text-white">Compensation :</p>
-                                        <div class="reason_text text-white">{{leave.extraHours}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ok_btn text-center mt-3">
-                                    <label for="o{{i}}">Ok</label>
                                 </div>
                             </div>
-                            <div class="close_btn">
-                                <label for="o{{i}}">X</label>
+                            <div class="col-9 p-0">
+                                <div class="application_detail">
+                                    <h2 class="name">Akshay Karetiya</h2>
+                                    <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
+                                    <div class="row m-0">
+                                        <div class="col-7 p-0">
+                                            <p class="details_heading">Applied For Leaves</p>
+                                        </div>
+                                        <div class="col-5 p-0">
+                                            <p class="details_heading">Date</p>
+                                        </div>
+                                    </div>
+                                    <div class="row m-0">
+                                        <div class="col-7 p-0">
+                                            <p class="leave_date_day">02 Days / <span
+                                                    class="leave_date_day_out_of">15</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-5 p-0">
+                                            <p class="leave_date_day"><span class="leave_date_day_out_of">25-27
+                                                </span>December
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row m-0">
+                            <div class="col-3"></div>
+                            <div class="col-9 p-0">
+                                <div class="row m-0">
+                                    <div class="button_group">
+                                        <button class="btn approve_btn">Approve</button>
+                                        <button class="btn reject_btn">Reject</button>
+                                        <button type="button" class="btn details_btn" id="open-modal">Details</button>
+                                        <div class="modal_content_with_overlay" id="open-modal-body" style="display: none;">
+                                            <div class="modal_body">
+                                                <div class="modal_header">
+                                                    <div class="leave_reason">
+                                                        <div class="row m-0">
+                                                            <div class="col-2">
+                                                                <img class="leave_image"
+                                                                    src="../../assets/images/leave_reason.png">
+                                                            </div>
+                                                            <div class="col-10">
+                                                                <p class="leave_titles">Reason For Leave</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-0">
+                                                            <div class="col-2">
+    
+                                                            </div>
+                                                            <div class="col-10">
+                                                                <p class="leave_reason_text">Leave Due to Wedding season And
+                                                                    attending ceremony at Hometown</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="leave_dates">
+                                                    <div class="row m-0">
+                                                        <div class="col-2">
+                                                            <img class="leave_image"
+                                                                src="../../assets/images/leave_date.png">
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <p class="leave_titles">Leave Dates</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-0">
+                                                        <div class="col-2">
+    
+                                                        </div>
+                                                        <div class="col-10">
+                                                            <p class="leave_date_text">25 - 27 December</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-0">
+                                                    <button type="button" class="btn close_btn">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div *ngIf="pendingLeavesCount == 0" class=" text-center mt-4">
-        <p style="font-size: 25px;">There are no leaves...</p>
-    </div>
-</ion-content> -->
+    </ion-content>
+    
+    <!-- <ion-content>
+        <div class="loader" *ngIf="loading">
+            <img class="loading_img" src="../../assets/images/loader.gif" />
+        </div>
+        <div class="contect_class">
+            <div *ngIf="PendingLeaves.length">
+                <div *ngFor="let leave of PendingLeaves ;let i=index">
+                    <div class="card" style="cursor: pointer;">
+                        <div class="card-content  w-100 pending_leaves">
+                            <div class="profile_div">
+                                <div class="image_profile">
+                                    <img src="../../../assets/images/person.png" alt="profil image">
+                                </div>
+                                <div class="application_detail">
+                                    <strong>{{leave.userId.name}}</strong>
+                                    <div *ngIf="leave.totalDate.length > 1">
+                                        <div class="row">
+                                            <div class="col-6 pr-0">
+                                                <p><span>From:</span>{{leave.totalDate[0]}}</p>
+                                            </div>
+                                            <div class="col-6 p-0">
+                                                <p><span>To:</span> {{leave.totalDate[leave.totalDate.length-1]}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p *ngIf="leave.totalDate.length == 1"><span>Date:</span>{{leave.totalDate[0]}}</p>
+                                    <p><span>Applied On:</span>{{leave.appliedOn}}</p>
+                                    <p><span>Day:</span>{{getNoOfDays(leave)}}</p>
+                                    <p><span>Reason:</span>{{leave.reason}}</p>
+                                    <p *ngIf="leave.extraHours"><span>Compensation:</span>{{leave.extraHours}}</p>
+                                </div>
+                            </div>
+                            <div class="accept_reject_btngroup">
+                                <button class="btn accept" (click)="leaveApproval(leave._id,'Rejected')">Accept</button>
+                                <button class="btn reject" (click)="leaveApproval(leave._id,'Approved')">Reject</button>
+                            </div>
+                        </div>
+                        <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
+                        <div class="modal">
+                            <div class="modal-body">
+                                <div class="modal-content">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="text-white">Reason :</p>
+                                            <div class="reason_text text-white">{{leave.reason}}</div>
+                                        </div>
+                                        <div class="col-12">
+                                            <p class="text-white">Date :</p>
+                                            <div class="reason_text text-white">
+                                                {{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}
+                                            </div>
+                                        </div>
+                                        <div class="col-12" *ngIf="leave.extraHours">
+                                            <p class="text-white">Compensation :</p>
+                                            <div class="reason_text text-white">{{leave.extraHours}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ok_btn text-center mt-3">
+                                        <label for="o{{i}}">Ok</label>
+                                    </div>
+                                </div>
+                                <div class="close_btn">
+                                    <label for="o{{i}}">X</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="pendingLeavesCount == 0" class=" text-center mt-4">
+            <p style="font-size: 25px;">There are no leaves...</p>
+        </div>
+    </ion-content> -->

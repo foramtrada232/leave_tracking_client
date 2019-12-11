@@ -177,3 +177,31 @@ ion-button.md.button {
     left      : 0;
     right     : 0;
 }
+
+
+
+// defalut profile screen
+
+.profile-heading{
+    padding: 10px 20px;
+    border-bottom: 1px solid #dcdcdc;
+    font-family: 'Rubik', sans-serif;
+}
+.information{
+    padding: 10px;
+    font-size: 12px;
+    line-height: 33px;
+    font-family: 'Rubik', sans-serif;
+    .col-4{
+        span{
+            color: #676565;
+            margin-left: 10px;
+        }
+    }
+    .col-8{
+        span{
+            color: #020041;
+            font-weight: bold;
+        }
+    }
+}
