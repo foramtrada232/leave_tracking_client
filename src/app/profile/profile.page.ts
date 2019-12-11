@@ -37,11 +37,9 @@ export class ProfilePage implements OnInit {
   getUserDetail() {
     this.loading = true;
     this._userService.getUserDetail().subscribe((res: any) => {
-      console.log("login user details===", res)
       this.userDetail = res.data;
       this.loading = false;
       console.log("this.userDetails login", this.userDetail);
-      this.route.navigate(['login'])
     }, err => {
       console.log(err);
       this.loading = false;

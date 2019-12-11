@@ -6,7 +6,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { element } from 'protractor';
 import { UserService } from '../services/user.service';
 import { config } from '../config';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
+import * as _ from 'lodash';
+
 declare var $: any;
 
 // let format = require("date-fns/format");
@@ -32,59 +34,34 @@ export class LeaveFormComponent implements OnInit {
   days;
   loading: boolean;
   userDetail: any;
-
+  fileName: any = [];
+  attachment: any = [];
 
   constructor(public router: Router, public _userService: UserService, public _leaveService: LeaveService, private elementRef: ElementRef, public _toastService: ToastService, private localNotifications: LocalNotifications) {
     this.leaveForm = new FormGroup({
-      date: new FormControl('', [Validators.required]),
-      noOfDays: new FormControl(''),
-      reason: new FormControl('', [Validators.required]),
-      extraHours: new FormControl(''),
-      shortLeave: new FormControl('')
+      daysCount: new FormControl(''),
+      leaveType: new FormControl(''),
+      fromDate: new FormControl(''),
+      toDate: new FormControl(''),
+      singleDate: new FormControl(''),
+      reason: new FormControl(''),
+      compansate: new FormControl(''),
+      attachment: new FormControl('')
     });
   }
 
+  ionViewWillEnter() {
+    this.getUserDetail();
+  }
   ngOnInit() {
     $('.singleDay').show();
-    $('.multiDays').hide();
-    this.getUserDetail();
-    console.log("curruntdate====>", this.curruntDate);
-    this.nextYear = this.curruntDate.split("-")[0];
-    this.nextYear = this.nextYear++;
-    this.nextYear = this.nextYear + +1;
-    console.log("nextyear=====>", this.nextYear)
-    $(function () {
-      $('input[name="daterange"]').daterangepicker({
-        opens: 'center'
-      }, function (start, end, label) {
-        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-      });
-    });
-    this.nextYear = this.nextYear + +1;
-    console.log("nextyear=====>", this.nextYear)
-  }
-
-  fromDateChange(date) {
-    console.log("first date", date);
-    this.fromDate = date;
-  }
-  toDateChange(date) {
-    console.log("to date", date);
-    this.toDate = date;
-    this.dateDifference();
-  }
-
-  dateDifference() {
-    console.log()
-    this.timeDiff = (new Date(this.toDate) as any) - (new Date(this.fromDate) as any);
-    this.days = this.timeDiff / (1000 * 60 * 60 * 24)
-    console.log(this.days)
-
+    $('.multiDays').hide()
   }
 
   showImageName(e) {
-    var fileName = e.target.files[0].name;
-    $('.attach_file').html(fileName);
+    this.attachment = e.target.files;
+    this.fileName = e.target.files[0].name;
+    $('.attach_file').html(this.fileName);
   }
 
   leaveSelect(e) {
@@ -92,7 +69,7 @@ export class LeaveFormComponent implements OnInit {
     if (e.target.value == 1 || e.target.value == 0.5) {
       $('.singleDay').show();
       $('.multiDays').hide();
-    } else if (e.target.value == 2) {
+    } else if (e.target.value == 'more') {
       $('.singleDay').hide();
       $('.multiDays').show();
     }
@@ -130,54 +107,78 @@ export class LeaveFormComponent implements OnInit {
    * Apply leave
    * @param {Object} data 
    */
-  applyLeave(data) {
-    this.isDisable = true
-    console.log("leave application details", this.leaveForm.value)
-    console.log('data===========>', data);
-    if (this.leaveForm.invalid) {
-      return;
+  applyLeave() {
+    const data = new FormData();
+    _.forOwn(this.leaveForm.value, (value, key) => {
+      data.append(key, value);
+    });
+
+    if (this.attachment.length > 0) {
+      console.log('GOT FILE', this.attachment.length);
+      for (let i = 0; i <= this.attachment.length; i++) {
+        data.append('attachment', this.attachment[i]);
+      }
     }
-    console.log('data======>', data);
+
+    const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    var days_count = 0;
+    let days: any = []
+    if (this.leaveForm.value.daysCount == 'more') {
+      var start = new Date(this.leaveForm.value.fromDate);
+      var end = new Date(this.leaveForm.value.toDate);
+      while (start <= end) {
+        console.log('start.getDay()', start.getDay())
+        if (start.getDay() != 0) {
+          days.push(start.getFullYear() + '-' + months[start.getMonth()] + '-' + start.getDate());
+          days_count = days_count + 1;
+        }
+        var newDate = start.setDate(start.getDate() + 1);
+        start = new Date(newDate);
+      }
+      console.log('days', days)
+      data.append('totalDate', JSON.stringify(days));
+      data.append('noOfDays', days.length);
+    } else if(this.leaveForm.value.daysCount == 1){
+      var start = new Date(this.leaveForm.value.singleDate);
+      var end = new Date(this.leaveForm.value.singleDate);
+      while (start <= end) {
+        console.log('start.getDay()', start.getDay())
+        if (start.getDay() != 0) {
+          days.push(start.getFullYear() + '-' + months[start.getMonth()] + '-' + start.getDate());
+          days_count = days_count + 1;
+        }
+        var newDate = start.setDate(start.getDate() + 1);
+        start = new Date(newDate);
+      }
+      console.log('days', days)
+      data.append('totalDate', JSON.stringify(days));
+      data.append('noOfDays', '1');
+    } else if (this.leaveForm.value.daysCount == 0.5){
+      var start = new Date(this.leaveForm.value.singleDate);
+      var end = new Date(this.leaveForm.value.singleDate);
+      while (start <= end) {
+        console.log('start.getDay()', start.getDay())
+        if (start.getDay() != 0) {
+          days.push(start.getFullYear() + '-' + months[start.getMonth()] + '-' + start.getDate());
+          days_count = days_count + 1;
+        }
+        var newDate = start.setDate(start.getDate() + 1);
+        start = new Date(newDate);
+      }
+      console.log('days', days)
+      data.append('totalDate', JSON.stringify(days));
+      data.append('noOfDays', '0.5');
+    }
+    console.log(this.leaveForm.value)
     this._leaveService.applyLeave(data).subscribe((res: any) => {
-      console.log("res of leave==========>", res);
+      console.log("GOT IT", res);
       this._toastService.presentToast(res.message);
       this.leaveForm.reset();
-      this.isDisable = false;
-      this.isValue = false;
-    }, err => {
-      console.log("==========>", err);
-      this.isDisable = false;
-    })
-  }
-
-  /**
-   * Validtion of enter shortleave hour
-   * @param {Number} e 
-   * @param {String} data 
-   */
-  updateList(e, data) {
-    console.log(e, data);
-    if (e) {
-      this.isValue = true;
-    } else {
-      this.isValue = false;
-    }
-    if (e > 3 && data === 'shortLeave') {
-      // console.log("first ==========", e)
-      alert("please enter value less than three")
-      const element = this.elementRef.nativeElement.querySelector('#input2');
-      console.log("element -----------", element);
-      element.value = 3
-    } else if (e < 3 && e > 1 && data === 'shortLeave') {
-      const element = this.elementRef.nativeElement.querySelector('#input2');
-      element.value = e
-    } else if (e == "") {
-      const element = this.elementRef.nativeElement.querySelector('#input2');
-      element.value = ''
-    } else if (e < 0 && data === 'shortLeave') {
-      alert("value must be positive ")
-      const element = this.elementRef.nativeElement.querySelector('#input2');
-      element.value = 1
-    }
+      $('.attach_file').html('Attach a File');
+    },
+      err => {
+        this._toastService.presentToast(err.error);
+        console.log("OOPS SOMETHING GONE WRONG", err.error);
+      })
   }
 }

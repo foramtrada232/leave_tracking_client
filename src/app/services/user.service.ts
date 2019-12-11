@@ -50,7 +50,6 @@ export class UserService {
     const deviceToken = localStorage.getItem('deviceToken');
     console.log('token of device:',deviceToken);
     userData['deviceToken'] = deviceToken; 
-    // userData['deviceToken'] = "hdsgfhgfhgfhgfh" // aa line remove karvani 6
     console.log("userData:",userData,config.baseApiUrl);
     return this.http.post(config.baseApiUrl + "api/login", userData).pipe(map((user: any) => {
         console.log("login user=========>", user);
@@ -110,10 +109,7 @@ export class UserService {
  * @param {object} data 
  */
   updateProfile(data){
-    console.log(data);
-    let formdata = new FormData();
-    formdata.append("profilePhoto",data);
     console.log("file is===>>>",data);
-    return this.http.put(config.baseApiUrl + "api/update-user" ,formdata)
+    return this.http.put(config.baseApiUrl + "api/update-user" ,data)
   }
 }

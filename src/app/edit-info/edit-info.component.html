@@ -2,7 +2,10 @@
     <ion-toolbar class="toolbar-color1 profile-toolbar">
         <ion-row>
             <ion-col size='4'>
-                <div class="rao_logo" routerLink="/home/dashboard">
+                <div class="rao_logo">
+                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
+                </div>
+                <div class="rao_logo" routerLink="/home/dashboard" *ngIf="currentUserRole == 'Admin'">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
             </ion-col>
@@ -28,39 +31,64 @@
         <img class="loading_img" src="../../assets/images/loader.gif" />
     </div>
     <div class="profile-card">
-        <ion-card class="bg-white">
-            <ion-card-content>
-                <div class="card border-0" style="cursor: pointer;">
-                    <div class="card-content pending_leaves">
-                        <div class="attachment">
-                            <div class="row m-0">
-                                <div class="attachment_text">
-                                    <label for="fileInput" class="attach_file text-center">Upload Profile Image
-                                        <br><span class="drag_file text-gray">Attach a File</span></label>
-                                    <input type="file" id="fileInput" style="display: none;">
-                                    <div class="border-image">
-                                        <img src="../../assets/images/attachment.png">
+        <form [formGroup]="edit_profile" *ngIf="userDetail">
+            <ion-card class="bg-white">
+                <ion-card-content>
+                    <div class="card border-0" style="cursor: pointer;">
+                        <div class="card-content pending_leaves">
+                            <div class="attachment">
+                                <div class="row m-0">
+                                    <div class="attachment_text">
+                                        <label for="fileInput" class="attach_file text-center">Update Profile Image
+                                            <br><span class="drag_file text-gray">Attach a File</span></label>
+                                        <input type="file" id="fileInput" formControlName="filename" style="display: none;"
+                                            (change)="addFile($event)" accept="image/*">
+                                        <div class="border-image"
+                                            *ngIf="userDetail && !userDetail.profilePhoto && !url">
+                                            <img class="circle-ronded" src="../../assets/images/attachment.png">
+                                        </div>
+                                        <div class="border-image profile-image"
+                                            *ngIf="userDetail && userDetail.profilePhoto && !url">
+                                            <img class="circle-ronded" src="{{path}}{{userDetail.profilePhoto}}">
+                                        </div>
+                                        <div class="border-image profile-image"
+                                            *ngIf="url">
+                                            <img class="circle-ronded" [src]="url">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </ion-card-content>
+            </ion-card>
+            <div class="container">
+                <div class="group-inputs-div">
+                    <span>Name</span>
+                    <input type="text" formControlName="name" [(ngModel)]="userDetail.name"
+                        placeholder="Enter Your FullName">
 
-            </ion-card-content>
-        </ion-card>
-        <div class="container">
-            <div class="group-inputs-div">
-                <span>Name</span>
-                <input type="text" placeholder="Enter Your FullName">
-                <span>Date of Birth</span>
-                <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy">
-                <span>Phone No.</span>
-                <input type="text" placeholder="Enter Phone No.">
-                <div class="w-100 text-center m-auto">
-                    <button class="submit_btn">Submit</button>
+                    <span>Email</span>
+                    <input class="placeholder w-100" type="text" formControlName="email" [(ngModel)]="userDetail.email"
+                        placeholder="mm dd yy">
+
+                    <span>Phone No.</span>
+                    <input type="text" formControlName="phone" [(ngModel)]="userDetail.phone"
+                        placeholder="Enter Phone No.">
+
+                    <span>Designation</span>
+                    <input type="text" formControlName="designation" [(ngModel)]="userDetail.designation"
+                        placeholder="Enter Designation">
+
+                    <span>Location</span>
+                    <input type="text" formControlName="location" [(ngModel)]="userDetail.location"
+                        placeholder="Enter Location">
+
+                    <div class="w-100 text-center m-auto">
+                        <button class="submit_btn" (click)="updateProfile(userDetail)">Update</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </ion-content>

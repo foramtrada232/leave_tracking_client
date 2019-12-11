@@ -27,14 +27,16 @@
 </ion-header>
 <ion-content>
     <div class="bg_color"></div>
-    <div class="card" style="cursor: pointer;" *ngIf="userDetail">
-        <div class="card-content pending_leaves">
+    <div class="card" style="cursor: pointer;">
+        <div class="card-content pending_leaves" *ngIf="userDetail">
             <div class="row m-0">
                 <div class="col-3 p-0">
                     <div class="profile_div">
                         <div class="image_profile">
-                            <img src="../../../assets/images/person.png" *ngIf="!userDetail.profilePhoto" alt="profil image">
-                            <img src="{{path}}{{userDetail.profilePhoto}}" *ngIf="userDetail.profilePhoto" alt="profil image">
+                            <img src="../../../assets/images/person.png" *ngIf="!userDetail.profilePhoto"
+                                alt="profil image">
+                            <img src="{{path}}{{userDetail.profilePhoto}}" *ngIf="userDetail.profilePhoto"
+                                alt="profil image">
                         </div>
                     </div>
                 </div>
@@ -48,16 +50,8 @@
                                 <h2 class="leave_status">Leave Status</h2>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <div class="row m-0">
-                                <div class="col-7 p-0">
-                                    <h2 class="name">Akshay Karetiya</h2>
-                                </div>
-                                <div class="col-5 pl-0">
-                                    <h2 class="leave_status">Leave Status</h2>
-                                </div>
+                        <div class="row m-0">
+                            <div class="col-7 pl-0">
                             </div>
                             <div class="col-5 pl-0">
                                 <p class="leave_days">{{userDetail.total_leave}}/18</p>
@@ -67,70 +61,74 @@
                 </div>
             </div>
         </div>
-    <div class="leave_form">
-        <label class="form_labels w-100">Leave Days</label>
-        <div class="form_select">
-            <select class="w-100" (change)="leaveSelect($event)">
-                <option [value]="0.5">Half-day leave</option>
-                <option [value]="1">Full-day leave</option>
-                <option [value]="2">More-day leave</option>
-            </select>
-        </div>
-        <label class="form_labels w-100">Leave Type</label>
-        <div class="form_select">
-            <select class="w-100">
-                <option>Paid time off Leave</option>
-                <option >Sick Leave</option>
-                <option>Emergency Leave</option>
-                <option>Casual Leave</option>
-            </select>
-        </div>
-        <div class="row singleDay">
-            <div class="col-12">
-                <label class="form_labels w-100">Leave Date</label>
-                <div class="date_picker">
-                    <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
-                    <ion-datetime formControlName="date" class="placeholder w-100" placeholder="mm dd yy"
-                        min={{curruntDate}} max="{{nextYear}}"></ion-datetime>
-                    <img src="../../assets/images/date-picker.png">
+        <div class="leave_form">
+            <form [formGroup]="leaveForm" (ngSubmit) = "applyLeave()">
+                <label class="form_labels w-100">Leave Days</label>
+                <div class="form_select">
+                    <select class="w-100" formControlName="daysCount" (change)="leaveSelect($event)">
+                        <option value="0.5">Half-day leave</option>
+                        <option value="1">Full-day leave</option>
+                        <option value="more">More-day leave</option>
+                    </select>
                 </div>
-            </div>
-        </div>
-        <div class="row multiDays">
-            <div class="col-6">
-                <label class="form_labels w-100">Leave From Date</label>
-                <div class="date_picker">
-                    <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
-                    <ion-datetime formControlName="date" class="placeholder w-100" placeholder="mm dd yy"
-                        min={{curruntDate}} max="{{nextYear}}"></ion-datetime>
-                    <img src="../../assets/images/date-picker.png">
+                <label class="form_labels w-100">Leave Type</label>
+                <div class="form_select">
+                    <select class="w-100" formControlName="leaveType">
+                        <option value="paid_leave">Paid time off Leave</option>
+                        <option value="sick_leave">Sick Leave</option>
+                        <option value="emergency_leave">Emergency Leave</option>
+                        <option value="casual_leave">Casual Leave</option>
+                    </select>
                 </div>
-            </div>
-            <div class="col-6">
-                <label class="form_labels w-100">Leave To Date</label>
-                <div class="date_picker">
-                    <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
-                    <ion-datetime formControlName="date" class="placeholder w-100" placeholder="mm dd yy"
-                        min={{curruntDate}} max="{{nextYear}}"></ion-datetime>
-                    <img src="../../assets/images/date-picker.png">
+                <div class="row singleDay">
+                    <div class="col-12">
+                        <label class="form_labels w-100">Leave Date</label>
+                        <div class="date_picker">
+                            <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
+                            <ion-datetime formControlName="singleDate" class="placeholder w-100" placeholder="mm dd yy"
+                                ></ion-datetime>
+                            <img src="../../assets/images/date-picker.png">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <label class="form_labels w-100">Reason For Leaving Request</label>
-        <textarea rows="3" class="form_text_field w-100">Lorem ipsum dolor sit amet, consectetur adipshdo...</textarea>
-        <label class="form_labels w-100">Compansate</label>
-        <textarea rows="3" class="form_text_field w-100"></textarea>
-        <div class="attachment">
-            <div class="row m-0">
-                <div class="attachment_text">
-                    <label for="fileInput" class="attach_file text-center">Attach a File</label>
-                    <input type="file" id="fileInput" style="display: none;" (change)="showImageName($event)">
-                    <img src="../../assets/images/attachment.png">
+                <div class="row multiDays">
+                    <div class="col-6">
+                        <label class="form_labels w-100">Leave From Date</label>
+                        <div class="date_picker">
+                            <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
+                            <ion-datetime formControlName="fromDate" class="placeholder w-100"
+                                placeholder="mm dd yy" ></ion-datetime>
+                            <img src="../../assets/images/date-picker.png">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="form_labels w-100">Leave To Date</label>
+                        <div class="date_picker">
+                            <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
+                            <ion-datetime formControlName="toDate" class="placeholder w-100" placeholder="mm dd yy"
+                                ></ion-datetime>
+                            <img src="../../assets/images/date-picker.png">
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-12 w-100 text-center mt-3">
-            <button class="submit_btn btn btn-lg">Submit</button>
+                <label class="form_labels w-100">Reason For Leaving Request</label>
+                <textarea rows="3" formControlName="reason" class="form_text_field w-100">Lorem ipsum dolor sit amet, consectetur adipshdo...</textarea>
+                <label class="form_labels w-100">Compansate</label>
+                <textarea formControlName="compansate" rows="3" class="form_text_field w-100"></textarea>
+                <div class="attachment">
+                    <div class="row m-0">
+                        <div class="attachment_text">
+                            <label for="fileInput" class="attach_file text-center">Attach a File</label>
+                            <input formControlName="attachment" type="file" id="fileInput" style="display: none;"
+                                (change)="showImageName($event)">
+                            <img src="../../assets/images/attachment.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 w-100 text-center mt-3">
+                    <input type="submit" class="submit_btn btn btn-lg">
+                </div>
+            </form>
         </div>
     </div>
 </ion-content>
@@ -184,7 +182,7 @@
                 <div class="col-12">
                     <div class="select_date text-white">Select Date</div>
                     <ion-item>
-                        <ion-datetime formControlName="date" placeholder="Select Leave Date" min={{curruntDate}} max="{{nextYear}}"></ion-datetime>
+                        <ion-datetime  placeholder="Select Leave Date" ></ion-datetime>
                     </ion-item>
                 </div>
                 <div class="col-12">

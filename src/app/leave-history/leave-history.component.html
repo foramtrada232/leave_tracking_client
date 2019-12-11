@@ -35,11 +35,11 @@
                     <div class="col-3 p-0">
                         <div class="profile_div">
                             <div class="leave_month">
-                                <div class="badge approved" *ngIf="history.status == 'Approved'">{{history.noOfDays}}
+                                <div class="badge approved" *ngIf="history.status == 'Approved'">{{history.appliedOn | date: 'MMM'}}
                                 </div>
-                                <div class="badge rejected" *ngIf="history.status == 'Rejected'">{{history.noOfDays}}
+                                <div class="badge rejected" *ngIf="history.status == 'Rejected'">{{history.appliedOn | date: 'MMM'}}
                                 </div>
-                                <div class="badge pending" *ngIf="history.status == 'pending'">{{history.noOfDays}}
+                                <div class="badge pending" *ngIf="history.status == 'Pending'">{{history.appliedOn | date: 'MMM'}}
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                             <div class="row m-0">
                                 <div class="col-5 p-0">
                                     <p class="status_pill approved" *ngIf="history.status == 'Approved'">Status</p>
-                                    <p class="status_pill pending" *ngIf="history.status == 'pending'">Status</p>
+                                    <p class="status_pill pending" *ngIf="history.status == 'Pending'">Status</p>
                                     <p class="status_pill rejected" *ngIf="history.status == 'Rejected'">Status</p>
                                 </div>
                                 <div class="col-7 p-0">
@@ -65,8 +65,7 @@
                                     </p>
                                 </div>
                                 <div class="col-7 p-0">
-                                    <p class="leave_date_day">{{history.noOfDays}} Days / <span
-                                            class="leave_date_day_out_of">18</span>
+                                    <p class="leave_date_day">{{history.noOfDays}} Days
                                     </p>
                                 </div>
                             </div>

@@ -93,3 +93,11 @@ ion-card.bg-white {
 .header-md:after{
     content: none;
 }
+.profile-image{
+    padding      : 0!important;
+}
+.profile-image .circle-ronded{
+    width: 54px!important;
+    height: 54px!important;
+    border-radius: 50%!important;
+}
