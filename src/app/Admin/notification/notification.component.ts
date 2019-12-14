@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
-
+import { config } from '../../config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notification',
@@ -8,21 +9,22 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./notification.component.scss'],
 })
 export class NotificationComponent implements OnInit {
-
+  currentUserRole = JSON.parse(localStorage.getItem('designation'));
   notificationDetails;
   notificationDetailsCount;
   loading: boolean = false;
+  path = config.baseMediaUrl;
+  constructor(public router: Router,public _userService: UserService) { }
 
-  constructor(public _userService: UserService) { }
-
-  ngOnInit() {
+  ionViewWillEnter() {
     this.getNotification()
-
+  }
+  ngOnInit() {
   }
 
-/**
- * get all notifications
- */
+  /**
+   * get all notifications
+   */
   getNotification() {
     this.loading = true;
     this._userService.getNotification().subscribe((data: any) => {
@@ -33,6 +35,17 @@ export class NotificationComponent implements OnInit {
       this.loading = false;
     }, err => {
       console.log(err)
+    })
+  }
+
+  /**
+   * logout
+   */
+
+  logout() {
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("logout response===", res);
+      this.router.navigateByUrl('login');
     })
   }
 }

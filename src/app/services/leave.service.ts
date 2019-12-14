@@ -57,12 +57,7 @@ export class LeaveService {
    * @param {Object} data 
    */
   getMonthLeaveReport(data) {
-    const detail = data.month.split("-");
-    const obj = {
-      month: detail[1],
-      year: detail[0]
-    }
-    return this.http.post(config.baseApiUrl + "api/leave/get-monthly-report", obj)
+    return this.http.post(config.baseApiUrl + "api/leave/get-monthly-report", data)
   }
 
   /**
@@ -70,11 +65,7 @@ export class LeaveService {
    * @param  { object} data 
    */
   getYearLeaveReport(data) {
-    console.log(data.year.split("-")[0]);
-    const obj = {
-      year: data.year.split("-")[0]
-    }
-    return this.http.post(config.baseApiUrl + "api/leave/get-yearly-report", obj);
+    return this.http.post(config.baseApiUrl + "api/leave/get-yearly-report", data);
   }
   /**
    * Leave Approval

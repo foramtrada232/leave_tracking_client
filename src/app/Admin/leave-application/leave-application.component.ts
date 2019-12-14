@@ -3,6 +3,10 @@ import { LeaveService } from '../../services/leave.service';
 import { ToastService } from '../../services/toast.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { AlertController } from '@ionic/angular';
+import {config} from '../../config';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+
 declare const $: any;
 @Component({
   selector: 'app-leave-application',
@@ -10,44 +14,57 @@ declare const $: any;
   styleUrls: ['./leave-application.component.scss'],
 })
 export class LeaveApplicationComponent implements OnInit {
-  PendingLeaves: any = [];
+  pendingLeaves: any = [];
   pendingLeavesCount;
   loading: boolean = false;
   lastIndex: any = [];
-  constructor(public _leavService: LeaveService,
+  path = config.baseMediaUrl;
+  constructor(public router: Router,public _userService: UserService,public _leavService: LeaveService,
     public alertController: AlertController,
     public _toastService: ToastService, private localNotifications: LocalNotifications) { }
 
-    ngOnInit() {
-      this.getPendingLeaves();
-  
-      $('#open-modal').click(function () {
-        $('#open-modal-body').fadeIn();
-      });
-      $('#open-modal-body .modal_body').click(function(event){
-        event.stopPropagation();
-      });
-      $('.close_btn').click(function () {
-        $('#open-modal-body').css('display', 'none');
-      });
-      $('#open-modal-body').click(function(){
-        $(this).fadeOut();
-      });
-  
-    }
+  ionViewWillEnter() {
+    this.getPendingLeaves();
+  }
+  ngOnInit() {
+    $('#open-modal').click(function () {
+      $('#open-modal-body').fadeIn();
+    });
+    $('#open-modal-body .modal_body').click(function (event) {
+      event.stopPropagation();
+    });
+    $('.close_btn').click(function () {
+      $('#open-modal-body').css('display', 'none');
+    });
+    $('#open-modal-body').click(function () {
+      $(this).fadeOut();
+    });
+  }
 
+  openModal(i) {
+    console.log('openModal');
+    $('#open-modal-body' + i).fadeIn();
+    event.stopPropagation();
+    $('#open-modal-body' + i).click(function () {
+      $(this).fadeOut();
+    });
+  }
+
+  closeModal(i) {
+    $('#open-modal-body' + i).css('display', 'none');
+  }
   /**
    * Get Pending Leave Application
    */
   getPendingLeaves() {
     this.loading = true;
     this._leavService.getPendingLeaves().subscribe((res: any) => {
-      this.PendingLeaves = res.data;
+      this.pendingLeaves = res.data;
       this.pendingLeavesCount = res.data.length;
-      console.log("pending leaves=======>", this.PendingLeaves);
+      console.log("pending leaves=======>", this.pendingLeaves);
       this.loading = false;
-      this.lastIndex = this.PendingLeaves[0].totalDate;
-      console.log("lastIndex:", this.lastIndex)
+      // this.lastIndex = this.pendingLeaves[0].totalDate;
+      // console.log("lastIndex:", this.lastIndex)
     }, err => {
       console.log(err);
       this.loading = false;
@@ -71,66 +88,21 @@ export class LeaveApplicationComponent implements OnInit {
       } else {
         this._toastService.presentToast('Leave Rejected')
       }
-      console.log("pending leaves============>>>", this.PendingLeaves);
+      console.log("pending leaves============>>>", this.pendingLeaves);
       this.getPendingLeaves();
     }, err => {
       console.log(err);
     })
   }
 
-
-  getNoOfDays(days) {
-    // console.log("leave details", days);
-    if (days.shortLeave) {
-      if (days.shortLeave == 1) {
-        return days.shortLeave + ' hour';
-      }
-      return days.shortLeave + ' hours';
-    } else {
-      if (days.noOfDays < 0) {
-        return 'You have no leaves..'
-      } else {
-        const noOfDays = Math.floor(days.noOfDays / 8)
-        // console.log("Days", noOfDays);
-        const noOfhours = days.noOfDays % 8;
-        // console.log("noOfhours", noOfhours);
-        if (!noOfDays && noOfhours) {
-          if (noOfhours > 1) {
-            return noOfhours + ' hours'
-          } else {
-            return noOfhours + ' hour'
-          }
-        } else if (noOfDays && !noOfhours) {
-          if (noOfDays > 1) {
-            return noOfDays + ' Days'
-          } else {
-            return noOfDays + ' Day'
-          }
-        } else {
-          if (noOfDays > 1 && noOfhours > 1) {
-            return noOfDays + ' Days ' + noOfhours + ' hours';
-          } else if (noOfDays == 1 && noOfhours == 1) {
-            return noOfDays + ' Day ' + noOfhours + ' hour';
-          } else if (noOfDays > 1 && noOfhours == 1) {
-            return noOfDays + ' Days ' + noOfhours + ' hour';
-          } else {
-            return noOfDays + ' Day ' + noOfhours + ' hours';
-          }
-
-        }
-      }
-    }
-  }
   /**
-     * open modal of leave description
-     */
-  openModal() {
-    if ($('body').hasClass('no-scroll')) {
-      $('body').removeClass('no-scroll');
-      $('ion-content').removeAttr('style');
-    } else {
-      $('body').addClass('no-scroll');
-      $('ion-content').css({ '--overflow': 'hidden' });
-    }
+   * logout
+   */
+
+  logout() {
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("logout response===", res);
+      this.router.navigateByUrl('login');
+    })
   }
 }

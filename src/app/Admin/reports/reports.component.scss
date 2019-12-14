@@ -1,6 +1,6 @@
-$app_bar_color: #01023F;
-$text_color   : #3998C5;
-$font_size    : 15px;
+$app_bar_color: #01023f;
+$text_color: #3998c5;
+$font_size: 15px;
 // .apply_leave {
 //     padding: 10px;
 //     .apply_leave_text {
@@ -68,100 +68,142 @@ $font_size    : 15px;
 // }
 
 ion-content {
-    --background: #e9e9e9;
+  --background: #e9e9e9;
 }
 
 .report-profile {
-    overflow     : hidden;
-    border-radius: 50%;
-    border    : 2px solid #01023f;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid #01023f;
 }
 
 ion-card {
-    width        : 100vw;
-    padding      : 10px;
-    margin       : 0 0 10px 0;
-    --background : #fff;
-    box-shadow   : 0 0;
-    border-radius: 0;
+  width: 100vw;
+  padding: 10px;
+  margin: 0 0 10px 0;
+  --background: #fff;
+  box-shadow: 0 0;
+  border-radius: 0;
 
-    h3 {
-        color        : #01023F;
-        font-size    : 16px;
-        font-weight  : 600;
-        margin-bottom: 5px;
-        font-family  : 'Roboto', sans-serif;
-    }
+  h3 {
+    color: #01023f;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-family: "Roboto", sans-serif;
+  }
 }
 
 .report {
-    .row {
-        margin: 0;
-    }
+  .row {
+    margin: 0;
+  }
 
-    .col-12 {
-        p {
-            color      : #3B3838;
-            font-size  : 14px;
-            font-family: "Open Sans", sans-serif;
-            font-weight: 600;
-            line-height: 18px;
-            margin-bottom: 14px;
-        
-        }
+  .col-12 {
+    p {
+      color: #3b3838;
+      font-size: 14px;
+      font-family: "Open Sans", sans-serif;
+      font-weight: 600;
+      line-height: 18px;
+      margin-bottom: 14px;
     }
+  }
 
-    .col-2 {
-        width    : 70px;
-        flex     : 0 0 70px;
-        max-width: 70px !important;
-        padding  : 0;
+  .col-2 {
+    width: 70px;
+    flex: 0 0 70px;
+    max-width: 70px !important;
+    padding: 0;
+  }
+
+  .col-10 {
+    max-width: calc(100% - 70px);
+  }
+
+  span.approved {
+    background-color: #54d985;
+    border-radius: 20px;
+    padding: 3px 20px;
+    color: #307d5e;
+  }
+
+  span.rejected {
+    background-color: #fb90b8;
+    border-radius: 20px;
+    padding: 3px 18px;
+    color: #c24779;
+  }
+
+  span.pending {
+    background-color: #ffd86b;
+    border-radius: 20px;
+    padding: 3px 20px;
+    color: #a58326;
+  }
+
+  span.apply {
+    color: #01023f;
+    font-weight: 600;
+  }
+
+  p.status {
+    color: #7a869a;
+    margin: 5px 0 0 10px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  p.days {
+    color: #8e8e8e;
+    margin-bottom: 0;
+    margin-top: 5px;
+    font-family: "Open Sans", sans-serif;
+
+    span {
+      color: #ef1f6d;
     }
-
-    .col-10 {
-        max-width: calc(100% - 70px);
+  }
+}
+.sorting_month_year {
+  margin: 10px 0;
+  .sorting_input {
+    border: 1px solid #01023f;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    display: inline-flex;
+    .sorting_dates {
+      margin: 0 10px;
+      color: #020041;
+      font-family: "Rubik";
+      font-size: 9px;
+      font-weight: bold;
     }
-
-    span.approved {
-        background-color: #54D985;
-        border-radius   : 20px;
-        padding         : 3px 20px;
-        color           : #307D5E;
+    .sorting_icon {
+      color: #01023f;
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 10px;
+      bottom: 0;
+      right: 30px;
     }
-
-    span.rejected {
-        background-color: #FB90B8;
-        border-radius   : 20px;
-        padding         : 3px 18px;
-        color           : #C24779;
-    }
-
-    span.pending {
-        background-color: #FFD86B;
-        border-radius   : 20px;
-        padding         : 3px 20px;
-        color           : #A58326;
-    }
-
-    span.apply {
-        color      : #01023f;
-        font-weight: 600;
-    }
-
-    p.status {
-        color      : #7A869A;
-        margin     : 5px 0 0 10px;
-        font-family: 'Open Sans', sans-serif;
-    }
-
-    p.days {
-        color        : #8E8E8E;
-        margin-bottom: 0;
-        margin-top   : 5px;
-        font-family  : 'Open Sans', sans-serif;
-
-        span {
-            color: #EF1F6D;
-        }
-    }
+  }
+}
+.no-leave-of-month,
+.no-leave-of-year {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 65vh;
+}
+.showingResults {
+  font-size: 12px;
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.showingResultsInner {
+  color: red;
 }

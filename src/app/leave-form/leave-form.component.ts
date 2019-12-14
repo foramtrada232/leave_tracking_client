@@ -22,20 +22,23 @@ export class LeaveFormComponent implements OnInit {
   leaveForm: FormGroup;
   currentUserRole = JSON.parse(localStorage.getItem('designation'));
   isDisable: Boolean = false;
-  curruntDate: string = new Date().toISOString();
-  noOfDays = false;
   path = config.baseMediaUrl;
-  shortLeave = false
-  isValue: Boolean = false;
-  nextYear;
-  fromDate: any;
-  toDate: any;
-  timeDiff: any;
-  days;
   loading: boolean;
   userDetail: any;
   fileName: any = [];
   attachment: any = [];
+  months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  days_count = 0;
+  days: any = [];
+  today: string;
+  nextYear: any;
+  fromDate: any;
+  toDate: any;
+  timeDiff: number;
+  toDateMin: any;
+  fromDateMax: any;
+  toDateMax: any;
+  spinner: boolean;
 
   constructor(public router: Router, public _userService: UserService, public _leaveService: LeaveService, private elementRef: ElementRef, public _toastService: ToastService, private localNotifications: LocalNotifications) {
     this.leaveForm = new FormGroup({
@@ -52,6 +55,7 @@ export class LeaveFormComponent implements OnInit {
 
   ionViewWillEnter() {
     this.getUserDetail();
+    this.setDateValidations();
   }
   ngOnInit() {
     $('.singleDay').show();
@@ -62,6 +66,29 @@ export class LeaveFormComponent implements OnInit {
     this.attachment = e.target.files;
     this.fileName = e.target.files[0].name;
     $('.attach_file').html(this.fileName);
+  }
+
+  setDateValidations() {
+    this.today = new Date().toISOString();
+    this.fromDateMax = this.today.split("-")[0];
+    this.fromDateMax = this.fromDateMax++;
+    this.fromDateMax = this.fromDateMax + +1;
+    this.toDateMax = this.fromDateMax;
+    // this.today = new Date().toJSON().split('T')[0];
+    console.log('today', this.today)
+  }
+
+  fromDateChange(date) {
+    console.log("first date", date);
+    this.toDateMin = date;
+    this.fromDate = date;
+  }
+
+  dateDifference() {
+    console.log()
+    this.timeDiff = (new Date(this.toDate) as any) - (new Date(this.fromDate) as any);
+    this.days = this.timeDiff / (1000 * 60 * 60 * 24)
+    console.log(this.days)
   }
 
   leaveSelect(e) {
@@ -109,9 +136,6 @@ export class LeaveFormComponent implements OnInit {
    */
   applyLeave() {
     const data = new FormData();
-    _.forOwn(this.leaveForm.value, (value, key) => {
-      data.append(key, value);
-    });
 
     if (this.attachment.length > 0) {
       console.log('GOT FILE', this.attachment.length);
@@ -120,65 +144,63 @@ export class LeaveFormComponent implements OnInit {
       }
     }
 
-    const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    var days_count = 0;
-    let days: any = []
     if (this.leaveForm.value.daysCount == 'more') {
       var start = new Date(this.leaveForm.value.fromDate);
       var end = new Date(this.leaveForm.value.toDate);
-      while (start <= end) {
-        console.log('start.getDay()', start.getDay())
-        if (start.getDay() != 0) {
-          days.push(start.getFullYear() + '-' + months[start.getMonth()] + '-' + start.getDate());
-          days_count = days_count + 1;
-        }
-        var newDate = start.setDate(start.getDate() + 1);
-        start = new Date(newDate);
-      }
-      console.log('days', days)
-      data.append('totalDate', JSON.stringify(days));
-      data.append('noOfDays', days.length);
-    } else if(this.leaveForm.value.daysCount == 1){
+      this.daysCountFun(start, end);
+
+      data.append('totalDate', JSON.stringify(this.days));
+      data.append('noOfDays', this.days.length);
+    } else if (this.leaveForm.value.daysCount == 1) {
       var start = new Date(this.leaveForm.value.singleDate);
       var end = new Date(this.leaveForm.value.singleDate);
-      while (start <= end) {
-        console.log('start.getDay()', start.getDay())
-        if (start.getDay() != 0) {
-          days.push(start.getFullYear() + '-' + months[start.getMonth()] + '-' + start.getDate());
-          days_count = days_count + 1;
-        }
-        var newDate = start.setDate(start.getDate() + 1);
-        start = new Date(newDate);
-      }
-      console.log('days', days)
-      data.append('totalDate', JSON.stringify(days));
+      this.daysCountFun(start, end);
+      data.append('totalDate', JSON.stringify(this.days));
+      this.leaveForm.controls['fromDate'].setValue(this.leaveForm.value.singleDate);
+      console.log(this.leaveForm.value)
       data.append('noOfDays', '1');
-    } else if (this.leaveForm.value.daysCount == 0.5){
+    } else if (this.leaveForm.value.daysCount == 0.5) {
       var start = new Date(this.leaveForm.value.singleDate);
       var end = new Date(this.leaveForm.value.singleDate);
-      while (start <= end) {
-        console.log('start.getDay()', start.getDay())
-        if (start.getDay() != 0) {
-          days.push(start.getFullYear() + '-' + months[start.getMonth()] + '-' + start.getDate());
-          days_count = days_count + 1;
-        }
-        var newDate = start.setDate(start.getDate() + 1);
-        start = new Date(newDate);
-      }
-      console.log('days', days)
-      data.append('totalDate', JSON.stringify(days));
+      this.daysCountFun(start, end);
+      this.leaveForm.controls['fromDate'].setValue(this.leaveForm.value.singleDate);
+      data.append('totalDate', JSON.stringify(this.days));
       data.append('noOfDays', '0.5');
     }
+    _.forOwn(this.leaveForm.value, (value, key) => {
+      data.append(key, value);
+    });
+    this.spinner = true;
+    $('.submit_btn').attr("disabled", true);
     console.log(this.leaveForm.value)
     this._leaveService.applyLeave(data).subscribe((res: any) => {
+      this.spinner = false;
+      $('.submit_btn').attr("disabled", false);
       console.log("GOT IT", res);
       this._toastService.presentToast(res.message);
       this.leaveForm.reset();
+      this.days = [];
+      // this.router.navigateByUrl('home/leave-history')
       $('.attach_file').html('Attach a File');
     },
       err => {
+        $('.submit_btn').attr("disabled", false);
+        this.spinner = false;
         this._toastService.presentToast(err.error);
         console.log("OOPS SOMETHING GONE WRONG", err.error);
       })
+  }
+
+  daysCountFun(s, e) {
+    while (s <= e) {
+      console.log('s.getDay()', s.getDay())
+      if (s.getDay() != 0) {
+        this.days.push(s.getFullYear() + '-' + this.months[s.getMonth()] + '-' + s.getDate());
+        this.days_count = this.days_count + 1;
+      }
+      var newDate = s.setDate(s.getDate() + 1);
+      s = new Date(newDate);
+    }
+    console.log('days', this.days)
   }
 }

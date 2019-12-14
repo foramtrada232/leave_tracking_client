@@ -17,9 +17,8 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
+                    <img src="../../../assets/images/Path 250.png" *ngIf="currentUserRole == 'Admin'" routerLink="/home/notification" class="mr-3"
                         alt="notification">
-                    <span>1</span>
                     <img src="../../../assets/images/exit.png" alt="logout button" (click)="logout()">
                 </div>
             </ion-col>
@@ -74,5 +73,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="loader" *ngIf="loading">
+        <img class="loading_img" src="../../assets/images/loader.gif" />
+    </div>
+    <div *ngIf="historyLength == 0" style="position: fixed;top: 50%;left: 29%;">
+        No history available!
     </div>
 </ion-content>

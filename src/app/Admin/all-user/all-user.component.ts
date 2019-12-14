@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { config } from '../../config';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-user',
@@ -13,11 +13,13 @@ export class AllUserComponent implements OnInit {
   currentColor: string
   path = config.baseMediaUrl;
   loading: boolean = false;
-  constructor(public _userService: UserService) {
+  constructor(public router: Router, public _userService: UserService) {
   }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.getAllUser();
+  }
+  ngOnInit() {
   }
 
   /**
@@ -26,12 +28,27 @@ export class AllUserComponent implements OnInit {
   getAllUser() {
     this.loading = true;
     this._userService.getAllUser().subscribe((res: any) => {
-      console.log("all user=>", res);
       this.allUser = res.data;
+      console.log("all user=>", this.allUser);
       this.loading = false;
     }, err => {
       console.log(err);
       this.loading = false;
+    })
+  }
+
+  viewProfile(userId) {
+    this.router.navigateByUrl('home/single-user/' + userId);
+  }
+
+  /**
+   * logout
+   */
+
+  logout() {
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("logout response===", res);
+      this.router.navigateByUrl('login');
     })
   }
 

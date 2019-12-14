@@ -16,8 +16,7 @@
                 <div class="icon_sec">
                     <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
                         alt="notification">
-                    <span>1</span>
-                    <img src="../../../assets/images/exit.png" alt="logout button">
+                    <img src="../../../assets/images/exit.png" (click)="logout()" alt="logout button">
                 </div>
             </ion-col>
         </ion-row>
@@ -26,301 +25,112 @@
 
 
 <ion-content>
-    <!-- <div class="apply_leave">
-        <div class="apply_leave_text text-white">
-            Apply Leave
-        </div>
-
-        <div class="select_time">
-            <div class="row">
-                <div class="col-6 pr-2">
-                    <form [formGroup]='monthLeaveForm'>
-                        <ion-item>
-                            <ion-datetime displayFormat="MMMM YYYY" placeholder="Select Month" formControlName="month" (ionChange)=getMonthLeaveReport(monthLeaveForm.value) max="{{nextYear}}" [disabled]="isVisible">
-                            </ion-datetime>
-                        </ion-item>
-                    </form>
-                </div>
-                <div class="col-6 pl-2">
-                    <form [formGroup]='yearLeaveForm'>
-                        <ion-item>
-                            <ion-datetime displayFormat=" YYYY" placeholder="Select Year" formControlName="year" (ionChange)=getYearLeaveReport(yearLeaveForm.value) max="{{nextYear}}" [disabled]="isVisible">
-                            </ion-datetime>
-                        </ion-item>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="loader" *ngIf="loading">
-            <img class="loading_img" src="../../assets/images/loader.gif" />
-        </div>
-        <div *ngIf="monthLeaveReport.length">
-            <div class="leave_details" *ngFor="let leave of monthLeaveReport; let i=index">
-                <div class="card" style="cursor: pointer;">
-                    <label for="o{{i}}">
-                        <div class="row">
-                            <div class="col-4">
-                                <span>{{leave.userId.name}}</span>
-                            </div>
-                            <div class="col-4 text-center">
-                                <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
-                            </div>
-                            <div class="col-4 text-right">
-                                <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
-                                        style="color: #3998C5;">{{leave.status}}</span>
-                                </div>
-                                <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
-                                        style="color: #FF0000;">{{leave.status}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                    <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
-                    <div class="modal">
-                        <div class="modal-body">
-                            <div class="modal-content">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <p class="text-white">Reason :</p>
-                                        <div class="reason_text text-white"> {{leave.reason}}</div>
-                                    </div>
-                                    <div class="col-12">
-                                        <p class="text-white">No of Days :</p>
-                                        <div class="reason_text text-white"> {{getNoOfDays(leave)}}
-                                        </div>
-                                    </div>
-                                    <div class="col-12" *ngIf="leave.extraHours">
-                                        <p class="text-white">Compensation :</p>
-                                        <div class="reason_text text-white">{{leave.extraHours}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ok_btn text-center mt-3">
-                                    <label for="o{{i}}">Ok</label>
-                                </div>
-                            </div>
-                            <div class="close_btn">
-                                <label for="o{{i}}">X</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div *ngIf="monthLeaveCount == 0" class="no-leaves-of-month">
-            <p class="text-center">There are No leaves</p>
-        </div>
-        <div *ngIf="yearLeaveReport.length">
-            <div class="leave_details" *ngFor="let leave of yearLeaveReport ; let i=index">
-                <div class="card" style="cursor: pointer;">
-                    <label for="o{{i}}">
-                        <div class="row">
-                            <div class="col-4">
-                                <span>{{leave.userId.name}}</span>
-                            </div>
-                            <div class="col-4 text-center">
-                                <span>{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
-                            </div>
-                            <div class="col-4 text-right">
-                                <div *ngIf="leave.status == 'Approved'"><span class="pl-2"
-                                        style="color: #3998C5;">{{leave.status}}</span>
-                                </div>
-                                <div *ngIf="leave.status == 'Rejected'"><span class="pl-2"
-                                        style="color: #FF0000;">{{leave.status}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                    <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
-                    <div class="modal">
-                        <div class="modal-body">
-                            <div class="modal-content">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <p class="text-white">Reason :</p>
-                                        <div class="reason_text text-white"> {{leave.reason}}</div>
-                                    </div>
-                                    <div class="col-12">
-                                        <p class="text-white">No of Days :</p>
-                                        <div class="reason_text text-white"> {{getNoOfDays(leave)}}
-                                        </div>
-                                    </div>
-                                    <div class="col-12" *ngIf="leave.extraHours">
-                                        <p class="text-white">Compensation :</p>
-                                        <div class="reason_text text-white">{{leave.extraHours}}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ok_btn text-center mt-3">
-                                    <label for="o{{i}}">Ok</label>
-                                </div>
-                            </div>
-                            <div class="close_btn">
-                                <label for="o{{i}}">X</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div *ngIf="yearLeaveCount == 0" class="no-leave-of-year">
-            <p class="text-center">There are No leaves</p>
-        </div>
-    </div> -->
-
     <div class="report">
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
+        <div class="sorting_month_year">
+            <div class="row m-0">
+                <div class="col-6">
+                    <div class="sorting_input w-100">
+                        <form [formGroup]='monthLeaveForm'>
+                            <ion-datetime displayFormat="MMMM YYYY" formControlName="month" class="sorting_dates"
+                                placeholder="Sort By Month" (ionChange)=getMonthLeaveReport(monthLeaveForm.value.month) max="{{nextYear}}"
+                                >
+                            </ion-datetime>
+                        </form>
+                        <ion-icon class="sorting_icon" name="ios-funnel"></ion-icon>
                     </div>
                 </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="approved">status</span>
-                            <p class="status">Approved</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="rejected">status</span>
-                            <p class="status">Rejected</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
+                <div class="col-6">
+                    <div class="sorting_input w-100">
+                        <form [formGroup]='yearLeaveForm'>
+                            <ion-datetime formControlName="year" displayFormat="YYYY" class="sorting_dates"
+                                placeholder="Sort By Year" (ionChange)=getYearLeaveReport(yearLeaveForm.value.year) max="{{nextYear}}">
+                            </ion-datetime>
+                        </form>
+                        <ion-icon class="sorting_icon" name="md-funnel"></ion-icon>
                     </div>
                 </div>
             </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="pending">status</span>
-                            <p class="status">Pending</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
+        </div>
+
+        <span class="showingResults" *ngIf="showingResults">
+            Showing results for <span class="showingResultsInner">{{showingResults}}</span>
+        </span><br>
+        <span *ngIf="monthLeaveReport.length">
+            <ion-card *ngFor="let report of monthLeaveReport">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="report-profile mt-3">
+                            <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
                         </div>
                     </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="approved">status</span>
-                            <p class="status">Approved</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-12 p-0">
+                                <h3>{{report.userId.name}}</h3>
+                                <p>{{report.reason}}</p>
+                            </div>
+                            <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
+                                <span class="approved">status</span>
+                                <p class="status">Approved</p>
+                            </div>
+                            <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
+                                <span class="pending">status</span>
+                                <p class="status">Approved</p>
+                            </div>
+                            <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
+                                <span class="rejected">status</span>
+                                <p class="status">Approved</p>
+                            </div>
+                            <div class="col-6 p-0">
+                                <span class="apply">Applied For Leaves</span>
+                                <p class="days">{{report.noOfDays}} Days</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="approved">status</span>
-                            <p class="status">Approved</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
+            </ion-card>
+        </span>
+        <span class="no-leave-of-month" *ngIf="showingResults">
+            No leaves in {{showingResults}}!
+        </span>
+
+        <span *ngIf="yearLeaveReport.length">
+            <ion-card *ngFor="let report of yearLeaveReport">
+                <div class="row">
+                    <div class="col-2">
+                        <div class="report-profile mt-3">
+                            <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
                         </div>
                     </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="approved">status</span>
-                            <p class="status">Approved</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-12 p-0">
+                                <h3>{{report.name}}</h3>
+                                <p>{{report.reason}}</p>
+                            </div>
+                            <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
+                                <span class="approved">status</span>
+                                <p class="status">Approved</p>
+                            </div>
+                            <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
+                                <span class="pending">status</span>
+                                <p class="status">Approved</p>
+                            </div>
+                            <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
+                                <span class="rejected">status</span>
+                                <p class="status">Approved</p>
+                            </div>
+                            <div class="col-6 p-0">
+                                <span class="apply">Applied For Leaves</span>
+                                <p class="days">{{report.noOfDays}} Days</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </ion-card>
+            </ion-card>
+        </span>
+        <span class="no-leave-of-year" *ngIf="showingResults">
+            No leaves in {{showingResults}}!
+        </span>
     </div>
-
-
-
 </ion-content>

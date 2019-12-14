@@ -4,6 +4,7 @@ import {UserService} from '../services/user.service'
 import { Router } from '@angular/router';
 import { config } from '../config';
 import  * as _  from 'lodash';
+import {ToastService} from '../services/toast.service';
 @Component({
   selector: 'app-edit-info',
   templateUrl: './edit-info.component.html',
@@ -16,7 +17,7 @@ export class EditInfoComponent implements OnInit {
   path = config.baseMediaUrl;
   fileProfile:any =[];
   url: any;
-  constructor(public route: Router,public _userService: UserService) { }
+  constructor(public _toastService: ToastService,public router: Router,public _userService: UserService) { }
 
   ionViewWillEnter(){
     this.getUserDetail();
@@ -34,7 +35,7 @@ export class EditInfoComponent implements OnInit {
     phone: new FormControl('', Validators.required),
     designation: new FormControl('', Validators.required),
     location: new FormControl('', Validators.required),
-    filename: new FormControl ('', Validators.required)
+    profilePic: new FormControl ('', Validators.required)
   });
 
   /**
@@ -66,6 +67,7 @@ export class EditInfoComponent implements OnInit {
   }
   
   updateProfile(userDetail){
+    console.log('userDetail',userDetail)
     const data = new FormData();
 		_.forOwn(this.edit_profile.value, (value, key) => {
 			data.append(key, value);
@@ -74,14 +76,23 @@ export class EditInfoComponent implements OnInit {
 		if (this.fileProfile.length > 0) {
       console.log('this.fileProfile.length',this.fileProfile.length)
 			for (let i = 0; i <= this.fileProfile.length; i++) {
-				data.append('filename', this.fileProfile[i]);
+				data.append('profilePhoto', this.fileProfile[i]);
 			}
 		}
     console.log('userDetail after clicking update',data);
-    this._userService.updateProfile(data).subscribe((res)=> {
+    this._userService.updateProfile(data).subscribe((res: any)=> {
       console.log("PROFILE UPDATED", res);
+      this._toastService.presentToast(res.message);
+      this.router.navigateByUrl('home/profile')
     },err => {
       console.log("OOPS PROFILE NOT UPDATED",err);
     });
+  }
+
+  logout(){
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("logout response===", res);
+      this.router.navigateByUrl('login');
+    })
   }
 }

@@ -1,266 +1,263 @@
-$app_bar_color: #01023F;
+$app_bar_color: #01023f;
 $font_size: 15px;
-$text_color: #3998C5;
+$text_color: #3998c5;
 // content start here
 .contect_class {
+  padding: 10px;
+  .card {
+    box-shadow: 4px 4px 10px 2px #dcdcdc;
+    margin-top: 5px;
     padding: 10px;
-    .card {
-        box-shadow: 4px 4px 10px 2px #dcdcdc;
-        margin-top: 5px;
-        padding: 10px;
+  }
+  .pending_leaves {
+    span {
+      font-size: 12px;
     }
-    .pending_leaves {
-        span {
-            font-size: 12px;
-        }
-        .user_count,
-        .user_name {
-            color: #3998C5;
-        }
-        .check_cross,
-        .check_right {
-            cursor: pointer;
-            margin-top: 3px;
-        }
+    .user_count,
+    .user_name {
+      color: #3998c5;
     }
-    .number_of_days {
-        color: $app_bar_color;
-        text-align: center;
+    .check_cross,
+    .check_right {
+      cursor: pointer;
+      margin-top: 3px;
     }
+  }
+  .number_of_days {
+    color: $app_bar_color;
+    text-align: center;
+  }
 }
 
 .image_profile {
-    width: 60%;
-    overflow: hidden;
-    border-radius: 50%;
-    border-color: #020041;
-    position: absolute;
-    left: 15px;
-    top: 10px;
-    @media screen and (min-width: 767px) 
-    {
-        width: 35%;
-        left: 32%;
-    }
-    @media screen and (min-width: 1024px) 
-    {
-        width: 25%;
-        left: 37%;
-    }
-    img {
-        max-width: 100%;
-        min-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-    }
+  width: 60%;
+  overflow: hidden;
+  border-radius: 50%;
+  border-color: #020041;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  height: 59px;
+  @media screen and (min-width: 767px) {
+    width: 35%;
+    left: 32%;
+  }
+  @media screen and (min-width: 1024px) {
+    width: 25%;
+    left: 37%;
+  }
+  img {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
 }
 
 .application_detail {
-    //padding-left: 25%;
-    p {
-        margin-bottom: 0px;
-    }
-    span {
-        font-size: 16px !important;
-        color: #3998C5;
-    }
+  //padding-left: 25%;
+  p {
+    margin-bottom: 0px;
+  }
+  span {
+    font-size: 16px !important;
+    color: #3998c5;
+  }
 }
-
+.noPendingLeaves {
+  top: 50%;
+  position: fixed;
+  left: 22%;
+}
 .accept_reject_btngroup {
-    button {
-        width: 43%;
-        color: #000;
-        padding: 5px;
-        margin: 10px;
-        text-align: center;
-        border-radius: 30px;
-        font-weight: bold;
-    }
+  button {
+    width: 43%;
+    color: #000;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 30px;
+    font-weight: bold;
+  }
 }
 
 button.btn.accept {
-    border: 2px solid #489448;
-    color: #489448;
+  border: 2px solid #489448;
+  color: #489448;
 }
 
 button.btn.reject {
-    border: 2px solid #aa1010;
-    color: #aa1010;
+  border: 2px solid #aa1010;
+  color: #aa1010;
 }
 
 //Meghna Css Start
-.tracking_list_card{
-    background-color: #D8D8D8;
-    .card{
-        border-radius: 0;
-        margin-bottom: 2px;
+.tracking_list_card {
+  background-color: #d8d8d8;
+  .card {
+    border-radius: 0;
+    margin-bottom: 2px;
+  }
+  .application_detail {
+    margin: 10px 0;
+    .name {
+      font-family: "Roboto";
+      font-size: 13px;
+      margin: 0;
+      color: #020041;
+      padding-bottom: 10px;
     }
-    .application_detail{
-        margin: 10px 0;
-        .name{
-            font-family: 'Roboto';
-            font-size: 13px;
-            margin: 0;
-            color: #020041;
-            padding-bottom: 10px;
-        }
-        p{
-            font-size: 12px;
-        }
-        .sub_text{
-            font-family: 'Rubik';
-            font-size: 10px;
-            color: #3B3838;
-        }
-        .details_heading{
-            font-family: 'Rubik';
-            font-size: 12px;
-            color: #020041;
-            margin-top: 10px;
-        }
-        .leave_date_day{
-            color: #EF1F6D;
-            font-size: 11px;
-            font-family: 'Open Sans';
-            span{
-                color: #8E8E8E;
-                font-size: 11px !important;
-            }
-        }  
+    p {
+      font-size: 12px;
     }
-    hr{
-        color: #CFCFCF;
-        margin: 0;
-        border-width: 1px;
+    .sub_text {
+      font-family: "Rubik";
+      font-size: 10px;
+      color: #3b3838;
     }
-    .button_group{
-        margin: 10px 0px;
-        .approve_btn{
-            border: 1px solid #EF1F6D;
-            border-radius: 5px;
-            color: #EF1F6D;
-            font-size: 9px;
-            font-family: 'Open Sans';
-            font-weight: bold;
-            @media screen and (min-width: 767px) 
-            {
-                padding: 10px 20px;
-            }
-        }
-        .reject_btn{
-            border: 1px solid #020041;
-            background-color: #020041;
-            border-radius: 5px;
-            color: #fff;
-            font-size: 9px;
-            font-weight: bold;
-            margin: 0 10px;
-            @media screen and (min-width: 767px) 
-            {
-                padding: 10px 20px;
-            }
-        }
-        .details_btn{
-            border: 1px solid #3A99C5;
-            background-color: #3A99C5;
-            border-radius: 5px;
-            color: #fff;
-            font-size: 9px;
-            font-weight: bold;
-            margin-right: 10px;
-            @media screen and (min-width: 767px) 
-            {
-                padding: 10px 20px;
-            }
-        }
-        .details_modal{
-            //background-color: #000;
-            //opacity: 0.94;
-            .modal-content{
-                background-color: #fff !important;
-            }
-            .modal-dialog{
-                margin: unset;
-            }
-            
-            .modal-body{
-                background-color: #F3F3F3 !important;
-                opacity: 0.56;
-                //padding: 17px 23px;
-                
-            }
-            .modal-footer{
-                justify-content: center !important;
-            }
-            
-        }
+    .details_heading {
+      font-family: "Rubik";
+      font-size: 12px;
+      color: #020041;
+      margin-top: 10px;
     }
+    .leave_date_day {
+      color: #ef1f6d;
+      font-size: 11px;
+      font-family: "Open Sans";
+      span {
+        color: #8e8e8e;
+        font-size: 11px !important;
+      }
+    }
+  }
+  hr {
+    color: #cfcfcf;
+    margin: 0;
+    border-width: 1px;
+  }
+  .button_group {
+    margin: 10px 0px;
+    .approve_btn {
+      border: 1px solid #ef1f6d;
+      border-radius: 5px;
+      color: #ef1f6d;
+      font-size: 9px;
+      font-family: "Open Sans";
+      font-weight: bold;
+      @media screen and (min-width: 767px) {
+        padding: 10px 20px;
+      }
+    }
+    .reject_btn {
+      border: 1px solid #020041;
+      background-color: #020041;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 9px;
+      font-weight: bold;
+      margin: 0 10px;
+      @media screen and (min-width: 767px) {
+        padding: 10px 20px;
+      }
+    }
+    .details_btn {
+      border: 1px solid #3a99c5;
+      background-color: #3a99c5;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 9px;
+      font-weight: bold;
+      margin-right: 10px;
+      @media screen and (min-width: 767px) {
+        padding: 10px 20px;
+      }
+    }
+    .details_modal {
+      //background-color: #000;
+      //opacity: 0.94;
+      .modal-content {
+        background-color: #fff !important;
+      }
+      .modal-dialog {
+        margin: unset;
+      }
+
+      .modal-body {
+        background-color: #f3f3f3 !important;
+        opacity: 0.56;
+        //padding: 17px 23px;
+      }
+      .modal-footer {
+        justify-content: center !important;
+      }
+    }
+  }
 }
 
-
-.modal_content_with_overlay{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: rgba(0, 0, 0, 0.94);
-    display: flex;
-    overflow: auto;
-    z-index: 999;
+.modal_content_with_overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.94);
+  display: flex;
+  overflow: auto;
+  z-index: 999;
 }
-.modal_body{
-    display: table;
-    margin: 70px auto;
-    position: relative;
-    background-color: #fff;
-    border-radius: 8px;
-    width: 92vw;
-    .modal_header {
-        //border-bottom: 1px solid rgba(156, 156, 156, 0.27);
-        //padding: 12px 0px;
-        .leave_reason{
-            padding: 17px 23px;
-        }
-        .leave_reason_text{
-            font-family: 'Rubik';
-            font-size: 13px;
-            font-weight: lighter;
-            color: #010040;
-            margin: 0 23px 0 40px;
-        }
+.modal_body {
+  display: table;
+  margin: 70px auto;
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 92vw;
+  .modal_header {
+    //border-bottom: 1px solid rgba(156, 156, 156, 0.27);
+    //padding: 12px 0px;
+    .leave_reason {
+      padding: 17px 23px;
     }
-    .leave_image{
-        margin: 4px 10px 0px 10px;
-        height: 100%;
-        width: auto;
+    .leave_reason_text {
+      font-family: "Rubik";
+      font-size: 13px;
+      font-weight: lighter;
+      color: #010040;
+      margin: 0 23px 0 40px;
     }
-    .leave_titles{
-        font-family: 'Rubik';
-        font-size: 16px;
-        color: #EF1F6D;
-        margin: 0;
+  }
+  .leave_image {
+    margin: 4px 10px 0px 10px;
+    height: 100%;
+    width: auto;
+  }
+  .leave_titles {
+    font-family: "Rubik";
+    font-size: 16px;
+    color: #ef1f6d;
+    margin: 0;
+  }
+  .leave_dates {
+    background-color: rgba(243, 243, 243, 1);
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 17px 23px;
+    .leave_date_text {
+      font-family: "Open Sans";
+      font-size: 15px;
+      color: #010040;
+      margin: 0 23px 0 40px;
     }
-    .leave_dates{
-        background-color: rgba(243, 243, 243, 1);
-        border-top: 1px solid #E0E0E0;
-        border-bottom: 1px solid #E0E0E0;
-        padding: 17px 23px;
-        .leave_date_text{
-            font-family: 'Open Sans';
-            font-size: 15px;
-            color: #010040;
-            margin: 0 23px 0 40px;
-        }
-    }
-    .close_btn{
-        background-color: #3A99C5;
-        color: #fff;
-        font-family: 'Open Sans';
-        font-size: 10px;
-        font-weight: bold;
-        padding: 5px 28px;
-        margin: 20px auto;
-    }
+  }
+  .close_btn {
+    background-color: #3a99c5;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px 28px;
+    margin: 20px auto;
+  }
 }

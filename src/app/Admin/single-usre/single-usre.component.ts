@@ -23,6 +23,8 @@ export class SingleUsreComponent implements OnInit {
     public alertController: AlertController) { }
 
   ngOnInit() {
+  }
+  ionViewWillEnter(){
     this.route.params.subscribe(param => {
       this.userId = param.userId;
       console.log("userId==========>", this.userId)
@@ -60,46 +62,6 @@ export class SingleUsreComponent implements OnInit {
     }, err => {
       console.log(err);
     })
-  }
-
-  getNoOfDays(days) {
-    if (days.shortLeave) {
-      if (days.shortLeave == 1) {
-        return days.shortLeave + ' hour';
-      }
-      return days.shortLeave + ' hours';
-    } else {
-      if (days.noOfDays < 0) {
-        return 'You have no leaves..'
-      } else {
-        const noOfDays = Math.floor(days.noOfDays / 8)
-        const noOfhours = days.noOfDays % 8;
-        if (!noOfDays && noOfhours) {
-          if (noOfhours > 1) {
-            return noOfhours + ' hours'
-          } else {
-            return noOfhours + ' hour'
-          }
-        } else if (noOfDays && !noOfhours) {
-          if (noOfDays > 1) {
-            return noOfDays + ' Days'
-          } else {
-            return noOfDays + ' Day'
-          }
-        } else {
-          if (noOfDays > 1 && noOfhours > 1) {
-            return noOfDays + ' Days ' + noOfhours + ' hours';
-          } else if (noOfDays == 1 && noOfhours == 1) {
-            return noOfDays + ' Day ' + noOfhours + ' hour';
-          } else if (noOfDays > 1 && noOfhours == 1) {
-            return noOfDays + ' Days ' + noOfhours + ' hour';
-          } else {
-            return noOfDays + ' Day ' + noOfhours + ' hours';
-          }
-
-        }
-      }
-    }
   }
 
   /**

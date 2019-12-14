@@ -4,8 +4,7 @@ import { LeaveService } from '../../services/leave.service';
 import { config } from '../../config';
 import { AlertController } from '@ionic/angular';
 declare var $: any;
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +27,7 @@ export class DashboardComponent implements OnInit {
   todayLeave: boolean = false;
   approvedLeave: boolean = false;
   pendingLeave: boolean = false;
-  constructor(public _userService: UserService,
+  constructor(public router: Router,public _userService: UserService,
     public _leaveService: LeaveService,
     public alertController: AlertController) { }
 
@@ -38,7 +37,6 @@ export class DashboardComponent implements OnInit {
     this.todayDate = this.todayDate.split("-")
     console.log(this.todayDate);
     this.getUserDetail();
-    this.todayNotPresentUser();
     $(".nav-item  a ").click(function () {
       $(".nav-item  a").removeClass("active");
       $(this).addClass("active");
@@ -59,32 +57,6 @@ export class DashboardComponent implements OnInit {
       console.log(err);
     })
   }
-
-  /**
-   * Get user whose not present today
-   */
-  todayNotPresentUser() {
-    this.loading = true;
-    this.approvedLeaves = [];
-    this.pendingLeaves = [];
-    console.log("today not present user")
-    this._leaveService.todayNotPresentUser().subscribe((res: any) => {
-      console.log("not present user", res)
-      this.todaysLeave = res.data;
-      this.todayLeavesCount = res.data.length;
-      this.approvedLeave = false;
-      this.approvedLeave = false;
-      if (!this.todayLeavesCount) {
-        this.todayLeave = true;
-      }
-      this.loading = false;
-      console.log("not present user=======>", res, this.todaysLeave, this.todayLeavesCount);
-    }, err => {
-      console.log(err);
-      this.loading = false;
-    })
-  }
-
   /**
    * Get Approved Leaves
    */
@@ -190,4 +162,14 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  /**
+   * logout
+   */
+
+  logout() {
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("logout response===", res);
+      this.router.navigateByUrl('login');
+    })
+  }
 }

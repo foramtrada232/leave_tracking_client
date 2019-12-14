@@ -2,7 +2,10 @@
     <ion-toolbar class="toolbar-color1">
         <ion-row>
             <ion-col size='4'>
-                <div class="rao_logo" routerLink="/home/dashboard">
+                <div class="rao_logo" *ngIf="currentUserRole == '!Admin'">
+                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
+                </div>
+                <div class="rao_logo" routerLink="/home/dashboard" *ngIf="currentUserRole == 'Admin'">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
                 <img src="../../../assets/images/dashboard.png" alt="meter">
@@ -14,7 +17,7 @@
             </ion-col>
             <ion-col>
                 <div class="icon_sec">
-                   <img src="../../../assets/images/exit.png" alt="logout button">
+                    <img src="../../../assets/images/exit.png" (click)="logout()" alt="logout button">
                 </div>
             </ion-col>
         </ion-row>
@@ -22,230 +25,34 @@
 </ion-header>
 
 <ion-content>
-    <!-- <div class="loader" *ngIf="loading">
-        <img class="loading_img" src="../../assets/images/loader.gif" />
-    </div>
-    <div class="all_notification" *ngFor="let item of notificationDetails">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-2">
-                        <div class="profile_photo">
-                            <img src="../../../assets/images/person.png" alt="profile photo">
-                        </div>
-                    </div>
-                    <div class="col-10">
-                        <div class="noti_content">
-                                <span class="user_name"  innerHtml="{{item.body}}"></span>
-                        </div>
-                        <div class="date_noti w-100">
-                            <span>{{item.createdAt | date}} | {{item.createdTime}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="notificationDetailsCount == 0" class="dataNotAvalible">
-        <p>Sorry You have no new notifications</p>
-    </div> -->
-
     <div class="notification">
-        <ion-card>
+        <ion-card *ngFor="let notify of notificationDetails;">
             <div class="row">
                 <div class="col-2">
                     <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
+                        <img src="../../../assets/images/hover-1.jpg" *ngIf="!notify.profilePhoto" class="img-fluid"
+                            alt="profile image">
+                        <img src="{{path}}{{notify.profilePhoto}}" *ngIf="notify.profilePhoto" class="img-fluid"
+                            alt="profile image">
                     </div>
                 </div>
                 <div class="col-10">
                     <div class="row">
                         <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
+                            <h3>{{notify.title}}</h3>
+                            <p [innerHTML]="notify.body"></p>
                         </div>
-                        <div class="col-6 p-0">
+                        <div class="col-6 p-0" *ngIf="notify.noOfDays && notify.status == 'Pending'">
                             <span class="pending">status</span>
                             <p class="status">Pending</p>
                         </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
+                        <div class="col-6 p-0" *ngIf="notify.noOfDays && notify.status == 'Approved'">
                             <span class="approved">status</span>
                             <p class="status">Approved</p>
                         </div>
-                        <div class="col-6 p-0">
+                        <div class="col-6 p-0" *ngIf="notify.noOfDays">
                             <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="approved">status</span>
-                            <p class="status">Approved</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="pending">status</span>
-                            <p class="status">Pending</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="pending">status</span>
-                            <p class="status">Pending</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="approved">status</span>
-                            <p class="status">Approved</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="pending">status</span>
-                            <p class="status">Pending</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </ion-card>
-        <ion-card>
-            <div class="row">
-                <div class="col-2">
-                    <div class="report-profile mt-3">
-                        <img src="../../../assets/images/hover-1.jpg" class="img-fluid" alt="profile image">
-                    </div>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-12 p-0">
-                            <h3>Pushsparajsinh Chudasama</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="pending">status</span>
-                            <p class="status">Pending</p>
-                        </div>
-                        <div class="col-6 p-0">
-                            <span class="apply">Applied For Leaves</span>
-                            <p class="days"><span>02 Days /</span> 15</p>
+                            <p class="days">{{notify.noOfDays}} Days</p>
                         </div>
                     </div>
                 </div>

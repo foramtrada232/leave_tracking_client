@@ -17,16 +17,14 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { FCM } from '@ionic-native/fcm/ngx';
-import {Network} from '@ionic-native/network/ngx';
-
+import { Network } from '@ionic-native/network/ngx';
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent,
+    LoginComponent
   ],
   entryComponents: [
-    
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@ import { Router, RouterEvent } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { config } from '../config';
 import { ToastService } from '../services/toast.service';
-
+declare var $: any;
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -19,6 +19,7 @@ export class HomePage {
   UserDetail: any;
   path = config.baseMediaUrl;
 
+
   constructor(
     public router: Router,
     public _userService: UserService,
@@ -26,10 +27,13 @@ export class HomePage {
     public _toastService: ToastService,
     public events2: Events
   ) {
+    // setInterval(() => {
+    //   this.currentUserRole = JSON.parse(localStorage.getItem('designation'));
+    // }, 1000);
     this.events2.subscribe('profile', (data) => {
-      console.log("data================>",data)
+      console.log("data================>", data)
       this.UserDetail.profilePhoto = data;
-      console.log("profile photo updated",this.UserDetail);
+      console.log("profile photo updated", this.UserDetail);
     });
     this._userService.currentUser.subscribe(x => this.currentUser = x);
     console.log("this.curruntUserRole====>", this.currentUserRole);
@@ -38,19 +42,19 @@ export class HomePage {
       {
         title: 'Profile',
         url: 'profile',
-        name:'profile-dashboard'
+        name: 'profile-dashboard'
       },
       {
         title: 'Leave Form',
         url: 'leave-form',
-        name:'Reports-dashboard'
+        name: 'Reports-dashboard'
       },
       {
         title: 'History',
         url: 'leave-history',
-        name:'History-active'
+        name: 'History-active'
       }
-     
+
     ]
     this.adminpages = [
       {
@@ -77,7 +81,7 @@ export class HomePage {
       {
         title: 'Profile',
         url: 'profile',
-        name:'profile'
+        name: 'profile'
       },
     ];
     this.router.events.subscribe((event: RouterEvent) => {
@@ -100,8 +104,8 @@ export class HomePage {
       console.log(err);
     })
   }
-  getBackground(data){
+  getBackground(data) {
     // console.log(data);
-    return '/assets/images/' + data + '.png' ;
+    return '/assets/images/' + data + '.png';
   }
 }

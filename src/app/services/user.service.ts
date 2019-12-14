@@ -110,6 +110,6 @@ export class UserService {
  */
   updateProfile(data){
     console.log("file is===>>>",data);
-    return this.http.put(config.baseApiUrl + "api/update-user" ,data)
+    return this.http.put(config.baseApiUrl + "api/edit-profile" ,data)
   }
 }

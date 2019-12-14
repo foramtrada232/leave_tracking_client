@@ -16,9 +16,8 @@
             </ion-col>
             <ion-col size='3'>
                 <div class="icon_sec">
-                    <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
-                        alt="notification">
-                    <span>1</span>
+                    <img src="../../../assets/images/Path 250.png" *ngIf="currentUserRole == 'Admin'"
+                        routerLink="/home/notification" class="mr-3" alt="notification">
                     <img src="../../../assets/images/exit.png" alt="logout button" (click)="logout()">
                 </div>
             </ion-col>
@@ -62,7 +61,7 @@
             </div>
         </div>
         <div class="leave_form">
-            <form [formGroup]="leaveForm" (ngSubmit) = "applyLeave()">
+            <form [formGroup]="leaveForm" (ngSubmit)="applyLeave()">
                 <label class="form_labels w-100">Leave Days</label>
                 <div class="form_select">
                     <select class="w-100" formControlName="daysCount" (change)="leaveSelect($event)">
@@ -84,9 +83,8 @@
                     <div class="col-12">
                         <label class="form_labels w-100">Leave Date</label>
                         <div class="date_picker">
-                            <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
-                            <ion-datetime formControlName="singleDate" class="placeholder w-100" placeholder="mm dd yy"
-                                ></ion-datetime>
+                            <ion-datetime [min]="today" [max]="fromDateMax" formControlName="singleDate"
+                                class="placeholder w-100" placeholder="mm dd yy"></ion-datetime>
                             <img src="../../assets/images/date-picker.png">
                         </div>
                     </div>
@@ -95,24 +93,24 @@
                     <div class="col-6">
                         <label class="form_labels w-100">Leave From Date</label>
                         <div class="date_picker">
-                            <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
-                            <ion-datetime formControlName="fromDate" class="placeholder w-100"
-                                placeholder="mm dd yy" ></ion-datetime>
+                            <ion-datetime [min]="today" [max]="fromDateMax" formControlName="fromDate"
+                                (ionChange)="fromDateChange($event.target.value)" class="placeholder w-100"
+                                placeholder="mm dd yy"></ion-datetime>
                             <img src="../../assets/images/date-picker.png">
                         </div>
                     </div>
                     <div class="col-6">
                         <label class="form_labels w-100">Leave To Date</label>
                         <div class="date_picker">
-                            <!-- <input class="placeholder w-100" type="text" name="datefilter" value="" placeholder="mm dd yy"> -->
-                            <ion-datetime formControlName="toDate" class="placeholder w-100" placeholder="mm dd yy"
-                                ></ion-datetime>
+                            <ion-datetime [min]="toDateMin" [max]="toDateMax" formControlName="toDate" id="toDate"
+                                class="placeholder w-100" placeholder="mm dd yy"></ion-datetime>
                             <img src="../../assets/images/date-picker.png">
                         </div>
                     </div>
                 </div>
                 <label class="form_labels w-100">Reason For Leaving Request</label>
-                <textarea rows="3" formControlName="reason" class="form_text_field w-100">Lorem ipsum dolor sit amet, consectetur adipshdo...</textarea>
+                <textarea rows="3" formControlName="reason"
+                    class="form_text_field w-100">Lorem ipsum dolor sit amet, consectetur adipshdo...</textarea>
                 <label class="form_labels w-100">Compansate</label>
                 <textarea formControlName="compansate" rows="3" class="form_text_field w-100"></textarea>
                 <div class="attachment">
@@ -127,97 +125,9 @@
                 </div>
                 <div class="col-12 w-100 text-center mt-3">
                     <input type="submit" class="submit_btn btn btn-lg">
+                    <span *ngIf="spinner"><img src="../../assets/images/spinner.gif" height="33px" alt=""></span>
                 </div>
             </form>
         </div>
     </div>
 </ion-content>
-
-<!-- <ion-content>
-    <img src="../../assets/images/form-bg.jpeg" alt="background">
-        <div class="leave-form">
-    <div class="container">
-        <div class="row mt-4">
-            <div class="col-12">
-                <span>Leave Days</span>
-                <ion-select placeholder="Select One">
-                    <ion-select-option value="half">Half Day</ion-select-option>
-                    <ion-select-option value="full">Full Day</ion-select-option>
-                    <ion-select-option value="full">More Days</ion-select-option>
-                </ion-select>
-            </div>
-            <div class="col-12">
-                <span>Leave Type</span>
-                <ion-select placeholder="Select One">
-                    <ion-select-option value="sick">Sick Leave</ion-select-option>
-                    <ion-select-option value="emergency">Emergency Leave</ion-select-option>
-                    <ion-select-option value="casual">Casual Leave</ion-select-option>
-                </ion-select>
-            </div>
-            <div class="col-12 mb-2">
-                <span>Leave Date</span>
-                <input type="text" class="date-input" name="daterange" value="04/12/2019" />
-            </div>
-            <div class="col-12 mb-2">
-                <span>Reason</span>
-                <input type="textarea" class="form-control" placeholder="Enter Reason">
-            </div>
-            <div class="col-12 mb-2">
-                <span>Compansate</span>
-                <input type="text" class="form-control" placeholder="Enter Compansate">
-            </div>
-            <div class="col-12 mb-2 file-input">
-                <label for="fileInput">Attach a File</label>
-                <input type="file" id="fileInput" style="display: none;">
-            </div>
-            <div class="col-12 mb-3">
-                <ion-button>Submit</ion-button>
-            </div>
-        </div>
-    </div>
-    </div> -->
-<!-- <div class="all_content">
-        <form [formGroup]='leaveForm'>
-            <div class="row">
-                <div class="col-12">
-                    <div class="select_date text-white">Select Date</div>
-                    <ion-item>
-                        <ion-datetime  placeholder="Select Leave Date" ></ion-datetime>
-                    </ion-item>
-                </div>
-                <div class="col-12">
-                    <div class="select_date text-white">Days</div>
-                    <ion-item>
-                        <ion-input type="number" id="field1" formControlName="noOfDays" placeholder="Enter Number of days" step="0.5" min="0" max="30" id="input1" [disabled]="leaveForm.controls.shortLeave.value" ngModel="{{noOfDays}}" (keyup)="updateList($event.target.value,'days')">
-                        </ion-input>
-                    </ion-item>
-                </div>
-                <div class="or_text w-100 text-center">OR</div>
-                <div class="col-12">
-                    <div class="select_date text-white">Hours</div>
-                    <ion-item>
-                        <ion-input formControlName="shortLeave" type="number" (keyup)="updateList($event.target.value,'shortLeave')" placeholder="Enter your Leave hours..." id="input2" min="0" [disabled]="leaveForm.controls.noOfDays.value" ngModel="{{shortLeave}}"></ion-input>
-                    </ion-item>
-                </div>
-                <div class="col-12">
-                    <div class="select_date text-white">Reason</div>
-                    <ion-item>
-                        <ion-textarea rows="1" formControlName="reason" placeholder="Enter your reason here..."></ion-textarea>
-                    </ion-item>
-                </div>
-                <div class="col-12">
-                    <div class="select_date text-white">Compansate</div>
-                    <ion-item>
-                        <ion-input formControlName="extraHours" placeholder="Enter your compensate..."></ion-input>
-                    </ion-item>
-                </div>
-            </div>
-            <div class="text-center text-white">
-                <ion-button type="submit" (click)="applyLeave(leaveForm.value)" [disabled]="(this.leaveForm.invalid || !isValue)  || isDisable  ">
-                    Submit</ion-button>
-            </div>
-        </form>
-    </div>
-</ion-content> -->
-
-<!-- </ion-content> -->

@@ -95,10 +95,11 @@ export class LoginComponent implements OnInit {
       console.log('res of login============>', res);
       this._toastService.presentToast(res.message);
       this.isDisable = false;
-      this.loading = false;
-      if(JSON.parse(localStorage.getItem('designation')) == 'Admin'){
-        this.router.navigate(['home/dashboard']);
-      }else{
+      if (JSON.parse(localStorage.getItem('designation')) == 'Admin') {
+        this.loading = false;
+        this.router.navigate(['home']);
+      } else {
+        this.loading = false;
         this.router.navigate(['home']);
       }
     }, err => {
@@ -108,5 +109,4 @@ export class LoginComponent implements OnInit {
       this.loading = false;
     })
   }
-
 }

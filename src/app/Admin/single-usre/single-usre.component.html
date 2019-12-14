@@ -99,30 +99,33 @@
                             <div class="row">
                                 <div class="col-4">
                                     <div *ngIf="leave.status == 'Rejected'">
-                                        <span
-                                            style=" color: #FF0000;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                        <span style=" color: #FF0000;">
+                                            {{leave.fromDate.date}}/{{leave.fromDate.month}}/{{leave.fromDate.year}}
+                                        </span>
                                     </div>
                                     <div *ngIf="leave.status == 'Approved'">
-                                        <span
-                                            style=" color: #3998C5;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                        <span style=" color: #3998C5;">
+                                            {{leave.fromDate.date}}/{{leave.fromDate.month}}/{{leave.fromDate.year}}
+                                        </span>
                                     </div>
-                                    <div *ngIf="leave.status == 'pending'">
-                                        <span
-                                            style=" color: #FFAA00;">{{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}</span>
+                                    <div *ngIf="leave.status == 'Pending'">
+                                        <span style=" color: #FFAA00;">
+                                            {{leave.fromDate.date}}/{{leave.fromDate.month}}/{{leave.fromDate.year}}
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-4 text-center">
                                     <div *ngIf="leave.status == 'Rejected'">
                                         <span style="cursor: pointer; color: #FF0000;">
-                                            {{getNoOfDays(leave)}}</span>
+                                            {{leave.noOfDays}}</span>
                                     </div>
                                     <div *ngIf="leave.status == 'Approved'">
                                         <span style="cursor: pointer; color: #3998C5;">
-                                            {{getNoOfDays(leave)}}</span>
+                                            {{leave.noOfDays}}</span>
                                     </div>
-                                    <div *ngIf="leave.status == 'pending'">
+                                    <div *ngIf="leave.status == 'Pending'">
                                         <span style="cursor: pointer; color: #FFAA00;">
-                                            {{getNoOfDays(leave)}}</span>
+                                            {{leave.noOfDays}}</span>
                                     </div>
                                 </div>
                                 <div class="col-4 text-right">
@@ -132,7 +135,7 @@
                                     <div *ngIf="leave.status == 'Approved'">
                                         <span class="pl-2" style="color: #00B51E;">{{leave.status}}</span>
                                     </div>
-                                    <div *ngIf="leave.status == 'pending'">
+                                    <div *ngIf="leave.status == 'Pending'">
                                         <span class="pl-2" style="color: #FFAA00;">{{leave.status}}</span>
                                     </div>
                                 </div>
@@ -150,12 +153,12 @@
                                         <div class="col-12">
                                             <p class="text-white">Date :</p>
                                             <div class="reason_text text-white">
-                                                {{leave.date.date}}/{{leave.date.month}}/{{leave.date.year}}
+                                                {{leave.fromDate.date}}/{{leave.fromDate.month}}/{{leave.fromDate.year}}
                                             </div>
                                         </div>
                                         <div class="col-12" *ngIf="leave.extraHours">
                                             <p class="text-white">Compensation :</p>
-                                            <div class="reason_text text-white">{{leave.extraHours}}
+                                            <div class="reason_text text-white">{{leave.compansate}}
                                             </div>
                                         </div>
                                     </div>

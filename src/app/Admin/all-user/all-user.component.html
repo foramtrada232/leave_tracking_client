@@ -16,8 +16,7 @@
                 <div class="icon_sec">
                     <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
                         alt="notification">
-                    <span>1</span>
-                    <img src="../../../assets/images/exit.png" alt="logout button">
+                    <img src="../../../assets/images/exit.png" (click)="logout()" alt="logout button">
                 </div>
             </ion-col>
         </ion-row>
@@ -28,63 +27,31 @@
     <div class="loader" *ngIf="loading">
         <img class="loading_img" src="../../assets/images/loader.gif" />
     </div>
-    <!-- swati html -->
     <div class="users">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-6 p-0">
+            <div class="row" *ngIf="allUser">
+                <div class="col-6 p-0" *ngFor="let user of allUser">
                     <ion-card>
                         <div class="text-center top p-2">
                             <div class="profile-image">
-                                <img src="../../../assets/images/hover-3.jpg" alt="profile image">
+                                <img *ngIf="!user.profilePhoto" src="../../../assets/images/hover-3.jpg"
+                                    alt="profile image">
+                                <img *ngIf="user.profilePhoto" src="{{path}}{{user.profilePhoto}}" alt="profile image">
                             </div>
-                            <h6 class="mb-0">Akshay Karetiya</h6>
-                            <p class="mb-0">Wordpress Dev</p>
-                            <button>View Profile</button>
+                            <h6 class="mb-0">{{user.name}}</h6>
+                            <p class="mb-0">{{user.designation}}</p>
+                            <button (click)="viewProfile(user._id)">View Profile</button>
                         </div>
-                        <div class="bottom-status border-top">
+                        <div class="bottom-status border-top" *ngIf="user.status == 'present'">
                             <div class="left float-left w-60 text-center">
                                 <span class="approved">status</span>
-                                <p class="status mb-0">Available</p>
+                                <p class="status mb-0">Present</p>
                             </div>
                             <div class="right-available float-right">
-                                <span>85%</span>
+                                <span>{{([100 * user.total_leave] / 18).toFixed()}}%</span>
                             </div>
                         </div>
-                    </ion-card>
-                </div>
-                <div class="col-6 p-0">
-                    <ion-card>
-                        <div class="text-center top p-2">
-                            <div class="profile-image">
-                                <img src="../../../assets/images/hover-3.jpg" alt="profile image">
-                            </div>
-                            <h6 class="mb-0">Akshay Karetiya</h6>
-                            <p class="mb-0">Wordpress Dev</p>
-                            <button>View Profile</button>
-                        </div>
-                        <div class="bottom-status border-top">
-                            <div class="left float-left w-60 text-center">
-                                <span class="rejected">status</span>
-                                <p class="status mb-0">Not Available</p>
-                            </div>
-                            <div class="right-not-available float-right">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </ion-card>
-                </div>
-                <div class="col-6 p-0">
-                    <ion-card>
-                        <div class="text-center top p-2">
-                            <div class="profile-image">
-                                <img src="../../../assets/images/hover-3.jpg" alt="profile image">
-                            </div>
-                            <h6 class="mb-0">Akshay Karetiya</h6>
-                            <p class="mb-0">Wordpress Dev</p>
-                            <button>View Profile</button>
-                        </div>
-                        <div class="bottom-status border-top">
+                        <div class="bottom-status border-top" *ngIf="user.status == 'absent'">
                             <div class="left float-left w-60 text-center">
                                 <span class="absent">status</span>
                                 <p class="status mb-0">Absent</p>
@@ -95,330 +62,7 @@
                         </div>
                     </ion-card>
                 </div>
-                <div class="col-6 p-0">
-                    <ion-card>
-                        <div class="text-center top p-2">
-                            <div class="profile-image">
-                                <img src="../../../assets/images/hover-3.jpg" alt="profile image">
-                            </div>
-                            <h6 class="mb-0">Akshay Karetiya</h6>
-                            <p class="mb-0">Wordpress Dev</p>
-                            <button>View Profile</button>
-                        </div>
-                        <div class="bottom-status border-top">
-                            <div class="left float-left w-60 text-center">
-                                <span class="rejected">status</span>
-                                <p class="status mb-0">Not Available</p>
-                            </div>
-                            <div class="right-not-available float-right">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </ion-card>
-                </div>
-                <div class="col-6 p-0">
-                    <ion-card>
-                        <div class="text-center top p-2">
-                            <div class="profile-image">
-                                <img src="../../../assets/images/hover-3.jpg" alt="profile image">
-                            </div>
-                            <h6 class="mb-0">Akshay Karetiya</h6>
-                            <p class="mb-0">Wordpress Dev</p>
-                            <button>View Profile</button>
-                        </div>
-                        <div class="bottom-status border-top">
-                            <div class="left float-left w-60 text-center">
-                                <span class="approved">status</span>
-                                <p class="status mb-0">Available</p>
-                            </div>
-                            <div class="right-available float-right">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </ion-card>
-                </div>
-                <div class="col-6 p-0">
-                    <ion-card>
-                        <div class="text-center top p-2">
-                            <div class="profile-image">
-                                <img src="../../../assets/images/hover-3.jpg" alt="profile image">
-                            </div>
-                            <h6 class="mb-0">Akshay Karetiya</h6>
-                            <p class="mb-0">Wordpress Dev</p>
-                            <button>View Profile</button>
-                        </div>
-                        <div class="bottom-status border-top">
-                            <div class="left float-left w-60 text-center">
-                                <span class="approved">status</span>
-                                <p class="status mb-0">Available</p>
-                            </div>
-                            <div class="right-available float-right">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </ion-card>
-                </div>
-                <div class="col-6 p-0">
-                    <ion-card>
-                        <div class="text-center top p-2">
-                            <div class="profile-image">
-                                <img src="../../../assets/images/hover-3.jpg" alt="profile image">
-                            </div>
-                            <h6 class="mb-0">Akshay Karetiya</h6>
-                            <p class="mb-0">Wordpress Dev</p>
-                            <button>View Profile</button>
-                        </div>
-                        <div class="bottom-status border-top">
-                            <div class="left float-left w-60 text-center">
-                                <span class="rejected">status</span>
-                                <p class="status mb-0">Not Available</p>
-                            </div>
-                            <div class="right-not-available float-right">
-                                <span>85%</span>
-                            </div>
-                        </div>
-                    </ion-card>
-                </div>
             </div>
         </div>
     </div>
-
-    <!-- meghna html -->
-    <!-- <div class="all_users_card">
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Akshay Karetiya</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_pill absent">Status</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <img class="download_img" src="../../../assets/images/download.png">
-                                    <p class="status_pill download">Download</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_text">Absent</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="status_text">Attachment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Mary Ann Wagner</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_pill avail">Status</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <img class="download_img" src="../../../assets/images/download.png">
-                                    <p class="status_pill download">Download</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_text">Available</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="status_text">Attachment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Dorothy Wallace</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_pill absent">Status</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <img class="download_img" src="../../../assets/images/download.png">
-                                    <p class="status_pill download">Download</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_text">Absent</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="status_text">Attachment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Marie Lawson</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_pill not_avail">Status</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <img class="download_img" src="../../../assets/images/download.png">
-                                    <p class="status_pill not_available">Not Available</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_text">Not Available</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="status_text">Attachment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Dorothy Wallace</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_pill absent">Status</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <img class="download_img" src="../../../assets/images/download.png">
-                                    <p class="status_pill download">Download</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_text">Absent</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="status_text">Attachment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card" style="cursor: pointer;">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3">
-                        <div class="profile_div">
-                            <div class="image_profile">
-                                <img src="../../../assets/images/person.png" alt="profil image">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name">Marie Lawson</h2>
-                            <p class="sub_text">Lorem ipsum dolor sit amet, consectetur</p>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_pill not_avail">Status</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <img class="download_img" src="../../../assets/images/download.png">
-                                    <p class="status_pill not_available">Not Available</p>
-                                </div>
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_text">Not Available</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="status_text">Attachment</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </ion-content>
-<!-- old html -->
-<!-- <ion-content>
-    <div class="loader" *ngIf="loading">
-        <img class="loading_img" src="../../assets/images/loader.gif" />
-    </div>
-    <div class="all_user_pic row">
-        <div class="user_profile card text-center" routerLink="/home/single-user/{{user._id}}" *ngFor="let user of allUser">
-            <div class="card-body">
-                <div class="profile_img" *ngIf="!user.profilePhoto">
-                    <img src="../../assets/images/person.png" class="rounded-circle">
-                </div>
-                <div class="profile_img" *ngIf="user.profilePhoto">
-                    <img src="{{path}}{{user.profilePhoto}}" class="rounded-circle">
-                </div>
-                <p class="text-center allUser">{{user.name}}</p>
-            </div>
-        </div>
-    </div>
-</ion-content> -->
