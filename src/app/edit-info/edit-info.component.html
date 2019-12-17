@@ -10,7 +10,7 @@
                 </div>
             </ion-col>
             <ion-col size='4'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec font_large text-center">
                     <span>Edit Info</span>
                 </div>
             </ion-col>
@@ -39,8 +39,8 @@
                             <div class="attachment">
                                 <div class="row m-0">
                                     <div class="attachment_text">
-                                        <label for="fileInput" class="attach_file text-center">Update Profile Image
-                                            <br><span class="drag_file text-gray">Attach a File</span></label>
+                                        <label for="fileInput" class="attach_file font_base text-center">Update Profile Image
+                                            <br><span class="drag_file font_small text-gray">Attach a File</span></label>
                                         <input type="file" id="fileInput" formControlName="profilePic" style="display: none;"
                                             (change)="addFile($event)" accept="image/*">
                                         <div class="border-image"
@@ -64,28 +64,28 @@
             </ion-card>
             <div class="container">
                 <div class="group-inputs-div">
-                    <span>Name</span>
-                    <input type="text" formControlName="name" [(ngModel)]="userDetail.name"
+                    <span class="font_base">Name</span>
+                    <input class="font_base" type="text" formControlName="name" [(ngModel)]="userDetail.name"
                         placeholder="Enter Your FullName">
 
-                    <span>Email</span>
-                    <input class="placeholder w-100" type="text" formControlName="email" [(ngModel)]="userDetail.email"
+                    <span class="font_base">Email</span>
+                    <input class="placeholder font_base w-100" type="text" formControlName="email" [(ngModel)]="userDetail.email"
                         placeholder="mm dd yy">
 
-                    <span>Phone No.</span>
-                    <input type="text" formControlName="phone" [(ngModel)]="userDetail.phone"
+                    <span class="font_base">Phone No.</span>
+                    <input class="font_base" type="text" formControlName="phone" [(ngModel)]="userDetail.phone"
                         placeholder="Enter Phone No.">
 
-                    <span>Designation</span>
-                    <input type="text" formControlName="designation" [(ngModel)]="userDetail.designation"
+                    <span class="font_base">Designation</span>
+                    <input class="font_base" type="text" formControlName="designation" [(ngModel)]="userDetail.designation"
                         placeholder="Enter Designation">
 
-                    <span>Location</span>
-                    <input type="text" formControlName="location" [(ngModel)]="userDetail.location"
+                    <span class="font_base">Location</span>
+                    <input class="font_base" type="text" formControlName="location" [(ngModel)]="userDetail.location"
                         placeholder="Enter Location">
 
                     <div class="w-100 text-center m-auto">
-                        <button class="submit_btn" (click)="updateProfile(userDetail)">Update</button>
+                        <button class="submit_btn font_base" (click)="updateProfile(userDetail)">Update</button>
                     </div>
                 </div>
             </div>

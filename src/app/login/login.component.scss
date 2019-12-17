@@ -32,7 +32,7 @@
 .app_name{
     p{
         font-family: 'Rubik', sans-serif;
-        font-size: 14px;
+        // font-size: 14px;
         color: #9CB1D4;
         margin: 0;
         padding: 0 10px;
@@ -42,10 +42,10 @@
     background-color: #fff;
     border-radius: 3px;
     margin: 20px 0;
-    padding: 10px 25px;
+    padding: 25px;
     .login_heading{
         font-family: 'Rubik', sans-serif;
-        font-size: 16px;
+        // font-size: 14px;
         color: #012C6B;
         margin: 10px 0px 0px 0px;
     }
@@ -66,7 +66,7 @@
             border-radius: 3px;
             border: 1px solid #012D6C;
             font-family: 'Rubik', sans-serif;
-            font-size: 10px;
+            // font-size: 12px;
         }
         .form-control:focus{
             outline: none!important;
@@ -79,36 +79,36 @@
             opacity: 1;
             /* Firefox */
             font-family: 'Rubik', sans-serif;
-            font-size: 10px;
+            // font-size: 12px;
         }
         .loginForm input,
         input:-ms-input-placeholder {
             /* Internet Explorer 10-11 */
             color    : #fff !important;
             font-family: 'Rubik', sans-serif;
-            font-size: 10px;
+            // font-size: 12px;
         }
         .loginForm input,
         input::-ms-input-placeholder {
             /* Microsoft Edge */
             color    : #9CB1D4 !important;
             font-family: 'Rubik', sans-serif;
-            font-size: 10px;
+            // font-size: 12px;
         }
         .email_icon {
             position: absolute;
-            top: 11px;
+            top: 12px;
             left: 10px;
         }
         .password_icon{
             position: absolute;
-            top: 8px;
+            top: 10px;
             left: 10px;
         }
         .see_password {
             position: absolute;
             right: 10px;
-            top: 7px;
+            top: 10px;
             cursor: pointer;
             z-index: 111;
         }
@@ -125,7 +125,7 @@
                 background-color: #020041;
                 color: #fff;
                 font-family: 'Open Sans';
-                font-size: 11px;
+                // font-size: 14px;
                 padding: 10px 30px;
                 border-radius: 3px;
                 cursor: pointer;
@@ -138,7 +138,7 @@
         }
         a.forget_pass{
             font-family: 'Rubik', sans-serif;
-            font-size: 9px;
+            // font-size: 12px;
             color:#C1C1C1;
         }
         a.forget_pass:hover{

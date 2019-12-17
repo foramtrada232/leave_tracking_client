@@ -11,7 +11,7 @@
                 </div>
             </ion-col>
             <ion-col size='4'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec text-center font_large">
                     <span>Profile</span>
                 </div>
             </ion-col>
@@ -32,48 +32,48 @@
                 <img *ngIf="userDetail.profilePhoto" class="circle-ronded" src="{{path}}{{userDetail.profilePhoto}}">
             </div>
             <div class="profile-content pl-2">
-                <h1 class="mb-0">{{userDetail.name}}</h1>
-                <span class="mt-1">{{userDetail.designation}}</span>
-                <p>Commitment global cultivate, thought leader framework, our work.</p>
+                <h1 class="font_large mb-0">{{userDetail.name}}</h1>
+                <span class="font_base mt-1">{{userDetail.designation}}</span>
+                <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
             </div>
         </div>
         <div class="information">
             <div class="container">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-5">
                         <img src="../../assets/images/envelope.png" alt="calendar">
-                        <span>Email</span>
+                        <span class="font_base">Email</span>
                     </div>
-                    <div class="col-8 p-0">
-                        <span>{{userDetail.email}}</span>
+                    <div class="col-7 p-0">
+                        <span class="font_base">{{userDetail.email}}</span>
                     </div>
-                    <div class="col-4">
+                    <div class="col-5">
                         <img src="../../assets/images/cal.svg" alt="calendar">
-                        <span>DOB</span>
+                        <span class="font_base">DOB</span>
                     </div>
-                    <div class="col-8 p-0">
-                        <span>{{userDetail.dob}}</span>
+                    <div class="col-7 p-0">
+                        <span class="font_base">{{userDetail.dob}}</span>
                     </div>
-                    <div class="col-4">
+                    <div class="col-5">
                         <img src="../../assets/images/phone-call.png" alt="calendar">
-                        <span>Phone</span>
+                        <span class="font_base">Phone</span>
                     </div>
-                    <div class="col-8 p-0">
-                        <span>{{userDetail.phone}}</span>
+                    <div class="col-7 p-0">
+                        <span class="font_base">{{userDetail.phone}}</span>
                     </div>
-                    <div class="col-4">
+                    <div class="col-5">
                         <img src="../../assets/images/placeholder.png" alt="calendar">
-                        <span>Location</span>
+                        <span class="font_base">Location</span>
                     </div>
-                    <div class="col-8 p-0">
-                        <span>{{userDetail.location}}</span>
+                    <div class="col-7 p-0">
+                        <span class="font_base">{{userDetail.location}}</span>
                     </div>
-                    <div class="col-4">
+                    <div class="col-5">
                         <img src="../../assets/images/cal.svg" alt="calendar">
-                        <span>Joining Date</span>
+                        <span class="font_base">Joining Date</span>
                     </div>
-                    <div class="col-8 p-0">
-                        <span>{{userDetail.dateOfJoining}}</span>
+                    <div class="col-7 p-0">
+                        <span class="font_base">{{userDetail.dateOfJoining}}</span>
                     </div>
                 </div>
             </div>
@@ -98,16 +98,16 @@
                                         src="{{path}}{{userDetail.profilePhoto}}">
                                 </div>
                                 <div class="profile-content">
-                                    <h1>{{userDetail.name}}</h1>
-                                    <span>{{userDetail.designation}}</span>
-                                    <p>Commitment global cultivate, thought leader framework, our work.</p>
+                                    <h1 class="font_large">{{userDetail.name}}</h1>
+                                    <span class="font_base">{{userDetail.designation}}</span>
+                                    <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
                                 </div>
                             </div>
                             <div class="col-4 p-0 text-right location">
-                                <span><img src="../../assets/images/location.png" alt="location">
+                                <span class="font_small"><img src="../../assets/images/location.png" alt="location">
                                     Location</span>
-                                <p>{{userDetail.location}}</p>
-                                <button routerLink="/home/edit-info"><i class="fa fa-pencil-square-o"
+                                <p class="font_small">{{userDetail.location}}</p>
+                                <button routerLink="/home/edit-info" class="font_small"><i class="fa fa-pencil-square-o"
                                         aria-hidden="true"></i> Edit Info</button>
                             </div>
                         </div>
@@ -115,16 +115,16 @@
                             <div class="d-inline-block w-100 mt-2">
                                 <div class="float-left">
                                     <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
-                                    <span>{{userDetail.email}}</span>
+                                    <span class="font_small">{{userDetail.email}}</span>
                                 </div>
                                 <div class="float-right">
                                     <i class="fa fa-phone mr-2" aria-hidden="true"></i>
-                                    <span>{{userDetail.phone}}</span>
+                                    <span class="font_small">{{userDetail.phone}}</span>
                                 </div>
                             </div>
                             <div class="w-100">
-                                <span class="dob mr-2">DOB</span>
-                                <span class="dob-dt">{{userDetail.dob}}</span>
+                                <span class="dob font_small mr-2">DOB</span>
+                                <span class="dob-dt font_small">{{userDetail.dob}}</span>
                             </div>
                         </div>
                     </div>
@@ -134,44 +134,44 @@
                 <ion-card class="sick-leave">
                     <div class="row">
                         <div class="col-9">
-                            <h1>Sick Leave</h1>
-                            <p>Commitment global cultivate, thought leader framework, our work.</p>
+                            <h1 class="font_large">Sick Leave</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
                         </div>
                         <div class="col-3 px-0 pt-2">
-                            <span>{{userDetail.leaveType.sick_leave}}</span>
+                            <span class="font_large">{{userDetail.leaveType.sick_leave}}</span>
                         </div>
                     </div>
                 </ion-card>
                 <ion-card class="emergency-leave">
                     <div class="row">
                         <div class="col-9">
-                            <h1>Emergency Leave</h1>
-                            <p>Commitment global cultivate, thought leader framework, our work.</p>
+                            <h1 class="font_large">Emergency Leave</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
                         </div>
                         <div class="col-3 px-0 pt-2">
-                            <span>{{userDetail.leaveType.emergency_leave}}</span>
+                            <span class="font_large">{{userDetail.leaveType.emergency_leave}}</span>
                         </div>
                     </div>
                 </ion-card>
                 <ion-card class="casual-leave">
                     <div class="row">
                         <div class="col-9">
-                            <h1>Casual Leave</h1>
-                            <p>Commitment global cultivate, thought leader framework, our work.</p>
+                            <h1 class="font_large">Casual Leave</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
                         </div>
                         <div class="col-3 px-0 pt-2">
-                            <span>{{userDetail.leaveType.casual_leave}}</span>
+                            <span class="font_large">{{userDetail.leaveType.casual_leave}}</span>
                         </div>
                     </div>
                 </ion-card>
                 <ion-card class="sick-leave paid-leave">
                     <div class="row">
                         <div class="col-9">
-                            <h1>Paid Leaves</h1>
-                            <p>Commitment global cultivate, thought leader framework, our work.</p>
+                            <h1 class="font_large">Paid Leaves</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
                         </div>
                         <div class="col-3 px-0 pt-2">
-                            <span>{{userDetail.leaveType.paid_leave}}</span>
+                            <span class="font_large">{{userDetail.leaveType.paid_leave}}</span>
                         </div>
                     </div>
                 </ion-card>

@@ -11,7 +11,7 @@ $text_color: #3998c5;
   }
   .pending_leaves {
     span {
-      font-size: 12px;
+      // font-size: 12px;
     }
     .user_count,
     .user_name {
@@ -30,27 +30,20 @@ $text_color: #3998c5;
 }
 
 .image_profile {
-  width: 60%;
+  height: 45px;
+  width: 45px;
   overflow: hidden;
   border-radius: 50%;
-  border-color: #020041;
-  position: absolute;
-  left: 15px;
-  top: 10px;
-  height: 59px;
-  @media screen and (min-width: 767px) {
-    width: 35%;
-    left: 32%;
-  }
-  @media screen and (min-width: 1024px) {
-    width: 25%;
-    left: 37%;
-  }
+  float: left;
+  border: 1px solid #01023F;
+  margin: 10px 0;
+
   img {
-    max-width: 100%;
-    min-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
+      max-width: 100%;
+      min-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      height: 45px;
   }
 }
 
@@ -60,7 +53,7 @@ $text_color: #3998c5;
     margin-bottom: 0px;
   }
   span {
-    font-size: 16px !important;
+    // font-size: 16px !important;
     color: #3998c5;
   }
 }
@@ -93,41 +86,45 @@ button.btn.reject {
 
 //Meghna Css Start
 .tracking_list_card {
-  background-color: #d8d8d8;
   .card {
     border-radius: 0;
-    margin-bottom: 2px;
+    border: 0;
+    box-shadow: 0px 20px 50px #0000001A;
+    // margin-bottom: 2px;
   }
   .application_detail {
     margin: 10px 0;
     .name {
       font-family: "Roboto";
-      font-size: 13px;
+      // font-size: 13px;
       margin: 0;
       color: #020041;
-      padding-bottom: 10px;
+      font-weight: 600;
+      // padding-bottom: 10px;
     }
     p {
-      font-size: 12px;
+      // font-size: 12px;
     }
     .sub_text {
       font-family: "Rubik";
-      font-size: 10px;
+      font-weight: 600;
+      // font-size: 10px;
       color: #3b3838;
     }
     .details_heading {
       font-family: "Rubik";
-      font-size: 12px;
+      font-weight: 600;
+      // font-size: 12px;
       color: #020041;
       margin-top: 10px;
     }
     .leave_date_day {
       color: #ef1f6d;
-      font-size: 11px;
+      // font-size: 11px;
       font-family: "Open Sans";
       span {
         color: #8e8e8e;
-        font-size: 11px !important;
+        // font-size: 11px !important;
       }
     }
   }
@@ -142,7 +139,7 @@ button.btn.reject {
       border: 1px solid #ef1f6d;
       border-radius: 5px;
       color: #ef1f6d;
-      font-size: 9px;
+      // font-size: 9px;
       font-family: "Open Sans";
       font-weight: bold;
       @media screen and (min-width: 767px) {
@@ -154,7 +151,7 @@ button.btn.reject {
       background-color: #020041;
       border-radius: 5px;
       color: #fff;
-      font-size: 9px;
+      // font-size: 9px;
       font-weight: bold;
       margin: 0 10px;
       @media screen and (min-width: 767px) {
@@ -166,7 +163,7 @@ button.btn.reject {
       background-color: #3a99c5;
       border-radius: 5px;
       color: #fff;
-      font-size: 9px;
+      // font-size: 9px;
       font-weight: bold;
       margin-right: 10px;
       @media screen and (min-width: 767px) {
@@ -222,7 +219,7 @@ button.btn.reject {
     }
     .leave_reason_text {
       font-family: "Rubik";
-      font-size: 13px;
+      // font-size: 13px;
       font-weight: lighter;
       color: #010040;
       margin: 0 23px 0 40px;
@@ -235,7 +232,7 @@ button.btn.reject {
   }
   .leave_titles {
     font-family: "Rubik";
-    font-size: 16px;
+    // font-size: 16px;
     color: #ef1f6d;
     margin: 0;
   }
@@ -246,7 +243,7 @@ button.btn.reject {
     padding: 17px 23px;
     .leave_date_text {
       font-family: "Open Sans";
-      font-size: 15px;
+      // font-size: 15px;
       color: #010040;
       margin: 0 23px 0 40px;
     }
@@ -255,7 +252,7 @@ button.btn.reject {
     background-color: #3a99c5;
     color: #fff;
     font-family: "Open Sans";
-    font-size: 10px;
+    // font-size: 10px;
     font-weight: bold;
     padding: 5px 28px;
     margin: 20px auto;

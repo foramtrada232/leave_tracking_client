@@ -10,7 +10,7 @@
                 </div>
             </ion-col>
             <ion-col size='5'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec text-center font_large">
                     <span>Leave Application</span>
                 </div>
             </ion-col>
@@ -29,7 +29,7 @@
     <div class="card" style="cursor: pointer;">
         <div class="card-content pending_leaves" *ngIf="userDetail">
             <div class="row m-0">
-                <div class="col-3 p-0">
+                <div class="col-3">
                     <div class="profile_div">
                         <div class="image_profile">
                             <img src="../../../assets/images/person.png" *ngIf="!userDetail.profilePhoto"
@@ -43,36 +43,38 @@
                     <div class="application_detail">
                         <div class="row m-0">
                             <div class="col-7 p-0">
-                                <h2 class="name">{{userDetail.name}}</h2>
+                                <h2 class="name font_large">{{userDetail.name}}</h2>
                             </div>
                             <div class="col-5 pl-0">
-                                <h2 class="leave_status">Leave Status</h2>
+                                <h2 class="leave_status font_large">Leave Status</h2>
                             </div>
                         </div>
                         <div class="row m-0">
                             <div class="col-7 pl-0">
+                                <p class="sub_text font_base">Commitment global cultivate,</p>
                             </div>
                             <div class="col-5 pl-0">
-                                <p class="leave_days">{{userDetail.total_leave}}/18</p>
+                                <p class="leave_days font_large">{{userDetail.total_leave}}/18</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
         <div class="leave_form">
             <form [formGroup]="leaveForm" (ngSubmit)="applyLeave()">
-                <label class="form_labels w-100">Leave Days</label>
+                <label class="form_labels w-100 font_base">Leave Days</label>
                 <div class="form_select">
-                    <select class="w-100" formControlName="daysCount" (change)="leaveSelect($event)">
+                    <select class="font_base w-100" formControlName="daysCount" (change)="leaveSelect($event)">
                         <option value="0.5">Half-day leave</option>
                         <option value="1">Full-day leave</option>
                         <option value="more">More-day leave</option>
                     </select>
                 </div>
-                <label class="form_labels w-100">Leave Type</label>
+                <label class="form_labels font_base w-100">Leave Type</label>
                 <div class="form_select">
-                    <select class="w-100" formControlName="leaveType">
+                    <select class="font_base w-100" formControlName="leaveType">
                         <option value="paid_leave">Paid time off Leave</option>
                         <option value="sick_leave">Sick Leave</option>
                         <option value="emergency_leave">Emergency Leave</option>
@@ -81,42 +83,42 @@
                 </div>
                 <div class="row singleDay">
                     <div class="col-12">
-                        <label class="form_labels w-100">Leave Date</label>
+                        <label class="form_labels font_base w-100">Leave Date</label>
                         <div class="date_picker">
                             <ion-datetime [min]="today" [max]="fromDateMax" formControlName="singleDate"
-                                class="placeholder w-100" placeholder="mm dd yy"></ion-datetime>
+                                class="placeholder font_base w-100" placeholder="mm dd yy"></ion-datetime>
                             <img src="../../assets/images/date-picker.png">
                         </div>
                     </div>
                 </div>
                 <div class="row multiDays">
                     <div class="col-6">
-                        <label class="form_labels w-100">Leave From Date</label>
+                        <label class="form_labels font_base w-100">Leave From Date</label>
                         <div class="date_picker">
                             <ion-datetime [min]="today" [max]="fromDateMax" formControlName="fromDate"
-                                (ionChange)="fromDateChange($event.target.value)" class="placeholder w-100"
+                                (ionChange)="fromDateChange($event.target.value)" class="placeholder font_base w-100"
                                 placeholder="mm dd yy"></ion-datetime>
                             <img src="../../assets/images/date-picker.png">
                         </div>
                     </div>
                     <div class="col-6">
-                        <label class="form_labels w-100">Leave To Date</label>
+                        <label class="form_labels font_base w-100">Leave To Date</label>
                         <div class="date_picker">
                             <ion-datetime [min]="toDateMin" [max]="toDateMax" formControlName="toDate" id="toDate"
-                                class="placeholder w-100" placeholder="mm dd yy"></ion-datetime>
+                                class="placeholder font_base w-100" placeholder="mm dd yy"></ion-datetime>
                             <img src="../../assets/images/date-picker.png">
                         </div>
                     </div>
                 </div>
-                <label class="form_labels w-100">Reason For Leaving Request</label>
+                <label class="form_labels font_base w-100">Reason For Leaving Request</label>
                 <textarea rows="3" formControlName="reason"
-                    class="form_text_field w-100">Lorem ipsum dolor sit amet, consectetur adipshdo...</textarea>
-                <label class="form_labels w-100">Compansate</label>
-                <textarea formControlName="compansate" rows="3" class="form_text_field w-100"></textarea>
+                    class="form_text_field font_small w-100">Lorem ipsum dolor sit amet, consectetur adipshdo...</textarea>
+                <label class="form_labels font_base w-100">Compansate</label>
+                <textarea formControlName="compansate" rows="3" class="form_text_field font_small w-100"></textarea>
                 <div class="attachment">
                     <div class="row m-0">
                         <div class="attachment_text">
-                            <label for="fileInput" class="attach_file text-center">Attach a File</label>
+                            <label for="fileInput" class="attach_file font_base text-center">Attach a File</label>
                             <input formControlName="attachment" type="file" id="fileInput" style="display: none;"
                                 (change)="showImageName($event)">
                             <img src="../../assets/images/attachment.png">
@@ -124,10 +126,9 @@
                     </div>
                 </div>
                 <div class="col-12 w-100 text-center mt-3">
-                    <input type="submit" class="submit_btn btn btn-lg">
+                    <input type="submit" class="submit_btn font_base btn btn-lg">
                     <span *ngIf="spinner"><img src="../../assets/images/spinner.gif" height="33px" alt=""></span>
                 </div>
             </form>
         </div>
-    </div>
 </ion-content>

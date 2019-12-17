@@ -3,7 +3,7 @@
         <ion-tab-button tab="{{p.url}}" *ngFor="let p of developerPages">
             <div class="icon-image" [ngStyle]="{'background-image': 'url('+ getBackground(p.name) +')'}">
             </div>
-            <ion-label>{{p.title}}</ion-label>
+            <ion-label class="font_base">{{p.title}}</ion-label>
         </ion-tab-button>
     </ion-tab-bar>
 </ion-tabs>

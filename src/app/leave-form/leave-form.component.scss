@@ -134,49 +134,42 @@ ion-content {
   height: 50px;
 }
 .card {
-  margin: 10px 7px 0px 7px;
+  margin: 10px 15px;
   z-index: 11111;
   border: 0;
   border-radius: 0;
   box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1);
 
   .image_profile {
-    width: 60%;
+    height: 45px;
+    width: 45px;
     overflow: hidden;
     border-radius: 50%;
-    border-color: #020041;
-    position: absolute;
-    left: 15px;
-    top: 10px;
-    @media screen and (min-width: 767px) {
-      width: 24%;
-      left: 35%;
-    }
-    @media screen and (min-width: 1024px) {
-      width: 20%;
-      left: 40%;
-    }
+    float: left;
+    border: 1px solid #01023F;
+    margin: 10px 0;
+
     img {
-      max-width: 100%;
-      min-width: 100%;
-      max-height: 100%;
-      -o-object-fit: cover;
-      object-fit: cover;
-      height: 52px;
+        max-width: 100%;
+        min-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        height: 45px;
     }
   }
   .application_detail {
     margin: 10px 0;
     .name {
       font-family: "Roboto";
-      font-size: 13px;
+      // font-size: 13px;
       margin: 0;
       color: #020041;
+      font-weight: 600;;
       padding-bottom: 5px;
     }
     .leave_status {
       font-family: "Rubik";
-      font-size: 13px;
+      // font-size: 13px;
       color: #7c7c82;
       margin: 0;
       text-align: right;
@@ -184,12 +177,13 @@ ion-content {
     }
     .sub_text {
       font-family: "Rubik";
-      font-size: 8px;
+      // font-size: 8px;
       color: #3b3838;
     }
     .leave_days {
       font-family: "Rubik";
-      font-size: 20px;
+      // font-size: 20px;
+      font-weight: 600;
       color: #010040;
       text-align: right;
     }
@@ -199,14 +193,15 @@ ion-content {
   margin: 15px;
   .form_labels {
     font-family: "Rubik";
-    font-size: 12px;
+    // font-size: 12px;
+    font-weight: bold;
     color: #ef1f6d;
   }
   .form_select select {
     border: 1px solid #020041;
     border-radius: 3px;
     font-family: "Rubik";
-    font-size: 12px;
+    // font-size: 12px;
     font-weight: lighter;
     color: #c3c4c3;
     padding: 5px;
@@ -228,10 +223,10 @@ ion-content {
   .date_picker .placeholder {
     padding-left: 30px;
     font-family: "Rubik";
-    font-size: 7px;
+    // font-size: 7px;
     font-weight: lighter;
     color: #7c7c82;
-    height: 30px;
+    // height: 30px;
   }
   .date_picker img {
     position: absolute;
@@ -247,7 +242,7 @@ ion-content {
     border: 1px solid #707070;
     resize: none;
     font-family: "Opne Sans";
-    font-size: 11px;
+    // font-size: 11px;
     color: #7a869a;
     padding: 5px 8px;
   }
@@ -260,6 +255,7 @@ ion-content {
     .attachment_text {
       margin: auto;
       color: #7a869a;
+      font-weight: 600;
       label {
         margin: 0;
       }
@@ -271,18 +267,18 @@ ion-content {
       }
       .attach_file {
         font-family: "Rubik";
-        font-size: 11px;
+        // font-size: 11px;
       }
       .drag_file {
         font-family: "Opne Sans";
-        font-size: 8px;
+        // font-size: 8px;
         color: #7a869a;
       }
     }
   }
   .submit_btn {
     font-family: "Open Sans";
-    font-size: 9px;
+    // font-size: 9px;
     font-weight: bold;
     color: #fff;
     background-color: #020041;

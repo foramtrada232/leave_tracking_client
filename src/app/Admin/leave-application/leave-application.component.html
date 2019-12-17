@@ -8,7 +8,7 @@
                 <img src="../../../assets/images/dashboard.png" alt="meter">
             </ion-col>
             <ion-col size='4'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec font_large text-center">
                     <span>Leave Tracking</span>
                 </div>
             </ion-col>
@@ -28,7 +28,7 @@
     <div class="loader" *ngIf="loading">
         <img class="loading_img" src="../../assets/images/loader.gif" />
     </div>
-    <div *ngIf="pendingLeavesCount == 0" class="noPendingLeaves">
+    <div *ngIf="pendingLeavesCount == 0" class="noPendingLeaves font_large">
         <p>No pending leaves currently!</p>
     </div>
     <div class="tracking_list_card" *ngIf="pendingLeaves">
@@ -46,27 +46,27 @@
                     </div>
                     <div class="col-9 p-0">
                         <div class="application_detail">
-                            <h2 class="name">{{leaves.userId.name}}</h2>
-                            <p class="sub_text">{{leaves.reason}}</p>
+                            <h2 class="name font_large">{{leaves.userId.name}}</h2>
+                            <p class="sub_text font_base">{{leaves.reason}}</p>
                             <div class="row m-0">
                                 <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
+                                    <p class="details_heading font_large">Applied For Leaves</p>
                                 </div>
                                 <div class="col-5 p-0">
-                                    <p class="details_heading">Date</p>
+                                    <p class="details_heading font_large">Date</p>
                                 </div>
                             </div>
                             <div class="row m-0">
                                 <div class="col-7 p-0">
-                                    <p class="leave_date_day">{{leaves.noOfDays}} days
+                                    <p class="leave_date_day font_base">{{leaves.noOfDays}} days
                                     </p>
                                 </div>
                                 <div class="col-5 p-0">
                                     <p class="leave_date_day">
-                                        <span class="leave_date_day_out_of" *ngIf="leaves.toDate == 'null'">
+                                        <span class="leave_date_day_out_of font_base" *ngIf="leaves.toDate == 'null'">
                                             {{leaves.fromDate.date}}/{{leaves.fromDate.month}}
                                         </span>
-                                        <span class="leave_date_day_out_of" *ngIf="leaves.toDate != 'null'">
+                                        <span class="leave_date_day_out_of font_base" *ngIf="leaves.toDate != 'null'">
                                             {{leaves.fromDate.date}}/{{leaves.fromDate.month}} -
                                             {{leaves.toDate.date}}/{{leaves.toDate.month}}
                                         </span>
@@ -82,11 +82,11 @@
                     <div class="col-9 p-0">
                         <div class="row m-0">
                             <div class="button_group">
-                                <button class="btn approve_btn"
+                                <button class="btn approve_btn font_small"
                                     (click)="leaveApproval(leaves._id,'Approved')">Approve</button>
-                                <button class="btn reject_btn"
+                                <button class="btn reject_btn font_small"
                                     (click)="leaveApproval(leaves._id,'Rejected')">Reject</button>
-                                <button type="button" class="btn details_btn" id="open-modal"
+                                <button type="button" class="btn details_btn font_small" id="open-modal"
                                     (click)="openModal(i)">Details</button>
                                 <div class="modal_content_with_overlay" id="open-modal-body{{i}}"
                                     style="display: none;">
@@ -95,27 +95,27 @@
                                             <div class="leave_reason">
                                                 <div class="row m-0">
                                                     <img class="leave_image" src="../../assets/images/leave_reason.png">
-                                                    <p class="leave_titles">Reason For Leave</p>
+                                                    <p class="leave_titles font_large">Reason For Leave</p>
                                                 </div>
-                                                <p class="leave_reason_text">{{leaves.reason}}</p>
+                                                <p class="leave_reason_text font_large">{{leaves.reason}}</p>
                                             </div>
                                         </div>
 
                                         <div class="leave_dates">
                                             <div class="row m-0">
                                                 <img class="leave_image" src="../../assets/images/leave_date.png">
-                                                <p class="leave_titles">Leave Dates</p>
+                                                <p class="leave_titles font_large">Leave Dates</p>
                                             </div>
-                                            <span class="leave_date_text" *ngIf="leaves.toDate == 'null'">
+                                            <span class="leave_date_text font_large" *ngIf="leaves.toDate == 'null'">
                                                 {{leaves.fromDate.date}}/{{leaves.fromDate.month}}
                                             </span>
-                                            <span class="leave_date_text" *ngIf="leaves.toDate != 'null'">
+                                            <span class="leave_date_text font_large" *ngIf="leaves.toDate != 'null'">
                                                 {{leaves.fromDate.date}}/{{leaves.fromDate.month}} -
                                                 {{leaves.toDate.date}}/{{leaves.toDate.month}}
                                             </span>
                                         </div>
                                         <div class="row m-0">
-                                            <button type="button" class="btn close_btn"
+                                            <button type="button" class="btn close_btn font_large"
                                                 (click)="closeModal(i)">Close</button>
                                         </div>
                                     </div>

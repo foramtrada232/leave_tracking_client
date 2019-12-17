@@ -8,7 +8,7 @@
                 <img src="../../../assets/images/dashboard.png" alt="meter">
             </ion-col>
             <ion-col size='4'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec font_large text-center">
                     <span>Report</span>
                 </div>
             </ion-col>
@@ -31,7 +31,7 @@
                 <div class="col-6">
                     <div class="sorting_input w-100">
                         <form [formGroup]='monthLeaveForm'>
-                            <ion-datetime displayFormat="MMMM YYYY" formControlName="month" class="sorting_dates"
+                            <ion-datetime displayFormat="MMMM YYYY" formControlName="month" class="sorting_dates font_small"
                                 placeholder="Sort By Month" (ionChange)=getMonthLeaveReport(monthLeaveForm.value.month) max="{{nextYear}}"
                                 >
                             </ion-datetime>
@@ -42,7 +42,7 @@
                 <div class="col-6">
                     <div class="sorting_input w-100">
                         <form [formGroup]='yearLeaveForm'>
-                            <ion-datetime formControlName="year" displayFormat="YYYY" class="sorting_dates"
+                            <ion-datetime formControlName="year" displayFormat="YYYY" class="sorting_dates font_small"
                                 placeholder="Sort By Year" (ionChange)=getYearLeaveReport(yearLeaveForm.value.year) max="{{nextYear}}">
                             </ion-datetime>
                         </form>
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <span class="showingResults" *ngIf="showingResults">
+        <span class="showingResults font_small" *ngIf="showingResults">
             Showing results for <span class="showingResultsInner">{{showingResults}}</span>
         </span><br>
         <span *ngIf="monthLeaveReport.length">
@@ -66,31 +66,31 @@
                     <div class="col-10">
                         <div class="row">
                             <div class="col-12 p-0">
-                                <h3>{{report.userId.name}}</h3>
-                                <p>{{report.reason}}</p>
+                                <h3 class="font_large">{{report.userId.name}}</h3>
+                                <p class="font_base">{{report.reason}}</p>
                             </div>
                             <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
-                                <span class="approved">status</span>
-                                <p class="status">Approved</p>
+                                <span class="approved font_base">status</span>
+                                <p class="status font_base">Approved</p>
                             </div>
                             <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
-                                <span class="pending">status</span>
-                                <p class="status">Approved</p>
+                                <span class="pending font_base">status</span>
+                                <p class="status font_base">Approved</p>
                             </div>
                             <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
-                                <span class="rejected">status</span>
-                                <p class="status">Approved</p>
+                                <span class="rejected font_base">status</span>
+                                <p class="status font_base">Approved</p>
                             </div>
                             <div class="col-6 p-0">
-                                <span class="apply">Applied For Leaves</span>
-                                <p class="days">{{report.noOfDays}} Days</p>
+                                <span class="apply font_base">Applied For Leaves</span>
+                                <p class="days font_base">{{report.noOfDays}} Days</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </ion-card>
         </span>
-        <span class="no-leave-of-month" *ngIf="showingResults">
+        <span class="no-leave-of-month font_small" *ngIf="showingResults">
             No leaves in {{showingResults}}!
         </span>
 
@@ -105,31 +105,31 @@
                     <div class="col-10">
                         <div class="row">
                             <div class="col-12 p-0">
-                                <h3>{{report.name}}</h3>
-                                <p>{{report.reason}}</p>
+                                <h3 class="font_large">{{report.name}}</h3>
+                                <p class="font_base">{{report.reason}}</p>
                             </div>
                             <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
-                                <span class="approved">status</span>
-                                <p class="status">Approved</p>
+                                <span class="approved font_base">status</span>
+                                <p class="status font_base">Approved</p>
                             </div>
                             <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
-                                <span class="pending">status</span>
-                                <p class="status">Approved</p>
+                                <span class="pending font_base">status</span>
+                                <p class="status font_base">Approved</p>
                             </div>
                             <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
-                                <span class="rejected">status</span>
-                                <p class="status">Approved</p>
+                                <span class="rejected font_base">status</span>
+                                <p class="status font_base">Approved</p>
                             </div>
                             <div class="col-6 p-0">
-                                <span class="apply">Applied For Leaves</span>
-                                <p class="days">{{report.noOfDays}} Days</p>
+                                <span class="apply font_base">Applied For Leaves</span>
+                                <p class="days font_base">{{report.noOfDays}} Days</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </ion-card>
         </span>
-        <span class="no-leave-of-year" *ngIf="showingResults">
+        <span class="no-leave-of-year font_large" *ngIf="showingResults">
             No leaves in {{showingResults}}!
         </span>
     </div>

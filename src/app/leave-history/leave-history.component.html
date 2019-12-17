@@ -11,7 +11,7 @@
                 <img src="../../../assets/images/dashboard.png" alt="meter">
             </ion-col>
             <ion-col size='4'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec font_large text-center">
                     <span>History</span>
                 </div>
             </ion-col>
@@ -34,37 +34,37 @@
                     <div class="col-3 p-0">
                         <div class="profile_div">
                             <div class="leave_month">
-                                <div class="badge approved" *ngIf="history.status == 'Approved'">{{history.appliedOn | date: 'MMM'}}
+                                <div class="badge approved font_base" *ngIf="history.status == 'Approved'">{{history.appliedOn | date: 'MMM'}}
                                 </div>
-                                <div class="badge rejected" *ngIf="history.status == 'Rejected'">{{history.appliedOn | date: 'MMM'}}
+                                <div class="badge rejected font_small" *ngIf="history.status == 'Rejected'">{{history.appliedOn | date: 'MMM'}}
                                 </div>
-                                <div class="badge pending" *ngIf="history.status == 'Pending'">{{history.appliedOn | date: 'MMM'}}
+                                <div class="badge pending font_small" *ngIf="history.status == 'Pending'">{{history.appliedOn | date: 'MMM'}}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-9 p-0">
                         <div class="application_detail">
-                            <h2 class="name">{{history.userId.name}}</h2>
-                            <p class="sub_text">{{history.reason}}</p>
+                            <h2 class="name font_large">{{history.userId.name}}</h2>
+                            <p class="sub_text font_base">{{history.reason}}</p>
                             <div class="row m-0">
                                 <div class="col-5 p-0">
-                                    <p class="status_pill approved" *ngIf="history.status == 'Approved'">Status</p>
-                                    <p class="status_pill pending" *ngIf="history.status == 'Pending'">Status</p>
-                                    <p class="status_pill rejected" *ngIf="history.status == 'Rejected'">Status</p>
+                                    <p class="status_pill approved font_base" *ngIf="history.status == 'Approved'">Status</p>
+                                    <p class="status_pill pending font_base" *ngIf="history.status == 'Pending'">Status</p>
+                                    <p class="status_pill rejected font_base" *ngIf="history.status == 'Rejected'">Status</p>
                                 </div>
                                 <div class="col-7 p-0">
-                                    <p class="details_heading">Applied For Leaves</p>
+                                    <p class="details_heading font_base">Applied For Leaves</p>
                                 </div>
 
                             </div>
                             <div class="row m-0">
                                 <div class="col-5 p-0">
-                                    <p class="leave_date_day"><span class="approved_text">{{history.status}}</span>
+                                    <p class="leave_date_day font_base"><span class="approved_text">{{history.status}}</span>
                                     </p>
                                 </div>
                                 <div class="col-7 p-0">
-                                    <p class="leave_date_day">{{history.noOfDays}} Days
+                                    <p class="leave_date_day font_base">{{history.noOfDays}} Days
                                     </p>
                                 </div>
                             </div>

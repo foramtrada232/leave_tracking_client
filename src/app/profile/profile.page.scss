@@ -13,9 +13,6 @@ a:link, a:visited {
 // ion-toolbar.toolbar-color1.profile-toolbar {
 //     height: 110px !important;
 // }
-.header-md:after{
-    content: none;
-}
 ion-card-content {
     padding: 10px;
 }
@@ -28,6 +25,7 @@ ion-card-content {
 ion-card.bg-white {
     border-radius: 0;
     margin: 10px 15px;
+    box-shadow: 0px 20px 50px #0000001A;
 }
 
 .bg-color {
@@ -64,21 +62,23 @@ ion-card.casual-leave {
     box-shadow: none;
     width     : 100%;
     display   : inline-block;
-    color     : #020041;
+    color     : #01023F;
+    font-weight:  600;
     margin    : 0;
     border-radius: 16px;
 
     h1 {
-        font-size : 18px;
+        // font-size : 18px;
         margin-top: 10px;
     }
 
     p {
-        font-size: 11px;
+        // font-size: 11px;
+        color: #000;
     }
 
     span {
-        font-size: 21px;
+        // font-size: 21px;
     }
 }
 
@@ -105,21 +105,21 @@ ion-button.md.button {
     padding-left: 10px;
 
     h1 {
-        font-size  : 13px;
+        // font-size  : 13px;
         font-weight: 600;
         color      : #020041;
 
     }
 
     span {
-        font-size  : 11px;
+        // font-size  : 11px;
         line-height: 1.5;
         color      : #3B3838;
         font-family: 'Rubik';
     }
 
     p {
-        font-size: 8px;
+        // font-size: 8px;
         color    : #3B3838;
         font-family: 'Rubik';
     }
@@ -128,7 +128,7 @@ ion-button.md.button {
 .location {
 
     span {
-        font-size: 9px;
+        // font-size: 9px;
         color    : #3B3838;
 
         img {
@@ -136,13 +136,13 @@ ion-button.md.button {
             height: 12px;
             display: block;
             position: absolute;
-            top: 9%;
-            right: 35%;
+            top: 8%;
+            right: 50px;
         }
     }
 
     p {
-        font-size  : 8px;
+        // font-size  : 8px;
         color      : #01023f;
         font-weight: 600;
     }
@@ -151,7 +151,7 @@ ion-button.md.button {
         background-color: transparent;
         border          : 1px solid #01023F;
         border-radius   : 3px;
-        font-size       : 11px;
+        // font-size       : 11px;
         padding         : 4px 10px;
 
         i {
@@ -162,12 +162,12 @@ ion-button.md.button {
 
 .contact {
     color      : #020041;
-    font-size  : 12px;
+    // font-size  : 12px;
     font-weight: 600;
 
     span.dob-dt {
         color: #3B3838;
-        font-size: 12px;
+        // font-size: 12px;
     }
 }
 
@@ -190,16 +190,16 @@ ion-button.md.button {
 }
 .information{
     padding: 10px;
-    font-size: 12px;
+    // font-size: 12px;
     line-height: 33px;
     font-family: 'Rubik', sans-serif;
-    .col-4{
+    .col-5{
         span{
             color: #676565;
             margin-left: 8px;
         }
     }
-    .col-8{
+    .col-7{
         span{
             color: #020041;
             font-weight: bold;

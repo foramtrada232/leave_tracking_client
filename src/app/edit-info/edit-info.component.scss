@@ -1,6 +1,7 @@
 ion-card.bg-white {
     border-radius: 0;
     margin       : 10px 15px;
+    box-shadow: 0px 20px 50px #0000001A;
 }
 
 .bg-color {
@@ -39,13 +40,13 @@ ion-card.bg-white {
 
         .attach_file {
             font-family: 'Rubik';
-            font-size  : 13px;
+            // font-size  : 13px;
             color      : #01023f;
         }
 
         .drag_file {
             font-family: 'Open Sans';
-            font-size  : 11px;
+            // font-size  : 11px;
             color      : #7A869A;
         }
     }
@@ -58,7 +59,7 @@ ion-card.bg-white {
         font-weight: bold;
         font-family: 'Rubik', sans-serif;
         display    : block;
-        font-size  : 13px;
+        // font-size  : 13px;
     }
 
     input[type="text"] {
@@ -66,7 +67,7 @@ ion-card.bg-white {
         border       : 1px solid #020041;
         border-radius: 4px;
         padding      : 5px 10px;
-        font-size    : 12px;
+        // font-size    : 12px;
         margin       : 5px 0;
         ::placeholder{
             color: red;
@@ -75,7 +76,7 @@ ion-card.bg-white {
 
     .submit_btn {
         font-family     : "Open Sans";
-        font-size       : 12px;
+        // font-size       : 12px;
         font-weight     : bold;
         color           : #fff;
         background-color: #020041;
@@ -89,9 +90,6 @@ ion-card.bg-white {
         border          : 1px solid #020041;
         color           : #020041;
     }
-}
-.header-md:after{
-    content: none;
 }
 .profile-image{
     padding      : 0!important;

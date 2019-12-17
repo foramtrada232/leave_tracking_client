@@ -64,6 +64,9 @@ p {
 }
 
 // Tab css
+ion-tab-bar{
+    box-shadow: 0px 3px 6px #00000061;
+}
 .tab-selected .icon-image{
     filter: grayscale(0);
 }

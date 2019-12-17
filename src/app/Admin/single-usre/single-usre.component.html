@@ -8,7 +8,7 @@
                 </div>
             </ion-col>
             <ion-col size='4'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec font_large text-center">
                     <span>Profile</span>
                 </div>
             </ion-col>
@@ -180,3 +180,104 @@
         </div>
     </div>
 </ion-content>
+
+<!-- <ion-content>
+    <div class="profile" *ngIf="userDetail && currentUserRole != 'Admin'">
+        <div class="bg-color"></div>
+        <div class="loader" *ngIf="loading">
+            <img class="loading_img" src="../../assets/images/loader.gif" />
+        </div>
+        <div class="profile-card">
+            <ion-card class="bg-white ">
+                <ion-card-content>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-8 p-0">
+                                <div class="profile-img">
+                                    <img *ngIf="!userDetail.profilePhoto" class="circle-ronded"
+                                        src="../../assets/images/person.png">
+                                    <img *ngIf="userDetail.profilePhoto" class="circle-ronded"
+                                        src="{{path}}{{userDetail.profilePhoto}}">
+                                </div>
+                                <div class="profile-content">
+                                    <h1 class="font_large">{{userDetail.name}}</h1>
+                                    <span class="font_base">{{userDetail.designation}}</span>
+                                    <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
+                                </div>
+                            </div>
+                            <div class="col-4 p-0 text-right location">
+                                <span class="font_small"><img src="../../assets/images/location.png" alt="location">
+                                    Location</span>
+                                <p class="font_small">{{userDetail.location}}</p>
+                                <button routerLink="/home/edit-info" class="font_small"><i class="fa fa-pencil-square-o"
+                                        aria-hidden="true"></i> Edit Info</button>
+                            </div>
+                        </div>
+                        <div class="contact mt-2">
+                            <div class="d-inline-block w-100 mt-2">
+                                <div class="float-left">
+                                    <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+                                    <span class="font_small">{{userDetail.email}}</span>
+                                </div>
+                                <div class="float-right">
+                                    <i class="fa fa-phone mr-2" aria-hidden="true"></i>
+                                    <span class="font_small">{{userDetail.phone}}</span>
+                                </div>
+                            </div>
+                            <div class="w-100">
+                                <span class="dob font_small mr-2">DOB</span>
+                                <span class="dob-dt font_small">{{userDetail.dob}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+            <div class="container-fluid">
+                <ion-card class="sick-leave">
+                    <div class="row">
+                        <div class="col-9">
+                            <h1 class="font_large">Sick Leave</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
+                        </div>
+                        <div class="col-3 px-0 pt-2">
+                            <span class="font_large">{{userDetail.leaveType.sick_leave}}</span>
+                        </div>
+                    </div>
+                </ion-card>
+                <ion-card class="emergency-leave">
+                    <div class="row">
+                        <div class="col-9">
+                            <h1 class="font_large">Emergency Leave</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
+                        </div>
+                        <div class="col-3 px-0 pt-2">
+                            <span class="font_large">{{userDetail.leaveType.emergency_leave}}</span>
+                        </div>
+                    </div>
+                </ion-card>
+                <ion-card class="casual-leave">
+                    <div class="row">
+                        <div class="col-9">
+                            <h1 class="font_large">Casual Leave</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
+                        </div>
+                        <div class="col-3 px-0 pt-2">
+                            <span class="font_large">{{userDetail.leaveType.casual_leave}}</span>
+                        </div>
+                    </div>
+                </ion-card>
+                <ion-card class="sick-leave paid-leave">
+                    <div class="row">
+                        <div class="col-9">
+                            <h1 class="font_large">Paid Leaves</h1>
+                            <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
+                        </div>
+                        <div class="col-3 px-0 pt-2">
+                            <span class="font_large">{{userDetail.leaveType.paid_leave}}</span>
+                        </div>
+                    </div>
+                </ion-card>
+            </div>
+        </div>
+    </div>
+</ion-content> -->

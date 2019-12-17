@@ -8,7 +8,7 @@
                 <img src="../../../assets/images/dashboard.png" alt="meter">
             </ion-col>
             <ion-col size='4'>
-                <div class="middle_sec text-center">
+                <div class="middle_sec font_large text-center">
                     <span>Users</span>
                 </div>
             </ion-col>
@@ -38,26 +38,26 @@
                                     alt="profile image">
                                 <img *ngIf="user.profilePhoto" src="{{path}}{{user.profilePhoto}}" alt="profile image">
                             </div>
-                            <h6 class="mb-0">{{user.name}}</h6>
-                            <p class="mb-0">{{user.designation}}</p>
-                            <button (click)="viewProfile(user._id)">View Profile</button>
+                            <h6 class="font_large mb-0">{{user.name}}</h6>
+                            <p class="font_base mb-0">{{user.designation}}</p>
+                            <button (click)="viewProfile(user._id)" class="font_base">View Profile</button>
                         </div>
                         <div class="bottom-status border-top" *ngIf="user.status == 'present'">
                             <div class="left float-left w-60 text-center">
-                                <span class="approved">status</span>
-                                <p class="status mb-0">Present</p>
+                                <span class="approved font_base">status</span>
+                                <p class="status mb-0 font_base">Present</p>
                             </div>
                             <div class="right-available float-right">
-                                <span>{{([100 * user.total_leave] / 18).toFixed()}}%</span>
+                                <span class="font_base">{{([100 * user.total_leave] / 18).toFixed()}}%</span>
                             </div>
                         </div>
                         <div class="bottom-status border-top" *ngIf="user.status == 'absent'">
                             <div class="left float-left w-60 text-center">
-                                <span class="absent">status</span>
-                                <p class="status mb-0">Absent</p>
+                                <span class="absent font_base">status</span>
+                                <p class="status font_base mb-0">Absent</p>
                             </div>
                             <div class="right-absent float-right">
-                                <span>85%</span>
+                                <span class="font_base">85%</span>
                             </div>
                         </div>
                     </ion-card>
