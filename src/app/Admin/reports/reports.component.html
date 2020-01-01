@@ -5,7 +5,6 @@
                 <div class="rao_logo" routerLink="/home/dashboard">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
-                <img src="../../../assets/images/dashboard.png" alt="meter">
             </ion-col>
             <ion-col size='4'>
                 <div class="middle_sec font_large text-center">
@@ -31,22 +30,23 @@
                 <div class="col-6">
                     <div class="sorting_input w-100">
                         <form [formGroup]='monthLeaveForm'>
-                            <ion-datetime displayFormat="MMMM YYYY" formControlName="month" class="sorting_dates font_small"
-                                placeholder="Sort By Month" (ionChange)=getMonthLeaveReport(monthLeaveForm.value.month) max="{{nextYear}}"
-                                >
+                            <ion-datetime displayFormat="MMMM YYYY" #monthPicker formControlName="month"
+                                class="sorting_dates font_small" placeholder="Sort By Month"
+                                (ionChange)=getMonthLeaveReport(monthLeaveForm.value.month) max="{{nextYear}}">
                             </ion-datetime>
+                            <ion-icon class="sorting_icon" name="ios-funnel" (click)="monthPicker.open()"></ion-icon>
                         </form>
-                        <ion-icon class="sorting_icon" name="ios-funnel"></ion-icon>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="sorting_input w-100">
                         <form [formGroup]='yearLeaveForm'>
-                            <ion-datetime formControlName="year" displayFormat="YYYY" class="sorting_dates font_small"
-                                placeholder="Sort By Year" (ionChange)=getYearLeaveReport(yearLeaveForm.value.year) max="{{nextYear}}">
+                            <ion-datetime formControlName="year" #yearPicker displayFormat="YYYY"
+                                class="sorting_dates font_small" placeholder="Sort By Year"
+                                (ionChange)=getYearLeaveReport(yearLeaveForm.value.year) max="{{nextYear}}">
                             </ion-datetime>
+                            <ion-icon class="sorting_icon" name="md-funnel" (click)="yearPicker.open()"></ion-icon>
                         </form>
-                        <ion-icon class="sorting_icon" name="md-funnel"></ion-icon>
                     </div>
                 </div>
             </div>

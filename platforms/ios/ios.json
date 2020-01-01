@@ -103,7 +103,10 @@
             }
           ],
           "NSAppTransportSecurity": [],
-          "LSApplicationQueriesSchemes": []
+          "LSApplicationQueriesSchemes": [],
+          "CFBundleLocalizations": [],
+          "NSCalendarsUsageDescription": [],
+          "NSContactsUsageDescription": []
         }
       },
       "*/Entitlements-Debug.plist": {

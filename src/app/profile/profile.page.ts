@@ -80,5 +80,4 @@ export class ProfilePage implements OnInit {
       console.log(err)
     })
   }
-
 }

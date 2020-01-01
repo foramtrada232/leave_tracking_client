@@ -97,7 +97,7 @@ import { from } from 'rxjs';
     EditInfoComponent
   ],
   providers: [
-    LocalNotifications
+    LocalNotifications,
   ]
 })
 export class HomePageModule { }

@@ -256,14 +256,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-facebook4.FacebookConnectPlugin",
-      "file": "plugins/cordova-plugin-facebook4/www/facebook-native.js",
-      "pluginId": "cordova-plugin-facebook4",
-      "clobbers": [
-        "facebookConnectPlugin"
-      ]
-    },
-    {
       "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
       "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
       "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
@@ -371,6 +363,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "Connection"
       ]
+    },
+    {
+      "id": "cordova-plugin-calendar.Calendar",
+      "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
+      "pluginId": "cordova-plugin-calendar",
+      "clobbers": [
+        "Calendar"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -379,7 +379,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-badge": "0.8.8",
     "cordova-plugin-datepicker": "0.9.3",
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-facebook4": "5.0.0",
     "cordova-plugin-fcm-with-dependecy-updated": "3.2.0",
     "cordova-plugin-googleplus": "8.0.0",
     "cordova-plugin-ionic-keyboard": "2.1.3",
@@ -389,6 +388,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-network-information": "2.0.2"
+    "cordova-plugin-network-information": "2.0.2",
+    "cordova-plugin-calendar": "5.1.5"
   };
 });

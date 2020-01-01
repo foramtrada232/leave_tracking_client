@@ -8,7 +8,6 @@
                 <div class="rao_logo" routerLink="/home/dashboard" *ngIf="currentUserRole == 'Admin'">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
-                <img src="../../../assets/images/dashboard.png" alt="meter">
             </ion-col>
             <ion-col size='4'>
                 <div class="middle_sec text-center">
@@ -58,5 +57,8 @@
                 </div>
             </div>
         </ion-card>
+        <div *ngIf="!notificationDetailsCount" class="text-center no-notification">
+            <p>There are no notification...</p>
+        </div>
     </div>
 </ion-content>

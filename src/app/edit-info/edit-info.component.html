@@ -2,7 +2,7 @@
     <ion-toolbar class="toolbar-color1 profile-toolbar">
         <ion-row>
             <ion-col size='4'>
-                <div class="rao_logo">
+                <div class="rao_logo" *ngIf="currentUserRole != 'Admin'">
                     <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
                 </div>
                 <div class="rao_logo" routerLink="/home/dashboard" *ngIf="currentUserRole == 'Admin'">

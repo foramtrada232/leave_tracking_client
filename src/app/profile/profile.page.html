@@ -17,7 +17,9 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <img src="../../assets/images/Path 250.png" *ngIf="currentUserRole == 'Admin'" routerLink="/home/notification" alt="notification">
+                    <img src="../../assets/images/Path 250.png" *ngIf="currentUserRole == 'Admin'"
+                        routerLink="/home/notification" alt="notification" class="mr-3">
+                    <img src="../../../assets/images/exit.png" (click)="logOut()" alt="logout button">
                 </div>
             </ion-col>
         </ion-row>
@@ -34,7 +36,11 @@
             <div class="profile-content pl-2">
                 <h1 class="font_large mb-0">{{userDetail.name}}</h1>
                 <span class="font_base mt-1">{{userDetail.designation}}</span>
-                <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
+                <!-- <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p> -->
+            </div>
+            <div class="edit-profile">
+                <button routerLink="/home/edit-info" class="font_small"><i class="fa fa-pencil-square-o"
+                    aria-hidden="true"></i> Edit Info</button>
             </div>
         </div>
         <div class="information">
@@ -100,7 +106,7 @@
                                 <div class="profile-content">
                                     <h1 class="font_large">{{userDetail.name}}</h1>
                                     <span class="font_base">{{userDetail.designation}}</span>
-                                    <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p>
+                                    <!-- <p class="font_small">Commitment global cultivate, thought leader framework, our work.</p> -->
                                 </div>
                             </div>
                             <div class="col-4 p-0 text-right location">

@@ -36,6 +36,7 @@ export class AppComponent {
       icon: 'list'
     },
   ];
+  counter = 0;
 
 
   constructor(
@@ -57,9 +58,27 @@ export class AppComponent {
       this.checkRouterEvent(routerEvent);
     });
 
+    //working back button events
+    this.platform.backButton.subscribeWithPriority(1, () => {
+      this.navCtrl.back();
+      if (this.router.url === '/home/profile') {
+        console.log('this.router.url',this.counter)
+        if (this.counter !== 0) {
+          navigator['app'].exitApp();
+        } else {
+          this.counter++;
+          this.presentToast();
+          setTimeout(() => { this.counter = 0 }, 3000)
+        }
+      }
+    });
+
     this.initializeApp();
 
 
+  }
+  presentToast() {
+    this._toastService.presentToast('Press again to exit');
   }
 
   ngOnInit() {
@@ -148,11 +167,9 @@ export class AppComponent {
           id: data.id,
           title: 'Leave Application',
           text: data.body,
-          foreground: true ,// Show the notification while app is open
+          foreground: true,// Show the notification while app is open
         });
       }
     });
   }
-
-
 }

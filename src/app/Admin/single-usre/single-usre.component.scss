@@ -4,131 +4,289 @@ $text_color: #3998c5;
 // header start here
 // status bar color
 ul {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 p {
-    margin: 0px;
+  margin: 0px;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .menu_icon {
-    position: absolute;
-    cursor: pointer;
-    right: 40px;
-    top: 15px;
+  position: absolute;
+  cursor: pointer;
+  right: 40px;
+  top: 15px;
 }
 
 .menu_icon:focus {
-    outline: none;
+  outline: none;
 }
 
 // content start  here
 .user_detail {
-    padding: 10px;
+  padding: 10px;
 }
 
 .single_user_profile {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
 .single_user {
-    position: relative;
-    z-index: 11;
-    width: 108px;
-    height: 108px;
-    margin: auto;
+  position: relative;
+  z-index: 11;
+  width: 108px;
+  height: 108px;
+  margin: auto;
 }
 
 .profile_img {
-    width: 108px;
-    height: 108px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: auto;
-    img {
-        max-width: 100%;
-        min-width: 100%;
-        max-height: 100%;
-        min-height: 100%;
-        object-fit: cover;
-    }
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  img {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
 }
 
 label.profile_and_cover_edit {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 10px;
-    position: absolute;
-    bottom: 4px;
-    right: 0;
-    background-color: $app_bar_color;
-    z-index: 111;
-    line-height: 19px;
-    color: #fff;
-    display: inline-block;
-    border: 1px solid $app_bar_color;
-    font-weight: normal;
-    transition: all 0.2s;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 10px;
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  background-color: $app_bar_color;
+  z-index: 111;
+  line-height: 19px;
+  color: #fff;
+  display: inline-block;
+  border: 1px solid $app_bar_color;
+  font-weight: normal;
+  transition: all 0.2s;
 }
 
 .usee_name_text {
-    p {
-        text-transform: uppercase;
-        font-size: 20px;
-        color: $app_bar_color;
-        font-weight: bold;
-        margin-top: 6px;
-    }
+  p {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: $app_bar_color;
+    font-weight: bold;
+    margin-top: 6px;
+  }
 }
 
 .card {
-    box-shadow: 4px 4px 10px 2px #dcdcdc;
-    margin-top: 3px;
-    padding: 9px;
-    .user_heading {
-        font-size: 12px;
-        color: $text_color;
-        font-weight: 400;
-        text-transform: capitalize;
-    }
-    .single_user_name {
-        font-size: 12px;
-        color: $app_bar_color;
-        text-transform: capitalize;
-    }
-    .single_user_email {
-        font-size: 12px;
-        color: $app_bar_color;
-    }
+  box-shadow: 4px 4px 10px 2px #dcdcdc;
+  margin-top: 3px;
+  padding: 9px;
+  .user_heading {
+    font-size: 12px;
+    color: $text_color;
+    font-weight: 400;
+    text-transform: capitalize;
+  }
+  .single_user_name {
+    font-size: 12px;
+    color: $app_bar_color;
+    text-transform: capitalize;
+  }
+  .single_user_email {
+    font-size: 12px;
+    color: $app_bar_color;
+  }
 }
 
 .leave_report {
-    margin-top: 15px;
-    .leave_report_text {
-        background-color: $text_color;
-        border-radius: 4px;
-        width: 100%;
-        padding: 7px 18px;
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
+  margin-top: 15px;
+  .leave_report_text {
+    background-color: $text_color;
+    border-radius: 4px;
+    width: 100%;
+    padding: 7px 18px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
 }
 
 .leave_details {
-    span {
-        font-size: 12px;
-        color: $text_color;
-    }
+  span {
+    font-size: 12px;
+    color: $text_color;
+  }
 }
 
-.no_leaves p {
+.no_leaves {
+  margin-top: 40px;
+  p{
     font-size: 15px;
+  }
+}
+.bg-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #01023f;
+  height: 50px;
+}
+
+.profile-img {
+  height: 45px;
+  width: 45px;
+  overflow: hidden;
+  border-radius: 50%;
+  float: left;
+  border: 1px solid #01023f;
+
+  img {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    height: 45px;
+  }
+}
+
+.profile-content {
+  display: grid;
+  padding-left: 10px;
+
+  h1 {
+    // font-size  : 13px;
+    font-weight: 600;
+    color: #020041;
+  }
+
+  span {
+    // font-size  : 11px;
+    line-height: 1.5;
+    color: #3b3838;
+    font-family: "Rubik";
+  }
+
+  p {
+    // font-size: 8px;
+    color: #3b3838;
+    font-family: "Rubik";
+  }
+}
+.location {
+  span {
+    // font-size: 9px;
+    color: #3b3838;
+
+    img {
+      width: 12px;
+      height: 12px;
+      display: block;
+      position: absolute;
+      top: 8%;
+      right: 50px;
+    }
+  }
+
+  p {
+    // font-size  : 8px;
+    color: #01023f;
+    font-weight: 600;
+  }
+  .leave-count {
+    color: black;
+    font-weight: 600;
+  }
+}
+.contact {
+  color: #020041;
+  // font-size  : 12px;
+  font-weight: 600;
+
+  span.dob-dt {
+    color: #3b3838;
+    // font-size: 12px;
+  }
+}
+
+.contact::before {
+  content: "";
+  border-top: 1px solid #e4e7eb;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.leavs-count-card {
+  .sick-leave,
+  .emergency-leave,
+  .casual-leave,
+  .paid-leave {
+    border-radius: 3px;
+    padding: 5px;
+    height: 100%;
+  }
+  .sick-leave {
+    background-color: #e0f2ff;
+    margin-left: 10px;
+  }
+  .emergency-leave {
+    background-color: #fde1dc;
+    margin-left: 5px;
+  }
+  .casual-leave {
+    background-color: #f8d2e0;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .paid-leave {
+    background-color: #e6e6e6 !important;
+    margin-right: 10px;
+  }
+  span {
+    font-size: 10px;
+  }
+  p{
+    margin:0;
+  }
+}
+.profile-card {
+  position: relative;
+  z-index: 11;
+}
+
+.leave-data-heading {
+  padding: 8px 20px;
+  box-shadow: none;
+  width: 100%;
+  display: inline-block;
+  color: black;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  h1 {
+    // font-size : 18px;
+    margin-top: 10px;
+  }
+}
+.leave-list {
+  margin: 0px !important;
+  padding: 10px 0;
+  cursor: pointer;
+  box-shadow: 0 3px 1px -3px rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0);
+  span {
+    font-size: 12px;
+  }
 }

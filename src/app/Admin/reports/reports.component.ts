@@ -130,7 +130,6 @@ export class ReportsComponent implements OnInit {
   /**
    * logout
    */
-
   logout() {
     this._userService.logOut().subscribe((res: any) => {
       console.log("logout response===", res);

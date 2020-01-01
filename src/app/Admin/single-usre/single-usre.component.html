@@ -14,7 +14,10 @@
             </ion-col>
             <ion-col size='4'>
                 <div class="icon_sec">
-                    <ion-icon name="notifications" routerLink="/home/notification"></ion-icon>
+                    <!-- <ion-icon name="notifications" routerLink="/home/notification" class="mr-3"></ion-icon> -->
+                    <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
+                    alt="notification">
+                    <img src="../../../assets/images/exit.png" alt="logout button" (click)="logOut()">
                 </div>
                 <ion-menu-button></ion-menu-button>
             </ion-col>
@@ -26,7 +29,156 @@
     <div class="loader" *ngIf="loading">
         <img class="loading_img" src="../../assets/images/loader.gif" />
     </div>
-    <div class="user_detail">
+    <div class="profile-card" *ngIf="singleUser">
+        <ion-card class="bg-white">
+            <ion-card-content>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-8 p-0">
+                            <div class="profile-img">
+                                <img *ngIf="!singleUser.profilePhoto" class="circle-ronded"
+                                    src="../../assets/images/person.png">
+                                <img *ngIf="singleUser.profilePhoto" class="circle-ronded"
+                                    src="{{path}}{{singleUser.profilePhoto}}">
+                            </div>
+                            <div class="profile-content">
+                                <h1 class="font_large">{{singleUser.name}}</h1>
+                                <span class="font_base">{{singleUser.designation}}</span>
+                            </div>
+                        </div>
+                        <div class="col-4 p-0 text-right location">
+                            <span class="font_small"><img src="../../../assets/images/location.png" alt="location">
+                                Location</span>
+                            <p class="font_small">{{singleUser.location}}</p>
+                            <span class="leave-count">{{ 18 - singleUser.total_leave}} / 18</span>
+                        </div>
+                    </div>
+                    <div class="contact mt-2">
+                        <div class="d-inline-block w-100 mt-2">
+                            <div class="float-left">
+                                <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+                                <span class="font_small">{{singleUser.email}}</span>
+                            </div>
+                            <div class="float-right">
+                                <i class="fa fa-phone mr-2" aria-hidden="true"></i>
+                                <span class="font_small">{{singleUser.phone}}</span>
+                            </div>
+                        </div>
+                        <div class="d-inline-block w-100 mt-1">
+                            <div class="float-left">
+                                <span class="dob font_small mr-2">DOB</span>
+                                <span class="dob-dt font_small">{{singleUser.dob}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </ion-card-content>
+        </ion-card>
+        <div class="leavs-count-card container-fluid">
+            <div class="row">
+                <div class="col-3 p-0">
+                    <div class="sick-leave text-center">
+                        <p >{{singleUser.leaveType.sick_leave}}</p>
+                        <span>Sick Leave</span>
+                    </div>
+                </div>
+                <div class="col-3 p-0">
+                    <div class="emergency-leave text-center">
+                        <p>{{singleUser.leaveType.emergency_leave}}</p>
+                        <span>Emergency Leave</span>
+                    </div>
+                </div>
+                <div class="col-3 p-0">
+                    <div class="casual-leave text-center">
+                        <p>{{singleUser.leaveType.casual_leave}}</p>
+                        <span>Casual Leave</span>
+                    </div>
+                </div>
+                <div class="col-3 p-0">
+                    <div class="paid-leave text-center">
+                        <p>{{singleUser.leaveType.paid_leave}}</p>
+                        <span>Paid Leave</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid" *ngIf="userLeaves.length">
+            <ion-card class="leave-data-heading">
+                <div class="row">
+                    <div class="col-4 px-0">
+                        <h1 class="font_large">From</h1>
+                    </div>
+                    <div class="col-4">
+                        <h1 class="font_large">To</h1>
+                    </div>
+                    <div class="col-4">
+                        <h1 class="font_large">Status</h1>
+                    </div>
+                </div>
+            </ion-card>
+            <ion-card *ngFor="let leave of userLeaves; let i=index" class="leave-list">
+                <label for="o{{i}}" class="w-100">
+                    <div class="row">
+                        <div class="col-4">
+                            <span>
+                                {{leave.fromDate.date}}/{{leave.fromDate.month}}/{{leave.fromDate.year}}
+                            </span>
+                        </div>
+                        <div class="col-4">
+                            <span> {{leave.toDate.date}}/{{leave.toDate.month}}/{{leave.toDate.year}}</span>
+                        </div>
+                        <div class="col-4">
+                            <div *ngIf="leave.status == 'Rejected'">
+                                <span style="color: #FF0000;">{{leave.status}}</span>
+                            </div>
+                            <div *ngIf="leave.status == 'Approved'">
+                                <span style="color: #00B51E;">{{leave.status}}</span>
+                            </div>
+                            <div *ngIf="leave.status == 'Pending'">
+                                <span style="color: #FFAA00;">{{leave.status}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </label>
+                <input class="checker" type="checkbox" id="o{{i}}" hidden (click)="openModal()">
+                <div class="modal">
+                    <div class="modal-body">
+                        <div class="modal-content">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="text-white">Reason :</p>
+                                    <div class="reason_text text-white"> {{leave.reason}}</div>
+                                </div>
+                                <div class="col-12">
+                                    <p class="text-white">Days :</p>
+                                    <div class="reason_text text-white">
+                                        <!-- {{leave.fromDate.date}}/{{leave.fromDate.month}}/{{leave.fromDate.year}} -->
+                                        {{leave.noOfDays}}
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="leave.extraHours">
+                                    <p class="text-white">Compensation :</p>
+                                    <div class="reason_text text-white">{{leave.compansate}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ok_btn text-center mt-3">
+                                <label for="o{{i}}">Ok</label>
+                            </div>
+                        </div>
+                        <div class="close_btn">
+                            <label for="o{{i}}">X</label>
+                        </div>
+                    </div>
+                </div>
+            </ion-card>
+        </div>
+        <div *ngIf="!userLeaves.length" class="no_leaves">
+            <p style="text-align:center;">No leaves yet...</p>
+        </div>
+    </div>
+    <!-- <div class="user_detail">
         <div *ngIf="singleUser">
             <div class="single_user_profile text-center">
                 <div class="single_user">
@@ -178,8 +330,18 @@
                 <p style="text-align:center;">No leaves yet...</p>
             </div>
         </div>
-    </div>
+    </div> -->
 </ion-content>
+
+
+
+
+
+
+
+
+
+
 
 <!-- <ion-content>
     <div class="profile" *ngIf="userDetail && currentUserRole != 'Admin'">

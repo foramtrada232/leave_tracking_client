@@ -1,11 +1,12 @@
-$app_bar_color: #01023F;
-$font_size    : 15px;
-$text_color   : #3998C5;
+$app_bar_color: #01023f;
+$font_size: 15px;
+$text_color: #3998c5;
 
-a:link, a:visited {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 // header start here
 // status bar color
@@ -14,198 +15,208 @@ a:link, a:visited {
 //     height: 110px !important;
 // }
 ion-card-content {
-    padding: 10px;
+  padding: 10px;
 }
 
 .profile-card {
-    position: relative;
-    z-index : 11;
+  position: relative;
+  z-index: 11;
 }
 
 ion-card.bg-white {
-    border-radius: 0;
-    margin: 10px 15px;
-    box-shadow: 0px 20px 50px #0000001A;
+  border-radius: 0;
+  margin: 10px 15px;
+  box-shadow: 0px 20px 50px #0000001a;
 }
 
 .bg-color {
-    position        : absolute;
-    top             : 0;
-    left            : 0;
-    right           : 0;
-    background-color: #01023f;
-    height          : 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #01023f;
+  height: 50px;
 }
 
 .profile-img {
-    height       : 45px;
-    width        : 45px;
-    overflow     : hidden;
-    border-radius: 50%;
-    float        : left;
-    border       : 1px solid #01023F;
+  height: 45px;
+  width: 45px;
+  overflow: hidden;
+  border-radius: 50%;
+  float: left;
+  border: 1px solid #01023f;
 
-    img {
-        max-width : 100%;
-        min-width : 100%;
-        max-height: 100%;
-        object-fit: cover;
-        height: 45px;
-    }
-
+  img {
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    height: 45px;
+  }
 }
 
 ion-card.sick-leave,
 ion-card.emergency-leave,
 ion-card.casual-leave {
-    padding   : 10px 20px;
-    box-shadow: none;
-    width     : 100%;
-    display   : inline-block;
-    color     : #01023F;
-    font-weight:  600;
-    margin    : 0;
-    border-radius: 16px;
+  padding: 10px 20px;
+  box-shadow: none;
+  width: 100%;
+  display: inline-block;
+  color: #01023f;
+  font-weight: 600;
+  margin: 0;
+  border-radius: 16px;
 
-    h1 {
-        // font-size : 18px;
-        margin-top: 10px;
-    }
+  h1 {
+    // font-size : 18px;
+    margin-top: 10px;
+  }
 
-    p {
-        // font-size: 11px;
-        color: #000;
-    }
+  p {
+    // font-size: 11px;
+    color: #000;
+  }
 
-    span {
-        // font-size: 21px;
-    }
+  span {
+    // font-size: 21px;
+  }
 }
 
 ion-card.sick-leave {
-    background-color: #E0F2FF;
+  background-color: #e0f2ff;
 }
 
 ion-card.emergency-leave {
-    background-color: #FDE1DC;
+  background-color: #fde1dc;
 }
 
 ion-card.casual-leave {
-    background-color: #F8D2E0;
+  background-color: #f8d2e0;
 }
 
 ion-button.md.button {
-    --background: transparent;
-    color       : #000;
+  --background: transparent;
+  color: #000;
 }
 
-
 .profile-content {
-    display     : grid;
-    padding-left: 10px;
+  display: grid;
+  padding-left: 10px;
 
-    h1 {
-        // font-size  : 13px;
-        font-weight: 600;
-        color      : #020041;
+  h1 {
+    // font-size  : 13px;
+    font-weight: 600;
+    color: #020041;
+  }
 
+  span {
+    // font-size  : 11px;
+    line-height: 1.5;
+    color: #3b3838;
+    font-family: "Rubik";
+  }
+
+  p {
+    // font-size: 8px;
+    color: #3b3838;
+    font-family: "Rubik";
+  }
+}
+.edit-profile {
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  button {
+    background-color: transparent;
+    border: 1px solid #01023f;
+    border-radius: 3px;
+    // font-size       : 11px;
+    padding: 4px 10px;
+
+    i {
+      color: #ef1f6d;
     }
-
-    span {
-        // font-size  : 11px;
-        line-height: 1.5;
-        color      : #3B3838;
-        font-family: 'Rubik';
-    }
-
-    p {
-        // font-size: 8px;
-        color    : #3B3838;
-        font-family: 'Rubik';
-    }
+  }
 }
 
 .location {
+  span {
+    // font-size: 9px;
+    color: #3b3838;
 
-    span {
-        // font-size: 9px;
-        color    : #3B3838;
-
-        img {
-            width: 12px;
-            height: 12px;
-            display: block;
-            position: absolute;
-            top: 8%;
-            right: 50px;
-        }
+    img {
+      width: 12px;
+      height: 12px;
+      display: block;
+      position: absolute;
+      top: 8%;
+      right: 50px;
     }
+  }
 
-    p {
-        // font-size  : 8px;
-        color      : #01023f;
-        font-weight: 600;
+  p {
+    // font-size  : 8px;
+    color: #01023f;
+    font-weight: 600;
+  }
+
+  button {
+    background-color: transparent;
+    border: 1px solid #01023f;
+    border-radius: 3px;
+    // font-size       : 11px;
+    padding: 4px 10px;
+
+    i {
+      color: #ef1f6d;
     }
-
-    button {
-        background-color: transparent;
-        border          : 1px solid #01023F;
-        border-radius   : 3px;
-        // font-size       : 11px;
-        padding         : 4px 10px;
-
-        i {
-            color: #EF1F6D;
-        }
-    }
+  }
 }
 
 .contact {
-    color      : #020041;
-    // font-size  : 12px;
-    font-weight: 600;
+  color: #020041;
+  // font-size  : 12px;
+  font-weight: 600;
 
-    span.dob-dt {
-        color: #3B3838;
-        // font-size: 12px;
-    }
+  span.dob-dt {
+    color: #3b3838;
+    // font-size: 12px;
+  }
 }
 
 .contact::before {
-    content   : "";
-    border-top: 1px solid #e4e7eb;
-    position  : absolute;
-    left      : 0;
-    right     : 0;
+  content: "";
+  border-top: 1px solid #e4e7eb;
+  position: absolute;
+  left: 0;
+  right: 0;
 }
-
-
 
 // defalut profile screen
 
-.profile-heading{
-    padding: 10px 20px;
-    border-bottom: 1px solid #dcdcdc;
-    font-family: 'Rubik', sans-serif;
+.profile-heading {
+  padding: 10px 20px;
+  border-bottom: 1px solid #dcdcdc;
+  font-family: "Rubik", sans-serif;
 }
-.information{
-    padding: 10px;
-    // font-size: 12px;
-    line-height: 33px;
-    font-family: 'Rubik', sans-serif;
-    .col-5{
-        span{
-            color: #676565;
-            margin-left: 8px;
-        }
+.information {
+  padding: 10px;
+  // font-size: 12px;
+  line-height: 33px;
+  font-family: "Rubik", sans-serif;
+  .col-5 {
+    span {
+      color: #676565;
+      margin-left: 8px;
     }
-    .col-7{
-        span{
-            color: #020041;
-            font-weight: bold;
-        }
+  }
+  .col-7 {
+    span {
+      color: #020041;
+      font-weight: bold;
     }
+  }
 }
-.paid-leave{
-    background-color: #e6e6e6 !important;
+.paid-leave {
+  background-color: #e6e6e6 !important;
 }

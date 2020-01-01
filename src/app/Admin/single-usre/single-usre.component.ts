@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,Router} from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { LeaveService } from '../../services/leave.service';
 import { config } from '../../config';
 import { AlertController } from '@ionic/angular';
 declare var $: any;
+
 
 @Component({
   selector: 'app-single-usre',
@@ -17,14 +18,21 @@ export class SingleUsreComponent implements OnInit {
   userLeaves: any = [];
   path = config.baseMediaUrl;
   loading: boolean = false;
+  
   constructor(private route: ActivatedRoute,
+    public router:Router,
     public _userService: UserService,
     public _leaveService: LeaveService,
-    public alertController: AlertController) { }
+    public alertController: AlertController) {
+  }
 
   ngOnInit() {
   }
-  ionViewWillEnter(){
+
+
+
+
+  ionViewWillEnter() {
     this.route.params.subscribe(param => {
       this.userId = param.userId;
       console.log("userId==========>", this.userId)
@@ -42,7 +50,7 @@ export class SingleUsreComponent implements OnInit {
     console.log("userId===========>", userId);
     this._userService.getUserById(userId).subscribe((res: any) => {
       this.singleUser = res.data;
-      console.log("res of single user=========>", res, this.singleUser);
+      console.log("res of single user=========>", res, this.singleUser,this.singleUser.leaveType);
       this.loading = false;
     }, err => {
       console.log(err);
@@ -76,4 +84,17 @@ export class SingleUsreComponent implements OnInit {
       $('ion-content').css({ '--overflow': 'hidden' });
     }
   }
+
+ /**
+  * Logout user
+  */
+ logOut() {
+  console.log("log out");
+  this._userService.logOut().subscribe((res: any) => {
+    console.log("data of login yser ", res);
+    this.router.navigate(['/login']);
+  }, err => {
+    console.log(err)
+  })
+}
 }
