@@ -35,15 +35,15 @@ $text_color: #3998c5;
   overflow: hidden;
   border-radius: 50%;
   float: left;
-  border: 1px solid #01023F;
+  border: 1px solid #01023f;
   margin: 10px 0;
 
   img {
-      max-width: 100%;
-      min-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
-      height: 45px;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    height: 45px;
   }
 }
 
@@ -58,9 +58,10 @@ $text_color: #3998c5;
   }
 }
 .noPendingLeaves {
-  top: 50%;
   position: fixed;
-  left: 22%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .accept_reject_btngroup {
   button {
@@ -89,7 +90,7 @@ button.btn.reject {
   .card {
     border-radius: 0;
     border: 0;
-    box-shadow: 0px 20px 50px #0000001A;
+    box-shadow: 0px 20px 50px #0000001a;
     margin-bottom: 5px;
     // margin-bottom: 2px;
   }
@@ -258,4 +259,58 @@ button.btn.reject {
     padding: 5px 28px;
     margin: 20px auto;
   }
+}
+
+// switch css
+
+.switch {
+  display: inline-block;
+  height: 27px;
+  position: relative;
+  width: 49px;
+  top: 21%;
+}
+
+.switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ddd;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 5px;
+  content: "";
+  height: 18px;
+  left: 4px;
+  position: absolute;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 18px;
+}
+
+input:checked + .slider {
+  background-color: #ef1f6d;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  left: 0;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

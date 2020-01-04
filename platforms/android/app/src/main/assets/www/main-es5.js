@@ -889,18 +889,18 @@ __webpack_require__.r(__webpack_exports__);
 var ip = 'https://leavetracking.raoinformationtechnology.com:9000/'; //for live
 // // const ip = 'http://192.168.1.73:4000/'; //for local
 // const baseUrl = ip;
-// // const baseMediaUrl = 'http://192.168.1.73/Leave_tracking_server-master/uploads/'; //for local
-// const baseMediaUrl =  "https://leavetracking.raoinformationtechnology.com:9000/"; //for live
+//const baseMediaUrl = 'https://192.168.1.73/Leave_tracking_server-master/uploads/'; //for local
+var baseMediaUrl = "https://leavetracking.raoinformationtechnology.com:9000/"; //for live
 // export const config = {
 //     baseApiUrl: baseUrl,
 //     baseMediaUrl: baseMediaUrl
 // }
 // const ip = 'https://leavetracking.raoinformationtechnology.com:9000/';
-// const ip = 'https://192.168.1.73:4000/';
+//const ip = 'https://192.168.1.73:4000/';
 var baseUrl = ip;
 // const baseMediaUrl = 'http://192.168.1.73/Leave_tracking_server-master/uploads/';
 // const baseMediaUrl = ip + "uploads/";
-var baseMediaUrl = 'https://leavetracking.raoinformationtechnology.com:9000/';
+// const baseMediaUrl = 'https://leavetracking.raoinformationtechnology.com:9000/';
 var config = {
     baseApiUrl: baseUrl,
     baseMediaUrl: baseMediaUrl

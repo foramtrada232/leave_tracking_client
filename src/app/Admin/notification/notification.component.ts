@@ -48,4 +48,10 @@ export class NotificationComponent implements OnInit {
       this.router.navigateByUrl('login');
     })
   }
+
+  redirectToReport(status){
+    if(status){
+      this.router.navigateByUrl('/home/leave-application')
+    }
+  }
 }

@@ -1,43 +1,48 @@
-$app_bar_color: #01023F;
+$app_bar_color: #01023f;
 $font_size: 15px;
-$text_color: #3998C5;
+$text_color: #3998c5;
 // header start here
 // status bar color
 ul {
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 p {
-    margin: 0px;
+  margin: 0px;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 // content start  here
 .leave_history {
-    padding: 10px;
-    .apply_leave_text {
-        background-color: $text_color;
-        border-radius: 4px;
-        width: 100%;
-        padding: 7px 18px;
-        // font-size: 18px;
-        font-weight: bold;
-    }
+  padding: 10px;
+  .apply_leave_text {
+    background-color: $text_color;
+    border-radius: 4px;
+    width: 100%;
+    padding: 7px 18px;
+    // font-size: 18px;
+    font-weight: bold;
+  }
 }
-
+.noHistory {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .select_time {
     margin: 15px 0px;
     ion-item {
         box-shadow: 1px 1px 4px 1px #dcdcdc;
-        border: 1px solid #D9D9D9;
+        border: 1px solid #d9d9d9;
         border-radius: 30px;
         height: 38px;
         ion-label {
-            color: #D9D9D9;
+            color: #d9d9d9;
             // font-size: 14px;
             margin-top: -3px;
         }
@@ -64,7 +69,7 @@ a:hover {
 }
 
 ion-datetime {
-    color: #D9D9D9;
+    color: #d9d9d9;
     // font-size: 14px;
     margin-top: -10px;
     position: relative;
@@ -73,17 +78,17 @@ ion-datetime {
 }
 
 ion-datetime::after {
-    content: '\276F';
+    content: "\276F";
     position: absolute;
     top: 0px;
     right: 4px;
     z-index: 1;
-    color: #D9D9D9;
+    color: #d9d9d9;
     transform: rotate(90deg);
 }
 
 .item-native {
-    padding: 0px!important;
+    padding: 0px !important;
 }
 
 .datetime-text {
@@ -91,16 +96,16 @@ ion-datetime::after {
 }
 
 // Meghna Css
-.leave_history_card{
-    .card{
+.leave_history_card {
+    .card {
         border-radius: 0;
         border: 0;
-        box-shadow: 0px 20px 50px #0000001A;
+        box-shadow: 0px 20px 50px #0000001a;
     }
-    .leave_month{
+    .leave_month {
         margin: 15px 10px;
-        .badge{
-            font-family: 'Rubik';
+        .badge {
+            font-family: "Rubik";
             // font-size: 12px;
             border-radius: 50%;
             margin: auto;
@@ -110,38 +115,38 @@ ion-datetime::after {
             text-align: center;
             vertical-align: middle;
         }
-        .approved{
-            background-color: rgba(86,217,134,0.32);
-            color: #56D986;
+        .approved {
+            background-color: rgba(86, 217, 134, 0.32);
+            color: #56d986;
         }
-        .pending{
-            background-color: rgba(255,216,107,0.32);
-            color: #FFD86B;
+        .pending {
+            background-color: rgba(255, 216, 107, 0.32);
+            color: #ffd86b;
         }
-        .rejected{
-            background-color: rgba(251,144,184,0.32);
-            color: #FB90B8;
+        .rejected {
+            background-color: rgba(251, 144, 184, 0.32);
+            color: #fb90b8;
         }
     }
-    .application_detail{
+    .application_detail {
         margin: 10px 0;
-        .name{
-            font-family: 'Roboto';
+        .name {
+            font-family: "Roboto";
             // font-size: 13px;
             font-weight: 600;
             margin: 0;
             color: #020041;
             // padding-bottom: 10px;
         }
-        p{
+        p {
             // font-size: 12px;
         }
-        .sub_text{
-            font-family: 'Rubik';
+        .sub_text {
+            font-family: "Rubik";
             // font-size: 10px;
-            color: #3B3838;
+            color: #3b3838;
         }
-        .status_pill{
+        .status_pill {
             border: none;
             padding: 2px 10px;
             text-align: center;
@@ -149,41 +154,41 @@ ion-datetime::after {
             margin-top: 10px;
             cursor: pointer;
             border-radius: 16px;
-            font-family: 'Rubik';
+            font-family: "Rubik";
             // font-size: 10px;
         }
-        .approved{
-            background-color: #56D986;
-            color: #307D5E;
+        .approved {
+            background-color: #56d986;
+            color: #307d5e;
         }
-        .pending{
-            background-color: #FFD86B;
-            color: #A58326;
+        .pending {
+            background-color: #ffd86b;
+            color: #a58326;
         }
-        .rejected{
-            background-color: #FB90B8;
-            color: #C24779;
+        .rejected {
+            background-color: #fb90b8;
+            color: #c24779;
         }
-        .details_heading{
-            font-family: 'Rubik';
+        .details_heading {
+            font-family: "Rubik";
             // font-size: 12px;
             font-weight: 600;
             color: #020041;
             margin-top: 10px;
         }
-        .leave_date_day{
-            color: #EF1F6D;
+        .leave_date_day {
+            color: #ef1f6d;
             // font-size: 11px;
-            font-family: 'Open Sans';
-            span{
-                color: #8E8E8E;
+            font-family: "Open Sans";
+            span {
+                color: #8e8e8e;
                 // font-size: 11px !important;
             }
-            span.approved_text{
-                font-family: 'Open Sans';
+            span.approved_text {
+                font-family: "Open Sans";
                 // font-size: 12px !important;
-                color: #7A869A;
+                color: #7a869a;
             }
-        }  
+        }
     }
 }

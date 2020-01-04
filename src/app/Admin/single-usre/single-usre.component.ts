@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute ,Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { LeaveService } from '../../services/leave.service';
 import { config } from '../../config';
@@ -18,27 +18,29 @@ export class SingleUsreComponent implements OnInit {
   userLeaves: any = [];
   path = config.baseMediaUrl;
   loading: boolean = false;
-  
+
   constructor(private route: ActivatedRoute,
-    public router:Router,
+    public router: Router,
     public _userService: UserService,
     public _leaveService: LeaveService,
     public alertController: AlertController) {
-  }
-
-  ngOnInit() {
-  }
-
-
-
-
-  ionViewWillEnter() {
-    this.route.params.subscribe(param => {
-      this.userId = param.userId;
-      console.log("userId==========>", this.userId)
-      this.getUserById(this.userId);
-      this.getLeaveByUserId(this.userId);
+      this.route.params.subscribe(param => {
+        this.userId = param.userId;
+        console.log("userId==========>", this.userId)
+        
+        this.getLeaveByUserId(this.userId);
+        this.getUserById(this.userId);
     });
+    }
+    
+    ngOnInit() {
+      
+    }
+    
+    
+    
+    
+    ionViewWillEnter() {
   }
 
   /**
@@ -50,7 +52,7 @@ export class SingleUsreComponent implements OnInit {
     console.log("userId===========>", userId);
     this._userService.getUserById(userId).subscribe((res: any) => {
       this.singleUser = res.data;
-      console.log("res of single user=========>", res, this.singleUser,this.singleUser.leaveType);
+      console.log("res of single user=========>", res, this.singleUser, this.singleUser.leaveType);
       this.loading = false;
     }, err => {
       console.log(err);
@@ -75,26 +77,29 @@ export class SingleUsreComponent implements OnInit {
   /**
    * open modal of leave description
    */
-  openModal() {
-    if ($('body').hasClass('no-scroll')) {
-      $('body').removeClass('no-scroll');
-      $('ion-content').removeAttr('style');
-    } else {
-      $('body').addClass('no-scroll');
-      $('ion-content').css({ '--overflow': 'hidden' });
-    }
+  openModal(i) {
+    console.log('openModal');
+    $('#open-modal-body' + i).fadeIn();
+    event.stopPropagation();
+    $('#open-modal-body' + i).click(function () {
+      $(this).fadeOut();
+    });
   }
 
- /**
-  * Logout user
-  */
- logOut() {
-  console.log("log out");
-  this._userService.logOut().subscribe((res: any) => {
-    console.log("data of login yser ", res);
-    this.router.navigate(['/login']);
-  }, err => {
-    console.log(err)
-  })
-}
+  closeModal(i) {
+    $('#open-modal-body' + i).css('display', 'none');
+  }
+
+  /**
+   * Logout user
+   */
+  logOut() {
+    console.log("log out");
+    this._userService.logOut().subscribe((res: any) => {
+      console.log("data of login yser ", res);
+      this.router.navigate(['/login']);
+    }, err => {
+      console.log(err)
+    })
+  }
 }

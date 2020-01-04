@@ -87,7 +87,9 @@ label.profile_and_cover_edit {
     margin-top: 6px;
   }
 }
-
+a{
+  color: #01023f!important;
+}
 .card {
   box-shadow: 4px 4px 10px 2px #dcdcdc;
   margin-top: 3px;
@@ -288,5 +290,71 @@ label.profile_and_cover_edit {
   box-shadow: 0 3px 1px -3px rgba(0, 0, 0, 0), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0);
   span {
     font-size: 12px;
+  }
+}
+.modal_content_with_overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.94);
+  display: flex;
+  overflow: auto;
+  z-index: 999;
+}
+.modal_body {
+  display: table;
+  margin: 70px auto;
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 92vw;
+  .modal_header {
+    //border-bottom: 1px solid rgba(156, 156, 156, 0.27);
+    //padding: 12px 0px;
+    .leave_reason {
+      padding: 17px 23px;
+    }
+    .leave_reason_text {
+      font-family: "Rubik";
+      // font-size: 13px;
+      font-weight: lighter;
+      color: #010040;
+      margin: 0 23px 0 40px;
+    }
+  }
+  .leave_image {
+    margin: 4px 10px 0px 10px;
+    height: 100%;
+    width: auto;
+  }
+  .leave_titles {
+    font-family: "Rubik";
+    // font-size: 16px;
+    color: #ef1f6d;
+    margin: 0;
+  }
+  .leave_dates {
+    background-color: rgba(243, 243, 243, 1);
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 17px 23px;
+    .leave_date_text {
+      font-family: "Open Sans";
+      // font-size: 15px;
+      color: #010040;
+      margin: 0 23px 0 40px;
+    }
+  }
+  .close_btn {
+    background-color: #3a99c5;
+    color: #fff;
+    font-family: "Open Sans";
+    // font-size: 10px;
+    font-weight: bold;
+    padding: 5px 28px;
+    margin: 20px auto;
   }
 }

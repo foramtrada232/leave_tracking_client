@@ -25,7 +25,7 @@
 
 <ion-content>
     <div class="notification">
-        <ion-card *ngFor="let notify of notificationDetails;">
+        <ion-card *ngFor="let notify of notificationDetails;" (click)="redirectToReport(notify.status)">
             <div class="row">
                 <div class="col-2">
                     <div class="report-profile mt-3">

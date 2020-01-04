@@ -51,7 +51,6 @@
                         </div>
                         <div class="row m-0">
                             <div class="col-7 pl-0">
-                                <p class="sub_text font_base">Commitment global cultivate,</p>
                             </div>
                             <div class="col-5 pl-0">
                                 <p class="leave_days font_large">{{userDetail.total_leave}}/18</p>
@@ -75,7 +74,6 @@
                 <label class="form_labels font_base w-100">Leave Type</label>
                 <div class="form_select">
                     <select class="font_base w-100" formControlName="leaveType">
-                        <option value="paid_leave">Paid time off Leave</option>
                         <option value="sick_leave">Sick Leave</option>
                         <option value="emergency_leave">Emergency Leave</option>
                         <option value="casual_leave">Casual Leave</option>
@@ -112,9 +110,9 @@
                 </div>
                 <label class="form_labels font_base w-100">Reason For Leaving Request</label>
                 <textarea rows="3" formControlName="reason"
-                    class="form_text_field font_small w-100">Lorem ipsum dolor sit amet, consectetur adipshdo...</textarea>
+                    class="form_text_field font_small w-100" placeholder="Example: I am sick"></textarea>
                 <label class="form_labels font_base w-100">Compansate</label>
-                <textarea formControlName="compansate" rows="3" class="form_text_field font_small w-100"></textarea>
+                <textarea formControlName="compansate" rows="3" placeholder="Example: 2 hours" class="form_text_field font_small w-100"></textarea>
                 <div class="attachment">
                     <div class="row m-0">
                         <div class="attachment_text">

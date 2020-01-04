@@ -61,10 +61,10 @@ export class ReportsComponent implements OnInit {
     this.isVisible = true;
     console.log("MONTH DATE", new Date(data).getMonth() + 1);
     const obj = {
-      month: new Date(data).getMonth() + 1,
+      month: ( new Date(data).getMonth() + 1 ).toString().padStart(2, "0"),
       year: new Date(data).getFullYear()
     }
-    this.showingResults = this.monthNames[obj.month - 1] + " " + obj.year;
+    this.showingResults = this.monthNames[new Date(data).getMonth()] + " " + obj.year;
     $(".no-leave-of-year").css({ 'display': 'none' });
     this.yearLeaveReport = [];
     this.monthLeaveReport = [];

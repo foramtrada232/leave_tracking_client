@@ -3,9 +3,10 @@ import { LeaveService } from '../../services/leave.service';
 import { ToastService } from '../../services/toast.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { AlertController } from '@ionic/angular';
-import {config} from '../../config';
+import { config } from '../../config';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { stat } from 'fs';
 
 declare const $: any;
 @Component({
@@ -19,7 +20,7 @@ export class LeaveApplicationComponent implements OnInit {
   loading: boolean = false;
   lastIndex: any = [];
   path = config.baseMediaUrl;
-  constructor(public router: Router,public _userService: UserService,public _leavService: LeaveService,
+  constructor(public router: Router, public _userService: UserService, public _leavService: LeaveService,
     public alertController: AlertController,
     public _toastService: ToastService, private localNotifications: LocalNotifications) { }
 
@@ -75,26 +76,69 @@ export class LeaveApplicationComponent implements OnInit {
    * Leave Approval
    * @param {String} id 
    */
-  leaveApproval(id, status) {
-    console.log(id, status);
-    const obj = {
-      leaveId: id,
-      status: status
+  async leaveApproval(id, status) {
+    console.log(status)
+
+    if (status === 'Approved') {
+      const alert = await this.alertController.create({
+        header: 'Are you sure?',
+        inputs: [
+          {
+            name: 'unpaid',
+            type: 'radio',
+            label: 'Unpaid Leave',
+            value: false,
+            checked: true
+          },
+          {
+            name: 'paid',
+            type: 'radio',
+            label: 'Paid Leave',
+            value: true,
+          }
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: () => {
+              console.log('Confirm Cancel');
+            }
+          }, {
+            text: 'Approve',
+            handler: (alertData) => {
+              const obj = {
+                leaveId: id,
+                status: status,
+                paid: alertData
+              }
+              console.log(obj)
+              this.leaveAction(obj);
+            }
+          }
+        ]
+      });
+      await alert.present();
+    } else if (status === 'Rejected') {
+      const obj = {
+        leaveId: id,
+        status: status,
+      }
+      this.leaveAction(obj);
     }
+  }
+
+  leaveAction = obj => {
     this._leavService.leaveApproval(obj).subscribe((res: any) => {
       console.log("res========>", res);
-      if (status == 'Approved') {
-        this._toastService.presentToast('Leave Approved');
-      } else {
-        this._toastService.presentToast('Leave Rejected')
-      }
+      this._toastService.presentToast('Leave ' + res.data.status);
       console.log("pending leaves============>>>", this.pendingLeaves);
       this.getPendingLeaves();
     }, err => {
       console.log(err);
     })
   }
-
   /**
    * logout
    */
