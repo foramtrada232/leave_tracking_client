@@ -180,7 +180,6 @@ export class LeaveFormComponent implements OnInit {
       this._toastService.presentToast(res.message);
       this.leaveForm.reset();
       this.days = [];
-      // this.router.navigateByUrl('home/leave-history')
       $('.attach_file').html('Attach a File');
     },
       err => {

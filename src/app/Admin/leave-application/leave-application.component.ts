@@ -62,6 +62,9 @@ export class LeaveApplicationComponent implements OnInit {
     this._leavService.getPendingLeaves().subscribe((res: any) => {
       this.pendingLeaves = res.data;
       this.pendingLeavesCount = res.data.length;
+      for (var i = 0; i < this.pendingLeaves.length; i++) {
+        console.log("FOR EACH", this.pendingLeaves[i].attachment);
+      }
       console.log("pending leaves=======>", this.pendingLeaves);
       this.loading = false;
       // this.lastIndex = this.pendingLeaves[0].totalDate;
@@ -133,6 +136,7 @@ export class LeaveApplicationComponent implements OnInit {
     this._leavService.leaveApproval(obj).subscribe((res: any) => {
       console.log("res========>", res);
       this._toastService.presentToast('Leave ' + res.data.status);
+
       console.log("pending leaves============>>>", this.pendingLeaves);
       this.getPendingLeaves();
     }, err => {

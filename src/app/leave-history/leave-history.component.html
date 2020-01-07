@@ -1,82 +1,139 @@
 <ion-header>
-    <ion-toolbar class="toolbar-color1">
-        <ion-row>
-            <ion-col size='4'>
-                <div class="rao_logo">
-                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
-                </div>
-                <div class="rao_logo" routerLink="/home/dashboard" *ngIf="currentUserRole == 'Admin'">
-                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
-                </div>
-            </ion-col>
-            <ion-col size='4'>
-                <div class="middle_sec font_large text-center">
-                    <span>History</span>
-                </div>
-            </ion-col>
-            <ion-col size='4'>
-                <div class="icon_sec">
-                    <img src="../../../assets/images/Path 250.png" *ngIf="currentUserRole == 'Admin'" routerLink="/home/notification" class="mr-3"
-                        alt="notification">
-                    <img src="../../../assets/images/exit.png" alt="logout button" (click)="logout()">
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
+  <ion-toolbar class="toolbar-color1">
+    <ion-row>
+      <ion-col size="4">
+        <div class="rao_logo">
+          <ion-img
+            src="../../assets/images/raoinfotech-logo.png"
+            class="logo_img"
+          ></ion-img>
+        </div>
+        <div
+          class="rao_logo"
+          routerLink="/home/dashboard"
+          *ngIf="currentUserRole == 'Admin'"
+        >
+          <ion-img
+            src="../../assets/images/raoinfotech-logo.png"
+            class="logo_img"
+          ></ion-img>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="middle_sec font_large text-center">
+          <span>History</span>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="icon_sec">
+          <img
+            src="../../../assets/images/Path 250.png"
+            *ngIf="currentUserRole == 'Admin'"
+            routerLink="/home/notification"
+            class="mr-3"
+            alt="notification"
+          />
+          <img
+            src="../../../assets/images/exit.png"
+            alt="logout button"
+            (click)="logout()"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="leave_history_card" *ngIf="historyByUser">
-        <div class="card" style="cursor: pointer;" *ngFor="let history of historyByUser">
-            <div class="card-content  w-100 pending_leaves">
-                <div class="row m-0">
-                    <div class="col-3 p-0">
-                        <div class="profile_div">
-                            <div class="leave_month">
-                                <div class="badge approved font_base" *ngIf="history.status == 'Approved'">{{history.appliedOn | date: 'MMM'}}
-                                </div>
-                                <div class="badge rejected font_small" *ngIf="history.status == 'Rejected'">{{history.appliedOn | date: 'MMM'}}
-                                </div>
-                                <div class="badge pending font_small" *ngIf="history.status == 'Pending'">{{history.appliedOn | date: 'MMM'}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-9 p-0">
-                        <div class="application_detail">
-                            <h2 class="name font_large">{{history.userId.name}}</h2>
-                            <p class="sub_text font_base">{{history.reason}}</p>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="status_pill approved font_base" *ngIf="history.status == 'Approved'">Status</p>
-                                    <p class="status_pill pending font_base" *ngIf="history.status == 'Pending'">Status</p>
-                                    <p class="status_pill rejected font_base" *ngIf="history.status == 'Rejected'">Status</p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="details_heading font_base">Applied For Leaves</p>
-                                </div>
-
-                            </div>
-                            <div class="row m-0">
-                                <div class="col-5 p-0">
-                                    <p class="leave_date_day font_base"><span class="approved_text">{{history.status}}</span>
-                                    </p>
-                                </div>
-                                <div class="col-7 p-0">
-                                    <p class="leave_date_day font_base">{{history.noOfDays}} Days
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <div class="leave_history_card" *ngIf="historyByUser">
+    <div
+      class="card"
+      style="cursor: pointer;"
+      *ngFor="let history of historyByUser"
+    >
+      <div class="card-content  w-100 pending_leaves">
+        <div class="row m-0">
+          <div class="col-3 p-0">
+            <div class="profile_div">
+              <div class="leave_month">
+                <div
+                  class="badge approved font_base"
+                  *ngIf="history.status == 'Approved'"
+                >
+                  {{ history.appliedOn | date: "MMM" }}
                 </div>
+                <div
+                  class="badge rejected font_small"
+                  *ngIf="history.status == 'Rejected'"
+                >
+                  {{ history.appliedOn | date: "MMM" }}
+                </div>
+                <div
+                  class="badge pending font_small"
+                  *ngIf="history.status == 'Pending'"
+                >
+                  {{ history.appliedOn | date: "MMM" }}
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="col-9 p-0">
+            <div class="application_detail">
+              <h2 class="name font_large">{{ history.userId.name }}</h2>
+              <p class="sub_text font_base">{{ history.reason }}</p>
+              <div class="row m-0">
+                <div class="col-5 p-0">
+                  <p
+                    class="status_pill approved font_base"
+                    *ngIf="history.status == 'Approved'"
+                  >
+                    Status
+                  </p>
+                  <span class="paidLeave" *ngIf="history.paid">P</span>
+                  <p
+                    class="status_pill pending font_base"
+                    *ngIf="history.status == 'Pending'"
+                  >
+                    Status
+                  </p>
+                  <p
+                    class="status_pill rejected font_base"
+                    *ngIf="history.status == 'Rejected'"
+                  >
+                    Status
+                  </p>
+                </div>
+                <div class="col-7 p-0">
+                  <p class="details_heading font_base">Applied For Leaves</p>
+                </div>
+              </div>
+              <div class="row m-0">
+                <div class="col-5 p-0">
+                  <p class="leave_date_day font_base">
+                    <span class="approved_text">{{ history.status }}</span>
+                  </p>
+                </div>
+                <div class="col-7 p-0">
+                  <p class="leave_date_day font_base">
+                    {{ history.noOfDays }} Days
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="loader" *ngIf="loading">
-        <img class="loading_img" src="../../assets/images/loader.gif" />
+  </div>
+  <div class="sampleContainer" *ngIf="loading">
+    <div class="loader">
+      <span class="dot dot_1"></span>
+      <span class="dot dot_2"></span>
+      <span class="dot dot_3"></span>
+      <span class="dot dot_4"></span>
     </div>
-    <div *ngIf="historyLength == 0" class="noHistory">
-        No history available!
-    </div>
+  </div>
+  <div *ngIf="historyLength == 0" class="noHistory">
+    No history available!
+  </div>
 </ion-content>

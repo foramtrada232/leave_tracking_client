@@ -155,11 +155,11 @@ export class AppComponent {
       console.log("count=====>", this.count, data);
       if (data.wasTapped) {
         console.log('Received in background', data.wasTapped);
-        this.router.navigate([data.redirectTo]);
+        // this.router.navigate([data.redirectTo]);
       } else {
         // this.router.navigate(['/home/leave-application'])
         if (data.redirectTo) {
-          this.router.navigate([data.redirectTo]);
+          // this.router.navigate([data.redirectTo]);
         }
         console.log('Received in foreground');
         this._toastService.presentToast(data.body)

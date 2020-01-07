@@ -29,166 +29,175 @@ a:hover {
   }
 }
 .noHistory {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .select_time {
-    margin: 15px 0px;
-    ion-item {
-        box-shadow: 1px 1px 4px 1px #dcdcdc;
-        border: 1px solid #d9d9d9;
-        border-radius: 30px;
-        height: 38px;
-        ion-label {
-            color: #d9d9d9;
-            // font-size: 14px;
-            margin-top: -3px;
-        }
+  margin: 15px 0px;
+  ion-item {
+    box-shadow: 1px 1px 4px 1px #dcdcdc;
+    border: 1px solid #d9d9d9;
+    border-radius: 30px;
+    height: 38px;
+    ion-label {
+      color: #d9d9d9;
+      // font-size: 14px;
+      margin-top: -3px;
     }
+  }
 }
 
 .leave_details {
-    .card {
-        box-shadow: 4px 4px 10px 2px #dcdcdc;
-        margin-bottom: 4px;
-        padding: 10px;
-        span {
-            // font-size: 12px;
-            color: $text_color;
-        }
+  .card {
+    box-shadow: 4px 4px 10px 2px #dcdcdc;
+    margin-bottom: 4px;
+    padding: 10px;
+    span {
+      // font-size: 12px;
+      color: $text_color;
     }
+  }
 }
 
 .no_leaves {
-    span {
-        // font-size: 15px;
-        color: #000;
-    }
+  span {
+    // font-size: 15px;
+    color: #000;
+  }
 }
 
 ion-datetime {
-    color: #d9d9d9;
-    // font-size: 14px;
-    margin-top: -10px;
-    position: relative;
-    padding: 0px;
-    width: 140px;
+  color: #d9d9d9;
+  // font-size: 14px;
+  margin-top: -10px;
+  position: relative;
+  padding: 0px;
+  width: 140px;
 }
 
 ion-datetime::after {
-    content: "\276F";
-    position: absolute;
-    top: 0px;
-    right: 4px;
-    z-index: 1;
-    color: #d9d9d9;
-    transform: rotate(90deg);
+  content: "\276F";
+  position: absolute;
+  top: 0px;
+  right: 4px;
+  z-index: 1;
+  color: #d9d9d9;
+  transform: rotate(90deg);
 }
 
 .item-native {
-    padding: 0px !important;
+  padding: 0px !important;
 }
 
 .datetime-text {
-    // font-size: 12px;
+  // font-size: 12px;
 }
 
 // Meghna Css
 .leave_history_card {
-    .card {
-        border-radius: 0;
-        border: 0;
-        box-shadow: 0px 20px 50px #0000001a;
+  .card {
+    border-radius: 0;
+    border: 0;
+    box-shadow: 0px 20px 50px #0000001a;
+  }
+  .leave_month {
+    margin: 15px 10px;
+    .badge {
+      font-family: "Rubik";
+      // font-size: 12px;
+      border-radius: 50%;
+      margin: auto;
+      height: 56px;
+      width: 56px;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
     }
-    .leave_month {
-        margin: 15px 10px;
-        .badge {
-            font-family: "Rubik";
-            // font-size: 12px;
-            border-radius: 50%;
-            margin: auto;
-            height: 56px;
-            width: 56px;
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
-        .approved {
-            background-color: rgba(86, 217, 134, 0.32);
-            color: #56d986;
-        }
-        .pending {
-            background-color: rgba(255, 216, 107, 0.32);
-            color: #ffd86b;
-        }
-        .rejected {
-            background-color: rgba(251, 144, 184, 0.32);
-            color: #fb90b8;
-        }
+    .approved {
+      background-color: rgba(86, 217, 134, 0.32);
+      color: #56d986;
     }
-    .application_detail {
-        margin: 10px 0;
-        .name {
-            font-family: "Roboto";
-            // font-size: 13px;
-            font-weight: 600;
-            margin: 0;
-            color: #020041;
-            // padding-bottom: 10px;
-        }
-        p {
-            // font-size: 12px;
-        }
-        .sub_text {
-            font-family: "Rubik";
-            // font-size: 10px;
-            color: #3b3838;
-        }
-        .status_pill {
-            border: none;
-            padding: 2px 10px;
-            text-align: center;
-            display: inline-block;
-            margin-top: 10px;
-            cursor: pointer;
-            border-radius: 16px;
-            font-family: "Rubik";
-            // font-size: 10px;
-        }
-        .approved {
-            background-color: #56d986;
-            color: #307d5e;
-        }
-        .pending {
-            background-color: #ffd86b;
-            color: #a58326;
-        }
-        .rejected {
-            background-color: #fb90b8;
-            color: #c24779;
-        }
-        .details_heading {
-            font-family: "Rubik";
-            // font-size: 12px;
-            font-weight: 600;
-            color: #020041;
-            margin-top: 10px;
-        }
-        .leave_date_day {
-            color: #ef1f6d;
-            // font-size: 11px;
-            font-family: "Open Sans";
-            span {
-                color: #8e8e8e;
-                // font-size: 11px !important;
-            }
-            span.approved_text {
-                font-family: "Open Sans";
-                // font-size: 12px !important;
-                color: #7a869a;
-            }
-        }
+    .pending {
+      background-color: rgba(255, 216, 107, 0.32);
+      color: #ffd86b;
     }
+    .rejected {
+      background-color: rgba(251, 144, 184, 0.32);
+      color: #fb90b8;
+    }
+  }
+  .application_detail {
+    margin: 10px 0;
+    .name {
+      font-family: "Roboto";
+      // font-size: 13px;
+      font-weight: 600;
+      margin: 0;
+      color: #020041;
+      // padding-bottom: 10px;
+    }
+    p {
+      // font-size: 12px;
+    }
+    .sub_text {
+      font-family: "Rubik";
+      // font-size: 10px;
+      color: #3b3838;
+    }
+    .status_pill {
+      border: none;
+      padding: 2px 10px;
+      text-align: center;
+      display: inline-block;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 16px;
+      font-family: "Rubik";
+      // font-size: 10px;
+    }
+    .approved {
+      background-color: #56d986;
+      color: #307d5e;
+    }
+    .pending {
+      background-color: #ffd86b;
+      color: #a58326;
+    }
+    .rejected {
+      background-color: #fb90b8;
+      color: #c24779;
+    }
+    .details_heading {
+      font-family: "Rubik";
+      // font-size: 12px;
+      font-weight: 600;
+      color: #020041;
+      margin-top: 10px;
+    }
+    .leave_date_day {
+      color: #ef1f6d;
+      // font-size: 11px;
+      font-family: "Open Sans";
+      span {
+        color: #8e8e8e;
+        // font-size: 11px !important;
+      }
+      span.approved_text {
+        font-family: "Open Sans";
+        // font-size: 12px !important;
+        color: #7a869a;
+      }
+    }
+  }
+}
+.paidLeave {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  margin-left: 10px;
+  padding: 6px 9px;
+  opacity: 0.7;
+  font-size: 11px;
 }

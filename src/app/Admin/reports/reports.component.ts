@@ -83,6 +83,9 @@ export class ReportsComponent implements OnInit {
       console.log("month report=======>", res);
       this.yearLeaveForm.reset();
       this.monthLeaveForm.reset();
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
     }, err => {
       console.log(err);
       this.loading = false;
@@ -117,7 +120,9 @@ export class ReportsComponent implements OnInit {
         $(".showingResults").css({ 'display': 'block' });
       }
       console.log("year report=======>", this.yearLeaveReport, this.yearLeaveCount);
-      this.loading = false;
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
       this.yearLeaveForm.reset();
       this.monthLeaveForm.reset();
     }, err => {

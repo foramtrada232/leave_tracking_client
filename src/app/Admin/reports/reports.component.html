@@ -1,136 +1,185 @@
 <ion-header>
-    <ion-toolbar class="toolbar-color1">
-        <ion-row>
-            <ion-col size='4'>
-                <div class="rao_logo" routerLink="/home/dashboard">
-                    <ion-img src="../../assets/images/raoinfotech-logo.png" class="logo_img"></ion-img>
-                </div>
-            </ion-col>
-            <ion-col size='4'>
-                <div class="middle_sec font_large text-center">
-                    <span>Report</span>
-                </div>
-            </ion-col>
-            <ion-col size='4'>
-                <div class="icon_sec">
-                    <img src="../../../assets/images/Path 250.png" routerLink="/home/notification" class="mr-3"
-                        alt="notification">
-                    <img src="../../../assets/images/exit.png" (click)="logout()" alt="logout button">
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
+  <ion-toolbar class="toolbar-color1">
+    <ion-row>
+      <ion-col size="4">
+        <div class="rao_logo" routerLink="/home/dashboard">
+          <ion-img
+            src="../../assets/images/raoinfotech-logo.png"
+            class="logo_img"
+          ></ion-img>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="middle_sec font_large text-center">
+          <span>Report</span>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="icon_sec">
+          <img
+            src="../../../assets/images/Path 250.png"
+            routerLink="/home/notification"
+            class="mr-3"
+            alt="notification"
+          />
+          <img
+            src="../../../assets/images/exit.png"
+            (click)="logout()"
+            alt="logout button"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-    <div class="report">
-        <div class="sorting_month_year">
-            <div class="row m-0">
-                <div class="col-6">
-                    <div class="sorting_input w-100">
-                        <form [formGroup]='monthLeaveForm'>
-                            <ion-datetime displayFormat="MMMM YYYY" #monthPicker formControlName="month"
-                                class="sorting_dates font_small" placeholder="Sort By Month"
-                                (ionChange)=getMonthLeaveReport(monthLeaveForm.value.month) max="{{nextYear}}">
-                            </ion-datetime>
-                            <ion-icon class="sorting_icon" name="ios-funnel" (click)="monthPicker.open()"></ion-icon>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="sorting_input w-100">
-                        <form [formGroup]='yearLeaveForm'>
-                            <ion-datetime formControlName="year" #yearPicker displayFormat="YYYY"
-                                class="sorting_dates font_small" placeholder="Sort By Year"
-                                (ionChange)=getYearLeaveReport(yearLeaveForm.value.year) max="{{nextYear}}">
-                            </ion-datetime>
-                            <ion-icon class="sorting_icon" name="md-funnel" (click)="yearPicker.open()"></ion-icon>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  <div class="report">
+    <div class="sorting_month_year">
+      <div class="row m-0">
+        <div class="col-6">
+          <div class="sorting_input w-100">
+            <form [formGroup]="monthLeaveForm">
+              <ion-datetime
+                displayFormat="MMMM YYYY"
+                #monthPicker
+                formControlName="month"
+                class="sorting_dates font_small"
+                placeholder="Sort By Month"
+                (ionChange)="getMonthLeaveReport(monthLeaveForm.value.month)"
+                max="{{ nextYear }}"
+              >
+              </ion-datetime>
+              <ion-icon
+                class="sorting_icon"
+                name="ios-funnel"
+                (click)="monthPicker.open()"
+              ></ion-icon>
+            </form>
+          </div>
         </div>
-
-        <span class="showingResults font_small" *ngIf="showingResults">
-            Showing results for <span class="showingResultsInner">{{showingResults}}</span>
-        </span><br>
-        <span *ngIf="monthLeaveReport.length">
-            <ion-card *ngFor="let report of monthLeaveReport">
-                <div class="row">
-                    <div class="col-2">
-                        <div class="report-profile mt-3">
-                            <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                        </div>
-                    </div>
-                    <div class="col-10">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <h3 class="font_large">{{report.userId.name}}</h3>
-                                <p class="font_base">{{report.reason}}</p>
-                            </div>
-                            <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
-                                <span class="approved font_base">status</span>
-                                <p class="status font_base">Approved</p>
-                            </div>
-                            <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
-                                <span class="pending font_base">status</span>
-                                <p class="status font_base">Approved</p>
-                            </div>
-                            <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
-                                <span class="rejected font_base">status</span>
-                                <p class="status font_base">Rejected</p>
-                            </div>
-                            <div class="col-6 p-0">
-                                <span class="apply font_base">Applied For Leaves</span>
-                                <p class="days font_base">{{report.noOfDays}} Days</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ion-card>
-        </span>
-        <span class="no-leave-of-month font_small" *ngIf="showingResults">
-            No leaves in {{showingResults}}!
-        </span>
-
-        <span *ngIf="yearLeaveReport.length">
-            <ion-card *ngFor="let report of yearLeaveReport">
-                <div class="row">
-                    <div class="col-2">
-                        <div class="report-profile mt-3">
-                            <img src="../../../assets/images/hover-3.jpg" class="img-fluid" alt="profile image">
-                        </div>
-                    </div>
-                    <div class="col-10">
-                        <div class="row">
-                            <div class="col-12 p-0">
-                                <h3 class="font_large">{{report.name}}</h3>
-                                <p class="font_base">{{report.reason}}</p>
-                            </div>
-                            <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
-                                <span class="approved font_base">status</span>
-                                <p class="status font_base">Approved</p>
-                            </div>
-                            <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
-                                <span class="pending font_base">status</span>
-                                <p class="status font_base">Approved</p>
-                            </div>
-                            <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
-                                <span class="rejected font_base">status</span>
-                                <p class="status font_base">Approved</p>
-                            </div>
-                            <div class="col-6 p-0">
-                                <span class="apply font_base">Applied For Leaves</span>
-                                <p class="days font_base">{{report.noOfDays}} Days</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </ion-card>
-        </span>
-        <span class="no-leave-of-year font_large" *ngIf="showingResults">
-            No leaves in {{showingResults}}!
-        </span>
+        <div class="col-6">
+          <div class="sorting_input w-100">
+            <form [formGroup]="yearLeaveForm">
+              <ion-datetime
+                formControlName="year"
+                #yearPicker
+                displayFormat="YYYY"
+                class="sorting_dates font_small"
+                placeholder="Sort By Year"
+                (ionChange)="getYearLeaveReport(yearLeaveForm.value.year)"
+                max="{{ nextYear }}"
+              >
+              </ion-datetime>
+              <ion-icon
+                class="sorting_icon"
+                name="md-funnel"
+                (click)="yearPicker.open()"
+              ></ion-icon>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <span class="showingResults font_small" *ngIf="showingResults">
+      Showing results for
+      <span class="showingResultsInner">{{ showingResults }}</span> </span
+    ><br />
+    <span *ngIf="monthLeaveReport.length">
+      <ion-card *ngFor="let report of monthLeaveReport">
+        <div class="row">
+          <div class="col-2">
+            <div class="report-profile mt-3">
+              <img
+                src="../../../assets/images/hover-3.jpg"
+                class="img-fluid"
+                alt="profile image"
+              />
+            </div>
+          </div>
+          <div class="col-10">
+            <div class="row">
+              <div class="col-12 p-0">
+                <h3 class="font_large">{{ report.userId.name }}</h3>
+                <p class="font_base">{{ report.reason }}</p>
+              </div>
+              <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
+                <span class="approved font_base">status</span>
+                <span class="paidLeave" *ngIf="report.paid">P</span>
+                <p class="status font_base">Approved</p>
+              </div>
+              <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
+                <span class="pending font_base">status</span>
+                <p class="status font_base">Approved</p>
+              </div>
+              <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
+                <span class="rejected font_base">status</span>
+                <p class="status font_base">Rejected</p>
+              </div>
+              <div class="col-6 p-0">
+                <span class="apply font_base">Applied For Leaves</span>
+                <p class="days font_base">{{ report.noOfDays }} Days</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-card>
+    </span>
+    <span class="no-leave-of-month font_small" *ngIf="showingResults">
+      No leaves in {{ showingResults }}!
+    </span>
+
+    <span *ngIf="yearLeaveReport.length">
+      <ion-card *ngFor="let report of yearLeaveReport">
+        <div class="row">
+          <div class="col-2">
+            <div class="report-profile mt-3">
+              <img
+                src="../../../assets/images/hover-3.jpg"
+                class="img-fluid"
+                alt="profile image"
+              />
+            </div>
+          </div>
+          <div class="col-10">
+            <div class="row">
+              <div class="col-12 p-0">
+                <h3 class="font_large">{{ report.userId.name }}</h3>
+                <p class="font_base">{{ report.reason }}</p>
+              </div>
+              <div class="col-6 p-0" *ngIf="report.status == 'Approved'">
+                <span class="approved font_base">status</span>
+                <span class="paidLeave" *ngIf="report.paid">P</span>
+                <p class="status font_base">Approved</p>
+              </div>
+              <div class="col-6 p-0" *ngIf="report.status == 'Pending'">
+                <span class="pending font_base">status</span>
+                <p class="status font_base">Pending</p>
+              </div>
+              <div class="col-6 p-0" *ngIf="report.status == 'Rejected'">
+                <span class="rejected font_base">status</span>
+                <p class="status font_base">Rejected</p>
+              </div>
+              <div class="col-6 p-0">
+                <span class="apply font_base">Applied For Leaves</span>
+                <p class="days font_base">{{ report.noOfDays }} Days</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-card>
+    </span>
+    <span class="no-leave-of-year font_large" *ngIf="showingResults">
+      No leaves in {{ showingResults }}!
+    </span>
+  </div>
+  <div class="sampleContainer" *ngIf="loading">
+    <div class="loader">
+      <span class="dot dot_1"></span>
+      <span class="dot dot_2"></span>
+      <span class="dot dot_3"></span>
+      <span class="dot dot_4"></span>
+    </div>
+  </div>
 </ion-content>

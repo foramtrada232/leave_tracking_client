@@ -35,9 +35,6 @@
 </ion-header>
 
 <ion-content>
-  <div class="loader" *ngIf="loading">
-    <img class="loading_img" src="../../assets/images/loader.gif" />
-  </div>
   <div *ngIf="pendingLeavesCount == 0" class="noPendingLeaves font_large">
     <p>No pending leaves currently!</p>
   </div>
@@ -86,13 +83,13 @@
                   <p class="leave_date_day">
                     <span
                       class="leave_date_day_out_of font_base"
-                      *ngIf="leaves.toDate == 'null'"
+                      *ngIf="leaves.noOfDays <= 1"
                     >
                       {{ leaves.fromDate.date }}/{{ leaves.fromDate.month }}
                     </span>
                     <span
                       class="leave_date_day_out_of font_base"
-                      *ngIf="leaves.toDate != 'null'"
+                      *ngIf="leaves.noOfDays > 1"
                     >
                       {{ leaves.fromDate.date }}/{{ leaves.fromDate.month }} -
                       {{ leaves.toDate.date }}/{{ leaves.toDate.month }}
@@ -167,17 +164,30 @@
                       </div>
                       <span
                         class="leave_date_text font_large"
-                        *ngIf="leaves.toDate == 'null'"
+                        *ngIf="leaves.noOfDays <= 1"
                       >
                         {{ leaves.fromDate.date }}/{{ leaves.fromDate.month }}
                       </span>
                       <span
                         class="leave_date_text font_large"
-                        *ngIf="leaves.toDate != 'null'"
+                        *ngIf="leaves.noOfDays > 1"
                       >
                         {{ leaves.fromDate.date }}/{{ leaves.fromDate.month }} -
                         {{ leaves.toDate.date }}/{{ leaves.toDate.month }}
                       </span>
+                    </div>
+                    <div class="modal_header" *ngIf="leaves.attachment">
+                      <div class="leave_reason">
+                        <div class="row m-0">
+                          <img
+                            class="leave_image"
+                            src="../../assets/images/leave_reason.png"
+                          />
+                          <p class="leave_titles font_large">
+                            Attachment: <a download href="{{path}}/attachment/{{leaves.attachment}}">View</a>
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     <div class="row m-0">
                       <button
@@ -195,6 +205,14 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="sampleContainer" *ngIf="loading">
+    <div class="loader">
+      <span class="dot dot_1"></span>
+      <span class="dot dot_2"></span>
+      <span class="dot dot_3"></span>
+      <span class="dot dot_4"></span>
     </div>
   </div>
 </ion-content>
