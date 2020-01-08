@@ -26,22 +26,22 @@ export class AuthGuard implements CanActivate {
 
 }
 
-export class LoginGuard implements CanActivate {
-  constructor(private router: Router, public _userService: UserService) { }
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    // throw new Error("Method not implemented.");
-    const currentUser = this._userService.currentUserValue;
-    // console.log("curruntUser in auth guard===========>", currentUser)
-    if (currentUser) {
-      // authorised so return true
-      return false;
-    } else {
-      // not logged in so redirect to login page with the return url
-      // this.router.navigate(['login']);
-      return true;
-      // throw new Error("Method not implemented.");
-    }
+// export class LoginGuard implements CanActivate {
+//   constructor(private router: Router, public _userService: UserService) { }
+//   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+//     // throw new Error("Method not implemented.");
+//     const currentUser = this._userService.currentUserValue;
+//     // console.log("curruntUser in auth guard===========>", currentUser)
+//     if (currentUser) {
+//       // authorised so return true
+//       return false;
+//     } else {
+//       // not logged in so redirect to login page with the return url
+//       // this.router.navigate(['login']);
+//       return true;
+//       // throw new Error("Method not implemented.");
+//     }
 
-  }
+//   }
 
-}
+// }

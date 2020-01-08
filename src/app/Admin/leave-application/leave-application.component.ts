@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone} from '@angular/core';
 import { LeaveService } from '../../services/leave.service';
 import { ToastService } from '../../services/toast.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
@@ -6,8 +6,9 @@ import { AlertController } from '@ionic/angular';
 import { config } from '../../config';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { stat } from 'fs';
-
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 declare const $: any;
 @Component({
   selector: 'app-leave-application',
@@ -20,7 +21,13 @@ export class LeaveApplicationComponent implements OnInit {
   loading: boolean = false;
   lastIndex: any = [];
   path = config.baseMediaUrl;
-  constructor(public router: Router, public _userService: UserService, public _leavService: LeaveService,
+  downloading: boolean;
+  fileTransfer: FileTransferObject = this.transfer.create();
+  progress: number;
+  constructor(public _zone: NgZone,
+    private fileOpener: FileOpener,
+    private transfer: FileTransfer,
+    private file: File,public router: Router, public _userService: UserService, public _leavService: LeaveService,
     public alertController: AlertController,
     public _toastService: ToastService, private localNotifications: LocalNotifications) { }
 
@@ -46,9 +53,6 @@ export class LeaveApplicationComponent implements OnInit {
     console.log('openModal');
     $('#open-modal-body' + i).fadeIn();
     event.stopPropagation();
-    $('#open-modal-body' + i).click(function () {
-      $(this).fadeOut();
-    });
   }
 
   closeModal(i) {
@@ -75,6 +79,50 @@ export class LeaveApplicationComponent implements OnInit {
     })
   }
 
+  download(filepath, filename, mimetype) {
+    this.downloading = true;
+    const ROOT_DIRECTORY = 'file:///sdcard//';
+    const downloadFolderName = 'Download/';
+
+    //for showing progress-bar
+    this.fileTransfer.onProgress((progressEvent) => {
+      this._zone.run(() => {
+        var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+        this.progress = perc;
+      })
+    });
+
+    //for checking if file exists
+    this.file.checkFile(ROOT_DIRECTORY + downloadFolderName, filename).then((isExist) => {
+      this.openFile(ROOT_DIRECTORY + downloadFolderName + filename, mimetype);
+    }).catch((notexist) => {
+
+      //for creating Download directory
+      this.file.createDir(ROOT_DIRECTORY, downloadFolderName, true)
+        .then((entries) => {
+
+          //for downloading file
+          this.fileTransfer.download(filepath, ROOT_DIRECTORY + downloadFolderName + '/' + filename).then((entry) => {
+            this.progress = 0;
+            this.downloading = false;
+            this.openFile(entry.nativeURL, mimetype)
+          }, (error) => {
+            this.progress = 0;
+            this.downloading = false;
+          });
+        }).catch((error) => {
+          this.progress = 0;
+          this.downloading = false;
+        });
+    })
+  }
+
+  //for opening the file
+  openFile(url, mimetype) {
+    this.fileOpener.open(url, mimetype)
+      .then(() => console.log('File is opened'))
+      .catch(e => console.log('Error opening file', e));
+  }
   /**
    * Leave Approval
    * @param {String} id 

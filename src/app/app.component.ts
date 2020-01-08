@@ -52,7 +52,9 @@ export class AppComponent {
     private network: Network
   ) {
     this.checkNetworkConectivity();
-
+    if (this._userService.currentUserValue) {
+      this.router.navigate(['home']);
+    }
     this._userService.currentUser.subscribe(x => this.currentUser = x);
     router.events.subscribe((routerEvent: Event) => {
       this.checkRouterEvent(routerEvent);

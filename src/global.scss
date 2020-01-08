@@ -9,7 +9,6 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
-
 /* Core CSS required for Ionic components to work properly */
 
 @import "~@ionic/angular/css/core.css";
@@ -19,7 +18,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 
@@ -30,262 +29,260 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 // font-family
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Rubik&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Rubik&display=swap");
 
 $font_size: 15px;
-$text_color: #3998C5;
-$app_bar_color: #01023F;
+$text_color: #3998c5;
+$app_bar_color: #01023f;
 .toast-color {
-    --background: #01023F;
-    --color: white !important;
+  --background: #01023f;
+  --color: white !important;
 }
 
 .loader {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 9999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
 }
 
 .loading_img {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0;
-    margin: auto;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0;
+  margin: auto;
 }
 
 ion-header {
-    font-family: 'Didact Gothic', sans-serif !important;
+  font-family: "Didact Gothic", sans-serif !important;
 }
 
 .icon_sec {
-    z-index: 1;
-    position: absolute;
-    right: 17px;
-    top: 6px;
-    ion-icon {
-        color: white;
-        font-size: 25px;
-    }
+  z-index: 1;
+  position: absolute;
+  right: 17px;
+  top: 6px;
+  ion-icon {
+    color: white;
+    font-size: 25px;
+  }
 }
 
 .rao_logo {
-    background-color: #fff;
-    width: 47px;
-    height: 22px;
-    border-radius: 30px;
-    margin-left: 10px;
-    text-align: center;
-    position: relative;
-    margin-right: 15px;
-    float: left;
-    .logo_img {
-        max-height: 100%;
-        max-width: 100%;
-        height: 12px;
-        width: 20px;
-        margin: auto;
-        vertical-align: center;
-        position: absolute;
-        top: 0px;
-        bottom: 0px;
-        left: 0px;
-        right: 0px;
-    }
+  background-color: #fff;
+  width: 47px;
+  height: 22px;
+  border-radius: 30px;
+  margin-left: 10px;
+  text-align: center;
+  position: relative;
+  margin-right: 15px;
+  float: left;
+  .logo_img {
+    max-height: 100%;
+    max-width: 100%;
+    height: 12px;
+    width: 20px;
+    margin: auto;
+    vertical-align: center;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
 }
 
 .middle_sec span {
-    //font-size: $font_size;
-    color: #fff;
-    font-weight: 100;
+  //font-size: $font_size;
+  color: #fff;
+  font-weight: 100;
 }
 
 ion-toolbar {
-    .toolbar-color1 {
-        height: 52px;
-        width: 100%;
-    }
+  .toolbar-color1 {
+    height: 52px;
+    width: 100%;
+  }
 }
-.header-md:after{
-    content: none;
+.header-md:after {
+  content: none;
 }
 
 // status bar color
 #device-android {
-    .frame-container {
-        .statusbar {
-            background-color: #fff;
-        }
+  .frame-container {
+    .statusbar {
+      background-color: #fff;
     }
+  }
 }
 
 ionlab-device-frame {
-    .frame-container {
-        .statusbar {
-            background-color: #fff !important;
-        }
+  .frame-container {
+    .statusbar {
+      background-color: #fff !important;
     }
+  }
 }
 
 ion-header ion-toolbar:first-child {
-    --background: #01023F !important;
+  --background: #01023f !important;
 }
 
 // Modal css start here
 .card label {
-    display: inline-block;
-    cursor: pointer;
-    margin-bottom: 0px!important;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 0px !important;
 }
 
-.checker:checked+.modal {
-    display: flex;
+.checker:checked + .modal {
+  display: flex;
 }
 
 .modal {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 25px;
-    background-color: rgba(0, 0, 0, .4);
-    z-index: 9999;
-    pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 25px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  pointer-events: auto;
 }
 
 .modal-body {
-    width: 200px;
-    background-color: $app_bar_color;
-    border-radius: 12px;
-    padding: 15px;
-    border-radius: 8px;
-    position: relative;
+  width: 200px;
+  background-color: $app_bar_color;
+  border-radius: 12px;
+  padding: 15px;
+  border-radius: 8px;
+  position: relative;
 }
 
 .modal-content {
-    background-color: $app_bar_color!important;
+  background-color: $app_bar_color !important;
 }
 
 .modal-footer {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .modal-content p {
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 0px!important;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 0px !important;
 }
 
 .reason_text {
-    background-color: $text_color;
-    border-radius: 5px;
-    font-size: 12px;
-    padding: 8px;
+  background-color: $text_color;
+  border-radius: 5px;
+  font-size: 12px;
+  padding: 8px;
 }
 
 .ok_btn {
-    margin-bottom: 10px;
-    label {
-        padding: 8px 18px;
-        background-color: #fff;
-        color: $text_color;
-        border-radius: 30px;
-        font-size: 12px;
-        text-transform: uppercase;
-    }
+  margin-bottom: 10px;
+  label {
+    padding: 8px 18px;
+    background-color: #fff;
+    color: $text_color;
+    border-radius: 30px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
 }
 
 .close_btn {
-    label {
-        background-color: #fff;
-        color: #3998C5;
-        font-size: 15px;
-        border-radius: 50%;
-        height: 26px;
-        width: 26px;
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        text-align: center;
-        line-height: 25px;
-    }
+  label {
+    background-color: #fff;
+    color: #3998c5;
+    font-size: 15px;
+    border-radius: 50%;
+    height: 26px;
+    width: 26px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    text-align: center;
+    line-height: 25px;
+  }
 }
-.icon_sec{
-    i{
-        color:#D1D0FC ;
-    }
+.icon_sec {
+  i {
+    color: #d1d0fc;
+  }
 }
-
 
 .icon_sec span {
-    position: absolute;
-    color: #fff;
+  position: absolute;
+  color: #fff;
+  font-size: 13px;
+  background-color: #ef1f6d;
+  border-radius: 50%;
+  left: 10px;
+  top: -10px;
+  width: 18px;
+  padding: 0px 5px;
+}
+
+.font_large {
+  font-size: 16px !important;
+  @media (max-height: 812px) {
+    font-size: 19px;
+  }
+  @media (max-height: 750px) {
+    font-size: 16px;
+  }
+  @media (max-height: 600px) {
+    font-size: 15px;
+  }
+  @media (max-height: 480px) {
+    font-size: 14px;
+  }
+}
+
+.font_base {
+  font-size: 14px !important;
+  @media (max-height: 812px) {
+    font-size: 17px;
+  }
+  @media (max-height: 750px) {
+    font-size: 14px;
+  }
+  @media (max-height: 600px) {
     font-size: 13px;
-    background-color: #EF1F6D;
-    border-radius: 50%;
-    left:10px;
-    top: -10px;
-    width: 18px;
-    padding: 0px 5px;
+  }
+  @media (max-height: 480px) {
+    font-size: 12px;
+  }
 }
 
-.font_large{
-    font-size: 16px !important;
-    @media(max-height: 812px){
-        font-size: 19px;
-    }
-    @media(max-height: 750px){
-        font-size: 16px;
-    }
-    @media(max-height: 600px){
-        font-size: 15px;
-    }
-    @media(max-height: 480px){
-        font-size: 14px;
-    }
+.font_small {
+  font-size: 12px !important;
+  @media (max-height: 812px) {
+    font-size: 15px;
+  }
+  @media (max-height: 750px) {
+    font-size: 12px;
+  }
+  @media (max-height: 600px) {
+    font-size: 12px;
+  }
+  @media (max-height: 480px) {
+    font-size: 12px;
+  }
 }
-
-.font_base{
-    font-size: 14px !important;
-    @media(max-height: 812px){
-        font-size: 17px;
-    }
-    @media(max-height: 750px){
-        font-size: 14px;
-    }
-    @media(max-height: 600px){
-        font-size: 13px;
-    }
-    @media(max-height: 480px){
-        font-size: 12px;
-    }
-}
-
-.font_small{
-    font-size: 12px !important;
-    @media(max-height: 812px){
-        font-size: 15px;
-    }
-    @media(max-height: 750px){
-        font-size: 12px;
-    }
-    @media(max-height: 600px){
-        font-size: 12px;
-    }
-    @media(max-height: 480px){
-        font-size: 12px;
-    }
-}
-
 
 // loader css
 
@@ -293,71 +290,129 @@ $animationLength: 1.5s;
 $animationRadius: 12px;
 $dotSize: 8px;
 
-.sampleContainer { margin-top: 250px; }
+.sampleContainer {
+  margin-top: 250px;
+}
 
-.loader { 
-    position: relative; 
-    width: $animationRadius * 3 + $dotSize;
-    height: $dotSize; 
-    margin: $animationRadius auto; 
+.loader {
+  position: relative;
+  width: $animationRadius * 3 + $dotSize;
+  height: $dotSize;
+  margin: $animationRadius auto;
 }
 
 .dot {
-    display: inline-block;
-    width: $dotSize;
-    height: $dotSize;
-    border-radius: $dotSize * 0.5;
-    background: $text_color;
-    position: absolute;
+  display: inline-block;
+  width: $dotSize;
+  height: $dotSize;
+  border-radius: $dotSize * 0.5;
+  background: $text_color;
+  position: absolute;
 }
 
 .dot_1 {
-    animation: animateDot1 $animationLength linear infinite;
-    left: $animationRadius;
-    background: $app_bar_color; 
+  animation: animateDot1 $animationLength linear infinite;
+  left: $animationRadius;
+  background: $app_bar_color;
 }
 
 .dot_2 {
-    animation: animateDot2 $animationLength linear infinite;
-    animation-delay: $animationLength / 3;
-    left: $animationRadius * 2;
+  animation: animateDot2 $animationLength linear infinite;
+  animation-delay: $animationLength / 3;
+  left: $animationRadius * 2;
 }
 
 .dot_3 {
-    animation: animateDot3 $animationLength linear infinite;
-    left: $animationRadius;
+  animation: animateDot3 $animationLength linear infinite;
+  left: $animationRadius;
 }
 
 .dot_4 {
-    animation: animateDot4 $animationLength linear infinite;
-    animation-delay: $animationLength / 3;
-    left: $animationRadius * 2;
+  animation: animateDot4 $animationLength linear infinite;
+  animation-delay: $animationLength / 3;
+  left: $animationRadius * 2;
 }
 
 @keyframes animateDot1 {
-    0%{ transform: rotate(0deg) translateX(-$animationRadius); }
-    25% { transform: rotate(180deg) translateX(-$animationRadius); }
-    75% { transform: rotate(180deg) translateX(-$animationRadius); }
-    100% { transform: rotate(360deg) translateX(-$animationRadius); }
+  0% {
+    transform: rotate(0deg) translateX(-$animationRadius);
+  }
+  25% {
+    transform: rotate(180deg) translateX(-$animationRadius);
+  }
+  75% {
+    transform: rotate(180deg) translateX(-$animationRadius);
+  }
+  100% {
+    transform: rotate(360deg) translateX(-$animationRadius);
+  }
 }
 
 @keyframes animateDot2 {
-    0%{ transform: rotate(-0deg) translateX(-$animationRadius); }
-    25% { transform: rotate(-180deg) translateX(-$animationRadius); }
-    75% { transform: rotate(-180deg) translateX(-$animationRadius); }
-    100% { transform: rotate(-360deg) translateX(-$animationRadius); }
+  0% {
+    transform: rotate(-0deg) translateX(-$animationRadius);
+  }
+  25% {
+    transform: rotate(-180deg) translateX(-$animationRadius);
+  }
+  75% {
+    transform: rotate(-180deg) translateX(-$animationRadius);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(-$animationRadius);
+  }
 }
 
 @keyframes animateDot3 {
-    0%{ transform: rotate(0deg) translateX($animationRadius); }
-    25% { transform: rotate(180deg) translateX($animationRadius); }
-    75% { transform: rotate(180deg) translateX($animationRadius); }
-    100% { transform: rotate(360deg) translateX($animationRadius); }
+  0% {
+    transform: rotate(0deg) translateX($animationRadius);
+  }
+  25% {
+    transform: rotate(180deg) translateX($animationRadius);
+  }
+  75% {
+    transform: rotate(180deg) translateX($animationRadius);
+  }
+  100% {
+    transform: rotate(360deg) translateX($animationRadius);
+  }
 }
 
 @keyframes animateDot4 {
-    0%{ transform: rotate(-0deg) translateX($animationRadius); }
-    25% { transform: rotate(-180deg) translateX($animationRadius); }
-    75% { transform: rotate(-180deg) translateX($animationRadius); }
-    100% { transform: rotate(-360deg) translateX($animationRadius); }
+  0% {
+    transform: rotate(-0deg) translateX($animationRadius);
+  }
+  25% {
+    transform: rotate(-180deg) translateX($animationRadius);
+  }
+  75% {
+    transform: rotate(-180deg) translateX($animationRadius);
+  }
+  100% {
+    transform: rotate(-360deg) translateX($animationRadius);
+  }
+}
+.progressBar {
+  .progress-outer {
+    width: 96%;
+    margin: 10px 2%;
+    text-align: center;
+    background-color: #f4f4f4;
+    border: 1px solid #dcdcdc;
+    color: #fff;
+    border-radius: 20px;
+  }
+
+  .progress-inner {
+    min-width: 15%;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #01023f;
+  }
+}
+.attachmentFile {
+  font-size: 16px !important;
+  color: blue;
+  padding-left: 7px;
 }

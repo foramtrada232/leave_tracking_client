@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { LeaveService } from '../../services/leave.service';
 import { config } from '../../config';
 import { AlertController } from '@ionic/angular';
+import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { ToastService } from '../../services/toast.service';
+
 declare var $: any;
 
 
@@ -18,31 +23,79 @@ export class SingleUsreComponent implements OnInit {
   userLeaves: any = [];
   path = config.baseMediaUrl;
   loading: boolean = false;
-
-  constructor(private route: ActivatedRoute,
+  storageDirectory: string;
+  public progress: any;
+  downloading: boolean;
+  fileTransfer: FileTransferObject = this.transfer.create();
+  constructor(
+    public _zone: NgZone,
+    private fileOpener: FileOpener,
+    private transfer: FileTransfer,
+    private file: File,
+    private route: ActivatedRoute,
     public router: Router,
     public _userService: UserService,
+    public _toastService: ToastService,
     public _leaveService: LeaveService,
     public alertController: AlertController) {
-      this.route.params.subscribe(param => {
-        this.userId = param.userId;
-        console.log("userId==========>", this.userId)
-        
-        this.getLeaveByUserId(this.userId);
-        this.getUserById(this.userId);
+    this.route.params.subscribe(param => {
+      this.userId = param.userId;
+      console.log("userId==========>", this.userId)
+
+      this.getLeaveByUserId(this.userId);
+      this.getUserById(this.userId);
     });
-    }
-    
-    ngOnInit() {
-      
-    }
-    
-    
-    
-    
-    ionViewWillEnter() {
+  }
+  ngOnInit() {
   }
 
+  ionViewWillEnter() {
+  }
+
+  download(filepath, filename, mimetype) {
+    this.downloading = true;
+    const ROOT_DIRECTORY = 'file:///sdcard//';
+    const downloadFolderName = 'Download/';
+
+    //for showing progress-bar
+    this.fileTransfer.onProgress((progressEvent) => {
+      this._zone.run(() => {
+        var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+        this.progress = perc;
+      })
+    });
+
+    //for checking if file exists
+    this.file.checkFile(ROOT_DIRECTORY + downloadFolderName, filename).then((isExist) => {
+      this.openFile(ROOT_DIRECTORY + downloadFolderName + filename, mimetype);
+    }).catch((notexist) => {
+
+      //for creating Download directory
+      this.file.createDir(ROOT_DIRECTORY, downloadFolderName, true)
+        .then((entries) => {
+
+          //for downloading file
+          this.fileTransfer.download(filepath, ROOT_DIRECTORY + downloadFolderName + '/' + filename).then((entry) => {
+            this.progress = 0;
+            this.downloading = false;
+            this.openFile(entry.nativeURL, mimetype)
+          }, (error) => {
+            this.progress = 0;
+            this.downloading = false;
+          });
+        }).catch((error) => {
+          this.progress = 0;
+          this.downloading = false;
+        });
+    })
+  }
+
+  //for opening the file
+  openFile(url, mimetype) {
+    this.fileOpener.open(url, mimetype)
+      .then(() => console.log('File is opened'))
+      .catch(e => console.log('Error opening file', e));
+  }
   /**
    * Get user by Userid
    * @param {String} userId 
@@ -81,9 +134,6 @@ export class SingleUsreComponent implements OnInit {
     console.log('openModal');
     $('#open-modal-body' + i).fadeIn();
     event.stopPropagation();
-    $('#open-modal-body' + i).click(function () {
-      $(this).fadeOut();
-    });
   }
 
   closeModal(i) {

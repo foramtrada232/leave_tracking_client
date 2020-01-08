@@ -17,7 +17,8 @@ import { NotificationComponent } from '../Admin/notification/notification.compon
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { EditInfoComponent } from '../edit-info/edit-info.component';
 import { from } from 'rxjs';
-
+import {FileTransfer} from '@ionic-native/file-transfer/ngx';
+import { File } from '@ionic-native/file/ngx';
 @NgModule({
   imports: [
     CommonModule,
@@ -97,6 +98,8 @@ import { from } from 'rxjs';
     EditInfoComponent
   ],
   providers: [
+    File,
+    FileTransfer,
     LocalNotifications,
   ]
 })

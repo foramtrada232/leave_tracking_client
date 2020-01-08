@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-import { LoginGuard } from './guards/auth.guard';
+// import { LoginGuard } from './guards/auth.guard';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,10 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { Network } from '@ionic-native/network/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +40,12 @@ import { Network } from '@ionic-native/network/ngx';
     IonicStorageModule.forRoot()
   ],
   providers: [
+    FileOpener,
+    AndroidPermissions,
     StatusBar,
     SplashScreen,
     Facebook,
     GooglePlus,
-    LoginGuard,
     LocalNotifications,
     FCM,
     Network,

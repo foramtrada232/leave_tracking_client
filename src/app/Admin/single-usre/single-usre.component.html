@@ -256,8 +256,26 @@
                     src="../../assets/images/leave_reason.png"
                   />
                   <p class="leave_titles font_large">
-                    Attachment: <a download href="{{path}}/attachment/{{leave.attachment}}">View</a>
+                    Attachment:
+                    <span
+                      class="attachmentFile"
+                      (click)="
+                        download(
+                          path + 'attachment/' + leave.attachment,
+                          leave.attachment,
+                          leave.mimetype
+                        )
+                      "
+                      >View</span
+                    >
                   </p>
+                </div>
+                <div *ngIf="downloading" class="progressBar">
+                  <div class="progress-outer" *ngIf="progress > 0">
+                    <div class="progress-inner" [style.width]="progress + '%'">
+                      {{ progress }}%
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
