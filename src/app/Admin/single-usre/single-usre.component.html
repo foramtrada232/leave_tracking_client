@@ -181,7 +181,11 @@
               </div>
               <div *ngIf="leave.status == 'Approved'">
                 <span style="color: #00B51E;">{{ leave.status }}</span>
-                <span class="paidLeave" *ngIf="leave.paid">P</span>
+                <span *ngIf="leave.paidLeave">
+                  <span class="paidLeave" *ngIf="leave.paidLeave.length"
+                    >P</span
+                  >
+                </span>
               </div>
               <div *ngIf="leave.status == 'Pending'">
                 <span style="color: #FFAA00;">{{ leave.status }}</span>
@@ -212,30 +216,7 @@
                 </p>
               </div>
             </div>
-
-            <div class="leave_dates">
-              <div class="row m-0">
-                <img
-                  class="leave_image"
-                  src="../../assets/images/leave_date.png"
-                />
-                <p class="leave_titles font_large">Leave Dates</p>
-              </div>
-              <span
-                class="leave_date_text font_large"
-                *ngIf="leave.noOfDays <= 1"
-              >
-                {{ leave.fromDate.date }}/{{ leave.fromDate.month }}
-              </span>
-              <span
-                class="leave_date_text font_large"
-                *ngIf="leave.noOfDays > 1"
-              >
-                {{ leave.fromDate.date }}/{{ leave.fromDate.month }} -
-                {{ leave.toDate.date }}/{{ leave.toDate.month }}
-              </span>
-            </div>
-            <div class="modal_header" *ngIf="leave.paid">
+            <div class="modal_header" *ngIf="leave.compansate">
               <div class="leave_reason">
                 <div class="row m-0">
                   <img
@@ -243,8 +224,53 @@
                     src="../../assets/images/leave_reason.png"
                   />
                   <p class="leave_titles font_large">
-                    Paid Leave
+                    Compansate
                   </p>
+                </div>
+                <p class="leave_reason_text font_large">
+                  {{ leave.compansate }}
+                </p>
+              </div>
+            </div>
+
+            <div class="modal_header" *ngIf="leave.paidNote">
+              <div class="leave_reason">
+                <div class="row m-0">
+                  <img
+                    class="leave_image"
+                    src="../../assets/images/leave_reason.png"
+                  />
+                  <p class="leave_titles font_large">
+                    Note
+                  </p>
+                </div>
+                <p class="leave_reason_text font_large">
+                  {{ leave.paidNote }}
+                </p>
+              </div>
+            </div>
+
+            <div class="modal_header" *ngIf="leave.paidNote">
+              <div class="leave_reason">
+                <div class="row m-0">
+                  <img
+                    class="leave_image"
+                    src="../../assets/images/leave_reason.png"
+                  />
+                  <p class="leave_titles font_large">
+                    Leave Dates
+                  </p>
+                </div>
+                <div *ngFor="let paidLeave of leave.paidLeave">
+                  <span class="leave_date_text font_large paidLeaveSpan">
+                    {{ paidLeave.date | date: "dd/MM/yyyy" }}
+                  </span>
+                  <span
+                    class="leave_date_text font_large"
+                    *ngIf="paidLeave.paid"
+                  >
+                    ( Paid Leave )
+                  </span>
                 </div>
               </div>
             </div>

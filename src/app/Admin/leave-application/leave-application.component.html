@@ -106,15 +106,54 @@
           <div class="col-9 p-0">
             <div class="row m-0">
               <div class="button_group">
+                <!-- <button
+                  class="btn approve_btn font_small"
+                  (click)="
+                    leaveApproval(leaves._id, 'Approved', leaves.paidLeave)
+                  "
+                > -->
                 <button
                   class="btn approve_btn font_small"
-                  (click)="leaveApproval(leaves._id, 'Approved')"
+                  (click)="leaveApprove(i)"
                 >
                   Approve
                 </button>
+                <div id="popup{{ i }}" class="overlay">
+                  <div class="popup">
+                    <a class="close" (click)="closePop(i)">&times;</a>
+                    <h4>Check if paid</h4>
+                    <hr />
+                    <div
+                      class="content"
+                      *ngFor="let paid of leaves.paidLeave; let j = index"
+                    >
+                      <input
+                        type="checkbox"
+                        class="paidLeave"
+                        value="{{ paid.date }}"
+                      />
+                      <label>{{ paid.date }}</label>
+                    </div>
+                    <p><b>Note: </b></p>
+                    <textarea rows="4" class="paidNote"></textarea>
+                    <button
+                      type="button"
+                      class="btn approve_button font_large"
+                      (click)="changeLeaveStatus(leaves._id, 'Approved', i)"
+                    >
+                      Approve
+                    </button>
+                    <span *ngIf="spinner"
+                      ><img
+                        src="../../assets/images/spinner.gif"
+                        height="33px"
+                        alt=""
+                    /></span>
+                  </div>
+                </div>
                 <button
                   class="btn reject_btn font_small"
-                  (click)="leaveApproval(leaves._id, 'Rejected')"
+                  (click)="changeLeaveStatus(leaves._id, 'Rejected', null)"
                 >
                   Reject
                 </button>
@@ -154,11 +193,28 @@
                       </div>
                     </div>
 
+                    <div class="modal_header" *ngIf="leaves.compansate">
+                      <div class="leave_reason">
+                        <div class="row m-0">
+                          <img
+                            class="leave_image"
+                            src="../../assets/images/leave_reason.png"
+                          />
+                          <p class="leave_titles font_large">
+                            Compansate
+                          </p>
+                        </div>
+                        <p class="leave_reason_text font_large">
+                          {{ leaves.compansate }}
+                        </p>
+                      </div>
+                    </div>
+
                     <div class="leave_dates">
                       <div class="row m-0">
                         <img
                           class="leave_image"
-                          src="../../assets/images/leave_date.png"
+                          src="../../assets/images/leave_reason.png"
                         />
                         <p class="leave_titles font_large">Leave Dates</p>
                       </div>

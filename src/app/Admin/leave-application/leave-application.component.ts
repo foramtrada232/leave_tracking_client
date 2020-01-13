@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone} from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { LeaveService } from '../../services/leave.service';
 import { ToastService } from '../../services/toast.service';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
@@ -24,12 +24,14 @@ export class LeaveApplicationComponent implements OnInit {
   downloading: boolean;
   fileTransfer: FileTransferObject = this.transfer.create();
   progress: number;
+  spinner: boolean;
   constructor(public _zone: NgZone,
     private fileOpener: FileOpener,
     private transfer: FileTransfer,
-    private file: File,public router: Router, public _userService: UserService, public _leavService: LeaveService,
+    private file: File, public router: Router, public _userService: UserService, public _leavService: LeaveService,
     public alertController: AlertController,
-    public _toastService: ToastService, private localNotifications: LocalNotifications) { }
+    public _toastService: ToastService, private localNotifications: LocalNotifications) {
+  }
 
   ionViewWillEnter() {
     this.getPendingLeaves();
@@ -91,7 +93,7 @@ export class LeaveApplicationComponent implements OnInit {
         this.progress = perc;
       })
     });
-
+    console.log("DOWNLOADING =>>>>>>>>")
     //for checking if file exists
     this.file.checkFile(ROOT_DIRECTORY + downloadFolderName, filename).then((isExist) => {
       this.openFile(ROOT_DIRECTORY + downloadFolderName + filename, mimetype);
@@ -123,71 +125,21 @@ export class LeaveApplicationComponent implements OnInit {
       .then(() => console.log('File is opened'))
       .catch(e => console.log('Error opening file', e));
   }
-  /**
-   * Leave Approval
-   * @param {String} id 
-   */
-  async leaveApproval(id, status) {
-    console.log(status)
 
-    if (status === 'Approved') {
-      const alert = await this.alertController.create({
-        header: 'Are you sure?',
-        inputs: [
-          {
-            name: 'unpaid',
-            type: 'radio',
-            label: 'Unpaid Leave',
-            value: false,
-            checked: true
-          },
-          {
-            name: 'paid',
-            type: 'radio',
-            label: 'Paid Leave',
-            value: true,
-          }
-        ],
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: () => {
-              console.log('Confirm Cancel');
-            }
-          }, {
-            text: 'Approve',
-            handler: (alertData) => {
-              const obj = {
-                leaveId: id,
-                status: status,
-                paid: alertData
-              }
-              console.log(obj)
-              this.leaveAction(obj);
-            }
-          }
-        ]
-      });
-      await alert.present();
-    } else if (status === 'Rejected') {
-      const obj = {
-        leaveId: id,
-        status: status,
-      }
-      this.leaveAction(obj);
-    }
-  }
 
-  leaveAction = obj => {
+  leaveAction = (obj, index) => {
     this._leavService.leaveApproval(obj).subscribe((res: any) => {
       console.log("res========>", res);
+      this.spinner = false;
       this._toastService.presentToast('Leave ' + res.data.status);
-
+      $('#popup' + index + ' .paidNote').val('');
+      $(".paidLeave").prop("checked", false);
       console.log("pending leaves============>>>", this.pendingLeaves);
       this.getPendingLeaves();
     }, err => {
+      this.spinner = false;
+      $('#popup' + index + ' .paidNote').val('');
+      $(".paidLeave").prop("checked", false);
       console.log(err);
     })
   }
@@ -200,5 +152,40 @@ export class LeaveApplicationComponent implements OnInit {
       console.log("logout response===", res);
       this.router.navigateByUrl('login');
     })
+  }
+
+  leaveApprove(id) {
+    $('#popup' + id).css({ 'visibility': 'visible', 'opacity': 1 })
+  }
+  closePop(id) {
+    $('#popup' + id).css({ 'visibility': 'hidden', 'opacity': 0 });
+    $(".paidLeave").prop("checked", false);
+  }
+
+  changeLeaveStatus(leaveId, status, index) {
+    this.spinner = true;
+    if (status === 'Rejected') {
+      const obj = {
+        leaveId: leaveId,
+        status: status,
+        paidLeave: []
+      }
+      this.leaveAction(obj, '');
+    } else {
+      console.log("leave id ", leaveId, ' status ', status, ' index ', index)
+      let paidLeaves = [];
+      $('#popup' + index + ' input:checked').each(function () {
+        paidLeaves.push($(this).attr('value'));
+      });
+      const paidNote = $('#popup' + index + ' .paidNote').val();
+      const obj = {
+        leaveId: leaveId,
+        status: status,
+        paidLeave: paidLeaves,
+        paidNote: paidNote
+      }
+      console.log("FINAL OBJECT", obj)
+      this.leaveAction(obj, index);
+    }
   }
 }

@@ -1,4 +1,4 @@
-const ip = 'https://leavetracking.raoinformationtechnology.com:9000/'; //for live
+// const ip = 'https://leavetracking.raoinformationtechnology.com:9000/'; //for live
 // // const ip = 'http://192.168.1.73:4000/'; //for local
 
 // const baseUrl = ip;
@@ -9,7 +9,7 @@ const baseMediaUrl =  "https://leavetracking.raoinformationtechnology.com:9000/"
 //     baseMediaUrl: baseMediaUrl
 // }
 
-// const ip = 'https://leavetracking.raoinformationtechnology.com:9000/';
+const ip = 'https://leavetracking.raoinformationtechnology.com:9000/';
 // const ip = 'https://192.168.1.73:4000/';
 
 const baseUrl = ip;
